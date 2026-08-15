@@ -1,0 +1,5612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Products | PT Nutrition</title>
+
+    <meta
+        name="description"
+        content="Shop premium protein, creatine, vitamins, pre-workout and sports nutrition at PT Nutrition."
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="products.css"
+    >
+
+</head>
+<style>
+    /* =====================================================
+   PT NUTRITION — PRODUCTS.CSS
+   Owner: Parteek Tushir
+===================================================== */
+
+
+/* ================= RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: #f5f8f6;
+    color: #101512;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* =====================================================
+   LOADER
+===================================================== */
+
+.loader {
+    position: fixed;
+    inset: 0;
+
+    z-index: 99999;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: #080d0a;
+    color: white;
+
+    transition:
+        opacity .7s ease,
+        visibility .7s ease;
+}
+
+.loader.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-logo {
+    width: 85px;
+    height: 85px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid #65f596;
+
+    border-radius: 50%;
+
+    color: #65f596;
+
+    font-size: 27px;
+    font-weight: 900;
+
+    animation:
+        loaderPulse 1.5s infinite;
+}
+
+.loader h2 {
+    margin-top: 20px;
+
+    font-size: 23px;
+    letter-spacing: 1px;
+}
+
+.loader p {
+    margin-top: 8px;
+
+    color: #67ed93;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+}
+
+@keyframes loaderPulse {
+
+    0% {
+        transform: scale(.85);
+
+        box-shadow:
+            0 0 0 0
+            rgba(101,245,150,.5);
+    }
+
+    70% {
+        transform: scale(1);
+
+        box-shadow:
+            0 0 0 28px
+            rgba(101,245,150,0);
+    }
+
+    100% {
+        transform: scale(.85);
+
+        box-shadow:
+            0 0 0 0
+            rgba(101,245,150,0);
+    }
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 78px;
+
+    padding: 0 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 5000;
+
+    background:
+        rgba(255,255,255,.88);
+
+    backdrop-filter:
+        blur(18px);
+
+    border-bottom:
+        1px solid
+        rgba(0,0,0,.06);
+
+    transition:
+        height .3s ease,
+        box-shadow .3s ease;
+}
+
+.navbar.scrolled {
+    height: 67px;
+
+    box-shadow:
+        0 12px 35px
+        rgba(0,0,0,.08);
+}
+
+
+/* ================= LOGO ================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+}
+
+.logo-icon {
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #101512;
+    color: #68f499;
+
+    font-size: 15px;
+    font-weight: 900;
+
+    transform: rotate(-5deg);
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,0,0,.14);
+
+    transition: .4s ease;
+}
+
+.logo:hover .logo-icon {
+    transform:
+        rotate(5deg)
+        scale(1.08);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-text strong {
+    font-size: 15px;
+
+    letter-spacing: 1.5px;
+}
+
+.logo-text small {
+    margin-top: 3px;
+
+    color: #778079;
+
+    font-size: 8px;
+
+    letter-spacing: .5px;
+}
+
+
+/* ================= NAV LINKS ================= */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+
+    gap: 28px;
+}
+
+.nav-links a {
+    position: relative;
+
+    color: #59635c;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: .3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #101512;
+}
+
+.nav-links a:not(.nav-shop)::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -9px;
+
+    width: 0;
+    height: 2px;
+
+    background: #55e887;
+
+    border-radius: 20px;
+
+    transform:
+        translateX(-50%);
+
+    transition: .3s;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-shop {
+    padding: 11px 19px;
+
+    border-radius: 30px;
+
+    background: #101512;
+
+    color: white !important;
+
+    box-shadow:
+        0 10px 25px
+        rgba(0,0,0,.15);
+
+    transition: .3s;
+}
+
+.nav-shop:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 30px
+        rgba(0,0,0,.2);
+}
+
+.nav-shop::after {
+    display: none !important;
+}
+
+
+/* ================= CART ================= */
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.cart-btn {
+    position: relative;
+
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: white;
+
+    border:
+        1px solid
+        #e0e6e2;
+
+    font-size: 17px;
+
+    transition: .3s ease;
+}
+
+.cart-btn:hover {
+    transform:
+        translateY(-3px)
+        rotate(-5deg);
+
+    box-shadow:
+        0 10px 20px
+        rgba(0,0,0,.10);
+}
+
+.cart-btn span {
+    position: absolute;
+
+    top: -4px;
+    right: -4px;
+
+    width: 19px;
+    height: 19px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #60ed90;
+    color: #07100a;
+
+    font-size: 9px;
+    font-weight: 900;
+
+    transition: .2s;
+}
+
+
+/* ================= MOBILE MENU ================= */
+
+.menu-btn {
+    display: none;
+
+    width: 43px;
+    height: 43px;
+
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    gap: 4px;
+
+    border-radius: 50%;
+
+    background: #101512;
+}
+
+.menu-btn span {
+    width: 18px;
+    height: 2px;
+
+    border-radius: 10px;
+
+    background: white;
+
+    transition: .3s;
+}
+
+.menu-btn.active span:nth-child(1) {
+    transform:
+        rotate(45deg)
+        translate(4px,4px);
+}
+
+.menu-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-btn.active span:nth-child(3) {
+    transform:
+        rotate(-45deg)
+        translate(4px,-4px);
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.products-hero {
+    position: relative;
+
+    min-height: 650px;
+
+    padding:
+        150px 8%
+        70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 80% 45%,
+            rgba(77,235,128,.16),
+            transparent 27%
+        ),
+        linear-gradient(
+            135deg,
+            #fafcfb,
+            #e8f3eb
+        );
+}
+
+
+/* ================= HERO GRID ================= */
+
+.products-hero::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(60,90,70,.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(60,90,70,.035) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        55px 55px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent
+        );
+
+    pointer-events: none;
+}
+
+
+/* ================= PARTICLES ================= */
+
+.hero-particles span {
+    position: absolute;
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #56e987;
+
+    box-shadow:
+        0 0 15px
+        rgba(86,233,135,.6);
+
+    animation:
+        particleMove 5s ease-in-out infinite;
+}
+
+.hero-particles span:nth-child(1) {
+    left: 10%;
+    top: 28%;
+}
+
+.hero-particles span:nth-child(2) {
+    left: 25%;
+    top: 65%;
+
+    animation-delay: 1s;
+}
+
+.hero-particles span:nth-child(3) {
+    left: 47%;
+    top: 20%;
+
+    animation-delay: 2s;
+}
+
+.hero-particles span:nth-child(4) {
+    right: 12%;
+    top: 25%;
+
+    animation-delay: 1.5s;
+}
+
+.hero-particles span:nth-child(5) {
+    right: 35%;
+    bottom: 15%;
+
+    animation-delay: 3s;
+}
+
+@keyframes particleMove {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            scale(.8);
+
+        opacity: .3;
+    }
+
+    50% {
+        transform:
+            translateY(-25px)
+            scale(1.6);
+
+        opacity: 1;
+    }
+}
+
+
+/* ================= HERO CONTENT ================= */
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+
+    width: 56%;
+
+    animation:
+        heroEnter 1s ease forwards;
+}
+
+@keyframes heroEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+}
+
+.small-title {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    color: #647068;
+
+    font-size: 9px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+.small-title span {
+    width: 30px;
+    height: 2px;
+
+    background: #50e982;
+
+    border-radius: 20px;
+}
+
+.hero-content h1 {
+    max-width: 700px;
+
+    margin-top: 20px;
+
+    font-size:
+        clamp(50px,6.5vw,82px);
+
+    line-height: .94;
+
+    letter-spacing: -5px;
+
+    font-weight: 900;
+}
+
+.hero-content h1 span {
+    display: block;
+
+    color: #48df7b;
+
+    text-shadow:
+        0 15px 35px
+        rgba(72,223,123,.15);
+}
+
+.hero-content p {
+    max-width: 520px;
+
+    margin-top: 25px;
+
+    color: #6c766f;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* ================= HERO BUTTONS ================= */
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 30px;
+}
+
+.primary-btn,
+.secondary-btn {
+    min-height: 49px;
+
+    padding:
+        0 22px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    border-radius: 30px;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        background .35s ease;
+}
+
+.primary-btn {
+    background: #101512;
+
+    color: white;
+
+    box-shadow:
+        0 12px 30px
+        rgba(0,0,0,.16);
+}
+
+.primary-btn:hover {
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 20px 40px
+        rgba(0,0,0,.22);
+}
+
+.primary-btn span {
+    font-size: 16px;
+
+    transition: .3s;
+}
+
+.primary-btn:hover span {
+    transform:
+        translateY(4px);
+}
+
+.secondary-btn {
+    background:
+        rgba(255,255,255,.5);
+
+    border:
+        1px solid
+        #d6dfd9;
+
+    color: #333c36;
+}
+
+.secondary-btn:hover {
+    background: white;
+
+    transform:
+        translateY(-4px);
+}
+
+
+/* =====================================================
+   3D HERO PRODUCT
+===================================================== */
+
+.hero-visual {
+    position: relative;
+
+    width: 42%;
+    height: 470px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    perspective: 1200px;
+}
+
+.visual-glow {
+    position: absolute;
+
+    width: 310px;
+    height: 310px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(70,235,126,.18);
+
+    filter:
+        blur(45px);
+
+    animation:
+        glowPulse 4s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+
+    0%,100% {
+        transform: scale(.85);
+        opacity: .5;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: .95;
+    }
+}
+
+
+/* ================= ORBITS ================= */
+
+.orbit {
+    position: absolute;
+
+    border:
+        1px solid
+        rgba(50,80,60,.13);
+
+    border-radius: 50%;
+
+    transform-style: preserve-3d;
+}
+
+.orbit-one {
+    width: 420px;
+    height: 170px;
+
+    transform:
+        rotateX(65deg);
+
+    animation:
+        orbitRotate 10s linear infinite;
+}
+
+.orbit-two {
+    width: 500px;
+    height: 210px;
+
+    transform:
+        rotateX(65deg)
+        rotateZ(45deg);
+
+    animation:
+        orbitRotate 15s linear infinite reverse;
+}
+
+@keyframes orbitRotate {
+
+    from {
+        transform:
+            rotateX(65deg)
+            rotateZ(0deg);
+    }
+
+    to {
+        transform:
+            rotateX(65deg)
+            rotateZ(360deg);
+    }
+}
+
+
+/* ================= BOTTLE ================= */
+
+.hero-bottle {
+    position: relative;
+
+    width: 170px;
+    height: 315px;
+
+    z-index: 3;
+
+    transform-style: preserve-3d;
+
+    animation:
+        bottleFloat 4s ease-in-out infinite;
+
+    filter:
+        drop-shadow(
+            25px 35px 20px
+            rgba(0,0,0,.20)
+        );
+}
+
+@keyframes bottleFloat {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            rotateY(-8deg)
+            rotateZ(-1deg);
+    }
+
+    50% {
+        transform:
+            translateY(-20px)
+            rotateY(8deg)
+            rotateZ(1deg);
+    }
+}
+
+.bottle-cap {
+    position: absolute;
+
+    top: 0;
+    left: 20px;
+
+    width: 130px;
+    height: 55px;
+
+    border-radius:
+        10px
+        10px
+        5px
+        5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #060907,
+            #3b453f,
+            #111613,
+            #4a554e,
+            #070a08
+        );
+
+    box-shadow:
+        inset 0 5px 10px
+        rgba(255,255,255,.08);
+}
+
+.bottle-body {
+    position: absolute;
+
+    left: 0;
+    top: 45px;
+
+    width: 170px;
+    height: 270px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    overflow: hidden;
+
+    border-radius:
+        20px
+        20px
+        30px
+        30px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #080c09,
+            #323d35 20%,
+            #111713 45%,
+            #3a463e 72%,
+            #070a08
+        );
+
+    color: white;
+
+    box-shadow:
+        inset 10px 0 15px
+        rgba(255,255,255,.03),
+
+        inset -12px 0 18px
+        rgba(0,0,0,.4);
+}
+
+.bottle-logo {
+    width: 53px;
+    height: 53px;
+
+    margin-top: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        #6af79b;
+
+    border-radius: 50%;
+
+    color: #6af79b;
+
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.bottle-body strong {
+    margin-top: 23px;
+
+    font-size: 27px;
+
+    letter-spacing: 2px;
+}
+
+.bottle-body span {
+    margin-top: 4px;
+
+    color: #66f497;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+}
+
+.bottle-body small {
+    margin-top: 25px;
+
+    padding:
+        7px 12px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(101,244,149,.08);
+
+    color: #a8f7be;
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+}
+
+
+/* ================= FLOATING INFO ================= */
+
+.floating-info {
+    position: absolute;
+
+    z-index: 5;
+
+    min-width: 90px;
+
+    padding:
+        12px 14px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    border:
+        1px solid
+        rgba(255,255,255,.9);
+
+    border-radius: 15px;
+
+    background:
+        rgba(255,255,255,.78);
+
+    backdrop-filter:
+        blur(15px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.10);
+
+    animation:
+        infoFloat 4s ease-in-out infinite;
+}
+
+.info-one {
+    right: 2%;
+    top: 70px;
+}
+
+.info-two {
+    left: 0;
+    bottom: 70px;
+
+    animation-delay: 1.5s;
+}
+
+.floating-info strong {
+    color: #101512;
+
+    font-size: 17px;
+}
+
+.floating-info small {
+    margin-top: 3px;
+
+    color: #758078;
+
+    font-size: 7px;
+
+    letter-spacing: 1px;
+}
+
+@keyframes infoFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+
+/* =====================================================
+   TOOLBAR
+===================================================== */
+
+.product-toolbar {
+    padding:
+        85px 7%
+        25px;
+
+    background: #f5f8f6;
+}
+
+.toolbar-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+.toolbar-heading h2 {
+    margin-top: 13px;
+
+    font-size:
+        clamp(38px,5vw,58px);
+
+    line-height: 1;
+
+    letter-spacing: -3px;
+}
+
+.toolbar-heading h2 span {
+    color: #48df7b;
+}
+
+
+/* ================= SEARCH ================= */
+
+.search-box {
+    width: 300px;
+    height: 49px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding:
+        0 16px;
+
+    background: white;
+
+    border:
+        1px solid
+        #dfe6e1;
+
+    border-radius: 30px;
+
+    transition: .3s;
+}
+
+.search-box:focus-within {
+    border-color: #5ce98c;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(92,233,140,.10);
+}
+
+.search-box span {
+    font-size: 14px;
+}
+
+.search-box input {
+    width: 100%;
+
+    outline: none;
+    border: none;
+
+    background: transparent;
+
+    color: #101512;
+
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   CATEGORY TABS
+===================================================== */
+
+.category-tabs {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 30px;
+
+    overflow-x: auto;
+
+    padding-bottom: 10px;
+
+    scrollbar-width: none;
+}
+
+.category-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.category-tab {
+    flex-shrink: 0;
+
+    padding:
+        11px 18px;
+
+    border:
+        1px solid
+        #dce4df;
+
+    border-radius: 25px;
+
+    background: white;
+
+    color: #68736c;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    transition:
+        transform .3s,
+        background .3s,
+        color .3s;
+}
+
+.category-tab:hover {
+    transform:
+        translateY(-3px);
+
+    border-color: #60ea8d;
+}
+
+.category-tab.active {
+    background: #101512;
+
+    border-color: #101512;
+
+    color: white;
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,0,0,.13);
+}
+
+
+/* =====================================================
+   PRODUCTS
+===================================================== */
+
+.products-section {
+    padding:
+        55px 7%
+        110px;
+
+    background: #f5f8f6;
+}
+
+.products-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 20px;
+}
+
+
+/* =====================================================
+   PRODUCT CARD
+===================================================== */
+
+.product-card {
+    position: relative;
+
+    overflow: hidden;
+
+    background: white;
+
+    border:
+        1px solid
+        #e2e9e4;
+
+    border-radius: 23px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,.035);
+
+    transform-style: preserve-3d;
+
+    transition:
+        opacity .5s ease,
+        transform .45s ease,
+        box-shadow .45s ease,
+        border-color .45s ease;
+}
+
+.product-card:hover {
+    border-color: #69ed96;
+
+    box-shadow:
+        0 25px 55px
+        rgba(0,0,0,.12);
+}
+
+.product-card.hide {
+    display: none;
+}
+
+.product-card.filter-in {
+    animation:
+        productIn .55s ease both;
+}
+
+@keyframes productIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(.95);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* ================= BADGE ================= */
+
+.product-badge {
+    position: absolute;
+
+    top: 15px;
+    left: 15px;
+
+    z-index: 5;
+
+    padding:
+        6px 10px;
+
+    border-radius: 20px;
+
+    background: #101512;
+
+    color: white;
+
+    font-size: 7px;
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+.product-badge.green {
+    background: #61ed90;
+
+    color: #07100a;
+}
+
+.product-badge.orange {
+    background: #ffb868;
+
+    color: #331b05;
+}
+
+
+/* ================= WISHLIST ================= */
+
+.wishlist {
+    position: absolute;
+
+    top: 13px;
+    right: 13px;
+
+    z-index: 5;
+
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        #e3e9e5;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.88);
+
+    font-size: 18px;
+
+    transition: .3s;
+}
+
+.wishlist:hover {
+    background: #101512;
+
+    color: white;
+
+    transform:
+        scale(1.1)
+        rotate(-8deg);
+}
+
+.wishlist.liked {
+    background: #101512;
+
+    color: #69f598;
+}
+
+
+/* =====================================================
+   PRODUCT IMAGE
+===================================================== */
+
+.product-image {
+    position: relative;
+
+    height: 285px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #e2f7e8,
+            #f5f8f6 68%
+        );
+}
+
+.product-image::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    border:
+        1px dashed
+        rgba(71,218,115,.18);
+
+    animation:
+        imageOrbit 12s linear infinite;
+}
+
+@keyframes imageOrbit {
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.product-image img {
+    position: relative;
+    z-index: 2;
+
+    width: 75%;
+    height: 82%;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    mix-blend-mode: multiply;
+
+    transition:
+        transform .65s cubic-bezier(.2,.8,.2,1),
+        filter .65s ease;
+}
+
+.product-card:hover
+.product-image img {
+    transform:
+        scale(1.1)
+        translateY(-8px)
+        rotate(2deg);
+
+    filter:
+        drop-shadow(
+            15px 20px 15px
+            rgba(0,0,0,.17)
+        );
+}
+
+.image-glow {
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(74,235,127,.15);
+
+    filter: blur(35px);
+
+    transition: .5s;
+}
+
+.product-card:hover
+.image-glow {
+    transform:
+        scale(1.5);
+
+    opacity: .9;
+}
+
+
+/* =====================================================
+   PRODUCT INFO
+===================================================== */
+
+.product-info {
+    padding: 20px;
+}
+
+.product-category {
+    color: #43ca70;
+
+    font-size: 8px;
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+}
+
+.product-info h3 {
+    margin-top: 8px;
+
+    font-size: 16px;
+
+    transition: .3s;
+}
+
+.product-card:hover
+.product-info h3 {
+    transform:
+        translateX(2px);
+}
+
+.product-info p {
+    margin-top: 7px;
+
+    min-height: 34px;
+
+    color: #768079;
+
+    font-size: 10px;
+
+    line-height: 1.6;
+}
+
+
+/* ================= RATING ================= */
+
+.rating {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    margin-top: 13px;
+
+    font-size: 9px;
+}
+
+.rating small {
+    color: #7b847e;
+
+    font-size: 9px;
+}
+
+
+/* =====================================================
+   PRODUCT BOTTOM
+===================================================== */
+
+.product-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-top: 18px;
+}
+
+.product-bottom > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.old-price {
+    margin-bottom: 3px;
+
+    color: #9aa19c;
+
+    font-size: 9px;
+
+    text-decoration: line-through;
+}
+
+.product-bottom strong {
+    color: #101512;
+
+    font-size: 20px;
+}
+
+.add-cart {
+    min-width: 65px;
+
+    padding:
+        10px 14px;
+
+    border-radius: 22px;
+
+    background: #101512;
+
+    color: white;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    transition:
+        transform .3s,
+        background .3s,
+        color .3s;
+}
+
+.add-cart:hover {
+    transform:
+        translateY(-3px)
+        scale(1.04);
+
+    background: #59e98a;
+
+    color: #07100a;
+}
+
+.add-cart.added {
+    background: #59e98a;
+
+    color: #07100a;
+
+    animation:
+        addedPop .35s ease;
+}
+
+@keyframes addedPop {
+
+    0% {
+        transform: scale(.8);
+    }
+
+    70% {
+        transform: scale(1.12);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* =====================================================
+   NO PRODUCTS
+===================================================== */
+
+.no-products {
+    display: none;
+
+    padding: 80px 20px;
+
+    text-align: center;
+}
+
+.no-products.show {
+    display: block;
+
+    animation:
+        fadeUp .5s ease;
+}
+
+.no-products > div {
+    font-size: 45px;
+
+    animation:
+        searchFloat 2s ease-in-out infinite;
+}
+
+.no-products h3 {
+    margin-top: 15px;
+
+    font-size: 20px;
+}
+
+.no-products p {
+    margin-top: 8px;
+
+    color: #7a847d;
+
+    font-size: 11px;
+}
+
+@keyframes searchFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+/* =====================================================
+   PREMIUM BANNER
+===================================================== */
+
+.premium-banner {
+    position: relative;
+
+    min-height: 400px;
+
+    padding:
+        70px 9%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            120deg,
+            #0b100d,
+            #18231b
+        );
+
+    color: white;
+}
+
+.premium-banner::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    right: 4%;
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    border-radius: 50%;
+
+    background:
+        rgba(78,235,126,.12);
+
+    filter: blur(60px);
+}
+
+.premium-banner::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(110,245,153,.04) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(110,245,153,.04) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        45px 45px;
+}
+
+.banner-content {
+    position: relative;
+
+    z-index: 2;
+}
+
+.banner-content .small-title {
+    color: #8a968e;
+}
+
+.banner-content h2 {
+    max-width: 650px;
+
+    margin-top: 18px;
+
+    font-size:
+        clamp(42px,6vw,70px);
+
+    line-height: .95;
+
+    letter-spacing: -4px;
+}
+
+.banner-content h2 span {
+    display: block;
+
+    color: #62f294;
+}
+
+.banner-content p {
+    max-width: 500px;
+
+    margin-top: 20px;
+
+    color: #89958d;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+.banner-content .primary-btn {
+    margin-top: 25px;
+}
+
+
+/* ================= BANNER CIRCLE ================= */
+
+.banner-circle {
+    position: relative;
+
+    z-index: 2;
+
+    width: 270px;
+    height: 270px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(104,245,150,.45);
+
+    border-radius: 50%;
+
+    animation:
+        bannerFloat 4s ease-in-out infinite;
+}
+
+.banner-circle::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 16px;
+
+    border:
+        1px dashed
+        rgba(104,245,150,.35);
+
+    border-radius: 50%;
+
+    animation:
+        circleSpin 15s linear infinite;
+}
+
+.banner-circle::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 35px;
+
+    border:
+        1px solid
+        rgba(104,245,150,.12);
+
+    border-radius: 50%;
+}
+
+.banner-circle strong {
+    color: #68f499;
+
+    font-size: 55px;
+}
+
+.banner-circle span {
+    margin-top: 5px;
+
+    color: #7e8a82;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+}
+
+@keyframes bannerFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes circleSpin {
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =====================================================
+   QUICK CART POPUP
+===================================================== */
+
+.quick-cart {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(0,0,0,.52);
+
+    backdrop-filter:
+        blur(9px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity .3s,
+        visibility .3s;
+}
+
+.quick-cart.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.quick-cart-box {
+    position: relative;
+
+    width: min(410px,100%);
+
+    padding: 35px;
+
+    border-radius: 25px;
+
+    background: white;
+
+    text-align: center;
+
+    transform:
+        translateY(35px)
+        scale(.9);
+
+    transition:
+        transform .4s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+.quick-cart.show
+.quick-cart-box {
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+.quick-cart-close {
+    position: absolute;
+
+    top: 13px;
+    right: 13px;
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #eef2ef;
+
+    font-size: 20px;
+
+    transition: .3s;
+}
+
+.quick-cart-close:hover {
+    transform: rotate(90deg);
+
+    background: #101512;
+
+    color: white;
+}
+
+.quick-cart-icon {
+    width: 68px;
+    height: 68px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #def9e6;
+
+    color: #20b85a;
+
+    font-size: 25px;
+
+    animation:
+        cartSuccess .5s ease;
+}
+
+@keyframes cartSuccess {
+
+    0% {
+        transform: scale(.4);
+    }
+
+    65% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.quick-cart-box h3 {
+    font-size: 21px;
+}
+
+.quick-cart-box p {
+    margin-top: 8px;
+
+    color: #78817b;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+.quick-cart-buttons {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+.quick-cart-buttons button,
+.quick-cart-buttons a {
+    flex: 1;
+
+    min-height: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 23px;
+
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.quick-cart-buttons button {
+    background: #edf1ee;
+
+    color: #202822;
+}
+
+.quick-cart-buttons a {
+    background: #101512;
+
+    color: white;
+
+    transition: .3s;
+}
+
+.quick-cart-buttons a:hover {
+    background: #58e989;
+
+    color: #07100a;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+    padding:
+        70px 7%
+        25px;
+
+    background: #080b09;
+
+    color: white;
+}
+
+.footer-content {
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr 1.5fr;
+
+    gap: 45px;
+
+    padding-bottom: 45px;
+
+    border-bottom:
+        1px solid
+        #222a25;
+}
+
+.footer-brand p {
+    max-width: 300px;
+
+    margin-top: 18px;
+
+    color: #737d76;
+
+    font-size: 10px;
+
+    line-height: 1.8;
+}
+
+.footer-links,
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.footer h4 {
+    margin-bottom: 7px;
+
+    color: #68f49a;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+}
+
+.footer-links a,
+.footer-contact p {
+    color: #7a847e;
+
+    font-size: 10px;
+
+    transition: .3s;
+}
+
+.footer-links a:hover {
+    color: #6df59c;
+
+    transform:
+        translateX(5px);
+}
+
+.footer-bottom {
+    padding-top: 23px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: #59635c;
+
+    font-size: 9px;
+}
+
+.footer-bottom strong {
+    color: #6df59c;
+}
+
+
+/* =====================================================
+   BACK TO TOP
+===================================================== */
+
+.back-top {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    z-index: 100;
+
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #101512;
+
+    color: white;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform:
+        translateY(20px);
+
+    transition: .3s;
+
+    box-shadow:
+        0 10px 25px
+        rgba(0,0,0,.2);
+}
+
+.back-top.show {
+    opacity: 1;
+    visibility: visible;
+
+    transform:
+        translateY(0);
+}
+
+.back-top:hover {
+    background: #5aee8a;
+
+    color: #07100a;
+
+    transform:
+        translateY(-4px);
+}
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+.product-card,
+.toolbar-heading,
+.category-tabs {
+    will-change: transform, opacity;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1100px) {
+
+    .navbar {
+        padding: 0 4%;
+    }
+
+    .nav-links {
+        gap: 17px;
+    }
+
+    .products-hero {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .products-grid {
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    /* NAVBAR */
+
+    .navbar {
+        height: 70px;
+
+        padding: 0 18px;
+    }
+
+    .navbar.scrolled {
+        height: 65px;
+    }
+
+
+    .nav-links {
+        position: fixed;
+
+        top: 70px;
+        right: -100%;
+
+        width: 85%;
+
+        min-height:
+            calc(100vh - 70px);
+
+        padding:
+            25px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 0;
+
+        background:
+            rgba(255,255,255,.97);
+
+        backdrop-filter:
+            blur(20px);
+
+        box-shadow:
+            -15px 0 40px
+            rgba(0,0,0,.08);
+
+        transition: .4s ease;
+    }
+
+    .nav-links.open {
+        right: 0;
+    }
+
+    .nav-links a {
+        padding:
+            17px 5px;
+
+        border-bottom:
+            1px solid
+            #edf0ee;
+
+        font-size: 14px;
+    }
+
+    .nav-links a::after {
+        display: none !important;
+    }
+
+    .nav-shop {
+        margin-top: 18px;
+
+        text-align: center;
+    }
+
+    .menu-btn {
+        display: flex;
+    }
+
+
+    /* HERO */
+
+    .products-hero {
+        min-height: auto;
+
+        padding:
+            115px 20px
+            40px;
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero-content .small-title {
+        justify-content: center;
+    }
+
+    .hero-content h1 {
+        font-size:
+            clamp(43px,13vw,61px);
+
+        letter-spacing: -3px;
+    }
+
+    .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+
+        font-size: 11px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .hero-visual {
+        width: 100%;
+
+        height: 420px;
+
+        transform:
+            scale(.78);
+
+        margin-top: -10px;
+        margin-bottom: -55px;
+    }
+
+
+    /* TOOLBAR */
+
+    .product-toolbar {
+        padding:
+            70px 20px
+            20px;
+    }
+
+    .toolbar-heading {
+        align-items: stretch;
+
+        flex-direction: column;
+    }
+
+    .toolbar-heading h2 {
+        font-size: 40px;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+
+    /* PRODUCTS */
+
+    .products-section {
+        padding:
+            50px 20px
+            80px;
+    }
+
+    .products-grid {
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap: 12px;
+    }
+
+    .product-image {
+        height: 200px;
+    }
+
+    .product-info {
+        padding: 14px;
+    }
+
+    .product-info h3 {
+        font-size: 13px;
+    }
+
+    .product-info p {
+        font-size: 9px;
+
+        min-height: auto;
+    }
+
+    .product-bottom strong {
+        font-size: 16px;
+    }
+
+    .add-cart {
+        padding:
+            8px 10px;
+
+        font-size: 8px;
+    }
+
+
+    /* BANNER */
+
+    .premium-banner {
+        padding:
+            80px 20px;
+
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 50px;
+    }
+
+    .banner-content .small-title {
+        justify-content: center;
+    }
+
+    .banner-content h2 {
+        font-size: 47px;
+    }
+
+    .banner-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .banner-circle {
+        width: 220px;
+        height: 220px;
+    }
+
+
+    /* FOOTER */
+
+    .footer {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .footer-content {
+        grid-template-columns:
+            1fr 1fr;
+
+        gap: 35px;
+    }
+
+    .footer-brand {
+        grid-column:
+            1 / -1;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+
+        gap: 10px;
+
+        text-align: center;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 450px) {
+
+    .logo-icon {
+        width: 38px;
+        height: 38px;
+
+        font-size: 14px;
+    }
+
+    .logo-text strong {
+        font-size: 12px;
+    }
+
+    .logo-text small {
+        font-size: 7px;
+    }
+
+    .products-hero {
+        padding-top: 105px;
+    }
+
+    .hero-content h1 {
+        font-size: 42px;
+    }
+
+    .hero-visual {
+        transform:
+            scale(.67);
+
+        margin-top: -45px;
+        margin-bottom: -95px;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image {
+        height: 260px;
+    }
+
+    .product-info {
+        padding: 18px;
+    }
+
+    .product-info h3 {
+        font-size: 16px;
+    }
+
+    .product-info p {
+        font-size: 10px;
+    }
+
+    .add-cart {
+        padding:
+            10px 14px;
+
+        font-size: 9px;
+    }
+
+    .banner-content h2 {
+        font-size: 42px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-brand {
+        grid-column: auto;
+    }
+
+}
+
+
+/* =====================================================
+   SELECTION
+===================================================== */
+
+::selection {
+    background: #62ed91;
+
+    color: #101512;
+}
+
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #edf2ee;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #101512;
+
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #58e989;
+}
+</style>
+
+<body>
+
+
+<!-- ==================================================
+     LOADER
+================================================== -->
+
+<div class="loader" id="loader">
+
+    <div class="loader-logo">
+        PT
+    </div>
+
+    <h2>PT Nutrition</h2>
+
+    <p>POWER • PERFORMANCE • HEALTH</p>
+
+</div>
+
+
+
+<!-- ==================================================
+     NAVBAR
+================================================== -->
+
+<header class="navbar" id="navbar">
+
+
+    <!-- LOGO -->
+
+    <a href="index.html" class="logo">
+
+        <div class="logo-icon">
+            PT
+        </div>
+
+        <div class="logo-text">
+
+            <strong>
+                PT NUTRITION
+            </strong>
+
+            <small>
+                BY PARTEEK TUSHIR
+            </small>
+
+        </div>
+
+    </a>
+
+
+
+    <!-- NAV LINKS -->
+
+    <nav class="nav-links" id="navLinks">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="parteek.html">
+            Categories
+        </a>
+
+        <a
+            href="products.html"
+            class="active"
+        >
+            Products
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a
+            href="products.html"
+            class="nav-shop"
+        >
+            Shop Now
+        </a>
+
+    </nav>
+
+
+
+    <!-- ACTIONS -->
+     
+    <div class="nav-actions">
+   <a href="cart.html">
+        <button
+            class="cart-btn"
+            id="cartBtn"
+            aria-label="Open Cart"
+        >
+
+            🛒
+
+            <span id="cartCount">
+                0
+            </span>
+
+        </button>
+   </a>
+
+        <button
+            class="menu-btn"
+            id="menuBtn"
+            aria-label="Open Menu"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </div>
+
+
+</header>
+
+
+
+<!-- ==================================================
+     HERO
+================================================== -->
+
+<section class="products-hero">
+
+
+    <!-- BACKGROUND PARTICLES -->
+
+    <div class="hero-particles">
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+
+
+    <div class="hero-content">
+
+
+        <div class="small-title">
+
+            <span></span>
+
+            PREMIUM SPORTS NUTRITION
+
+        </div>
+
+
+        <h1>
+
+            Fuel Your
+
+            <span>
+                Stronger Self.
+            </span>
+
+        </h1>
+
+
+        <p>
+
+            Discover premium supplements designed
+            to support strength, recovery, energy
+            and everyday performance.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="products.html"
+                class="primary-btn"
+            >
+
+                Explore Products
+
+                <span>
+                    ↓
+                </span>
+
+            </a>
+
+
+            <a
+                href="index.html"
+                class="secondary-btn"
+            >
+
+                View Categories
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- 3D HERO PRODUCT -->
+
+    <div class="hero-visual">
+
+
+        <div class="visual-glow"></div>
+
+
+        <div class="orbit orbit-one"></div>
+
+        <div class="orbit orbit-two"></div>
+
+
+        <div class="hero-bottle">
+
+
+            <div class="bottle-cap"></div>
+
+
+            <div class="bottle-body">
+
+                <div class="bottle-logo">
+                    PT
+                </div>
+
+                <strong>
+                    WHEY
+                </strong>
+
+                <span>
+                    PROTEIN
+                </span>
+
+                <small>
+                    25G PROTEIN
+                </small>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="floating-info info-one">
+
+            <strong>
+                25G
+            </strong>
+
+            <small>
+                PROTEIN
+            </small>
+
+        </div>
+
+
+        <div class="floating-info info-two">
+
+            <strong>
+                100%
+            </strong>
+
+            <small>
+                QUALITY
+            </small>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     PRODUCT TOOLBAR
+================================================== -->
+
+<section
+    class="product-toolbar"
+    id="products"
+>
+
+
+    <div class="toolbar-heading">
+
+        <div>
+
+            <div class="small-title">
+
+                <span></span>
+
+                PT COLLECTION
+
+            </div>
+
+
+            <h2>
+
+                Shop
+
+                <span>
+                    Supplements
+                </span>
+
+            </h2>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <span>
+                🔎
+            </span>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search supplements..."
+                autocomplete="off"
+            >
+
+        </div>
+
+    </div>
+
+
+
+    <!-- CATEGORY FILTER -->
+
+    <div class="category-tabs">
+
+
+        <button
+            class="category-tab active"
+            data-category="all"
+        >
+            All Products
+        </button>
+
+
+        <button
+            class="category-tab"
+            data-category="protein"
+        >
+            Protein
+        </button>
+
+
+        <button
+            class="category-tab"
+            data-category="creatine"
+        >
+            Creatine
+        </button>
+
+
+        <button
+            class="category-tab"
+            data-category="preworkout"
+        >
+            Pre-Workout
+        </button>
+
+
+        <button
+            class="category-tab"
+            data-category="massgainer"
+        >
+            Mass Gainer
+        </button>
+
+
+        <button
+            class="category-tab"
+            data-category="vitamins"
+        >
+            Vitamins
+        </button>
+
+
+        <button
+            class="category-tab"
+            data-category="bcaa"
+        >
+            BCAA
+        </button>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==================================================
+     PRODUCTS
+================================================== -->
+
+<section class="products-section">
+
+
+    <div class="products-grid" id="productsGrid">
+
+
+
+        <!-- ==================================================
+             PRODUCT 1 — WHEY
+        ================================================== -->
+
+        <article
+            class="product-card"
+            data-id="PT001"
+            data-name="PT Whey Protein"
+            data-price="2999"
+            data-category="protein"
+        >
+
+            <div class="product-image">
+
+
+                <span class="product-badge">
+                    BEST SELLER
+                </span>
+
+
+                <button
+                    class="wishlist"
+                    type="button"
+                >
+                    ♡
+                </button>
+
+
+                <div class="image-glow"></div>
+
+
+                <img
+                    src="https://th.bing.com/th/id/OIP.DVv0ArmaK62Cgd9JbLMh7wHaK_?w=132&h=196&c=7&r=0&o=7&pid=1.7&rm=3"
+                    alt="PT Whey Protein"
+                >
+
+            </div>
+
+
+            <div class="product-info">
+
+
+                <span class="product-category">
+                    PROTEIN
+                </span>
+
+
+                <h3>
+                    PT Whey Protein
+                </h3>
+
+
+                <p>
+                    Premium whey protein for muscle
+                    growth and daily recovery.
+                </p>
+
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                    <small>
+                        4.9
+                    </small>
+                </div>
+
+
+                <div class="product-bottom">
+
+
+                    <div>
+
+                        <span class="old-price">
+                            ₹3,499
+                        </span>
+
+                        <strong>
+                            ₹2,999
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="add-cart"
+                        type="button"
+                        data-id="PT001"
+                        data-name="PT Whey Protein"
+                        data-price="2999"
+                        data-category="protein"
+                        data-image="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?auto=format&fit=crop&w=700&q=80"
+                    >
+                        + Add
+                    </button>
+
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ==================================================
+             PRODUCT 2 — CREATINE
+        ================================================== -->
+
+        <article
+            class="product-card"
+            data-id="PT002"
+            data-name="PT Creatine Monohydrate"
+            data-price="1499"
+            data-category="creatine"
+        >
+
+            <div class="product-image">
+
+
+                <span class="product-badge green">
+                    POPULAR
+                </span>
+
+
+                <button
+                    class="wishlist"
+                    type="button"
+                >
+                    ♡
+                </button>
+
+
+                <div class="image-glow"></div>
+
+
+                <img
+                    src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=700&q=80"
+                    alt="PT Creatine Monohydrate"
+                >
+
+            </div>
+
+
+            <div class="product-info">
+
+
+                <span class="product-category">
+                    CREATINE
+                </span>
+
+
+                <h3>
+                    PT Creatine Monohydrate
+                </h3>
+
+
+                <p>
+                    Pure creatine designed for strength,
+                    power and workout performance.
+                </p>
+
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                    <small>
+                        4.8
+                    </small>
+                </div>
+
+
+                <div class="product-bottom">
+
+                    <div>
+
+                        <span class="old-price">
+                            ₹1,799
+                        </span>
+
+                        <strong>
+                            ₹1,499
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="add-cart"
+                        type="button"
+                        data-id="PT002"
+                        data-name="PT Creatine Monohydrate"
+                        data-price="1499"
+                        data-category="creatine"
+                        data-image="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=700&q=80"
+                    >
+                        + Add
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ==================================================
+             PRODUCT 3 — PRE WORKOUT
+        ================================================== -->
+
+        <article
+            class="product-card"
+            data-id="PT003"
+            data-name="PT Pre Workout"
+            data-price="1799"
+            data-category="preworkout"
+        >
+
+            <div class="product-image">
+
+
+                <span class="product-badge orange">
+                    ENERGY
+                </span>
+
+
+                <button
+                    class="wishlist"
+                    type="button"
+                >
+                    ♡
+                </button>
+
+
+                <div class="image-glow"></div>
+
+
+                <img
+                    src="https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?auto=format&fit=crop&w=700&q=80"
+                    alt="PT Pre Workout"
+                >
+
+            </div>
+
+
+            <div class="product-info">
+
+
+                <span class="product-category">
+                    PRE-WORKOUT
+                </span>
+
+
+                <h3>
+                    PT Pre Workout
+                </h3>
+
+
+                <p>
+                    High-energy formula for focus,
+                    endurance and intense training.
+                </p>
+
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                    <small>
+                        4.7
+                    </small>
+                </div>
+
+
+                <div class="product-bottom">
+
+                    <div>
+
+                        <span class="old-price">
+                            ₹2,099
+                        </span>
+
+                        <strong>
+                            ₹1,799
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="add-cart"
+                        type="button"
+                        data-id="PT003"
+                        data-name="PT Pre Workout"
+                        data-price="1799"
+                        data-category="preworkout"
+                        data-image="https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?auto=format&fit=crop&w=700&q=80"
+                    >
+                        + Add
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ==================================================
+             PRODUCT 4 — MASS GAINER
+        ================================================== -->
+
+        <article
+            class="product-card"
+            data-id="PT004"
+            data-name="PT Mass Gainer"
+            data-price="2499"
+            data-category="massgainer"
+        >
+
+            <div class="product-image">
+
+
+                <span class="product-badge">
+                    NEW
+                </span>
+
+
+                <button
+                    class="wishlist"
+                    type="button"
+                >
+                    ♡
+                </button>
+
+
+                <div class="image-glow"></div>
+
+
+                <img
+                    src="https://images.unsplash.com/photo-1579758629938-03607ccdbaba?auto=format&fit=crop&w=700&q=80"
+                    alt="PT Mass Gainer"
+                >
+
+            </div>
+
+
+            <div class="product-info">
+
+
+                <span class="product-category">
+                    MASS GAINER
+                </span>
+
+
+                <h3>
+                    PT Mass Gainer
+                </h3>
+
+
+                <p>
+                    High-calorie nutrition for healthy
+                    weight and muscle gain.
+                </p>
+
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                    <small>
+                        4.8
+                    </small>
+                </div>
+
+
+                <div class="product-bottom">
+
+                    <div>
+
+                        <span class="old-price">
+                            ₹2,999
+                        </span>
+
+                        <strong>
+                            ₹2,499
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="add-cart"
+                        type="button"
+                        data-id="PT004"
+                        data-name="PT Mass Gainer"
+                        data-price="2499"
+                        data-category="massgainer"
+                        data-image="https://images.unsplash.com/photo-1579758629938-03607ccdbaba?auto=format&fit=crop&w=700&q=80"
+                    >
+                        + Add
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ==================================================
+             PRODUCT 5 — MULTIVITAMIN
+        ================================================== -->
+
+        <article
+            class="product-card"
+            data-id="PT005"
+            data-name="PT Daily Multivitamin"
+            data-price="799"
+            data-category="vitamins"
+        >
+
+            <div class="product-image">
+
+
+                <span class="product-badge green">
+                    DAILY
+                </span>
+
+
+                <button
+                    class="wishlist"
+                    type="button"
+                >
+                    ♡
+                </button>
+
+
+                <div class="image-glow"></div>
+
+
+                <img
+                    src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=700&q=80"
+                    alt="PT Daily Multivitamin"
+                >
+
+            </div>
+
+
+            <div class="product-info">
+
+
+                <span class="product-category">
+                    VITAMINS
+                </span>
+
+
+                <h3>
+                    PT Daily Multivitamin
+                </h3>
+
+
+                <p>
+                    Everyday vitamin support for active
+                    lifestyle and general wellness.
+                </p>
+
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                    <small>
+                        4.6
+                    </small>
+                </div>
+
+
+                <div class="product-bottom">
+
+                    <div>
+
+                        <span class="old-price">
+                            ₹999
+                        </span>
+
+                        <strong>
+                            ₹799
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="add-cart"
+                        type="button"
+                        data-id="PT005"
+                        data-name="PT Daily Multivitamin"
+                        data-price="799"
+                        data-category="vitamins"
+                        data-image="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=700&q=80"
+                    >
+                        + Add
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ==================================================
+             PRODUCT 6 — BCAA
+        ================================================== -->
+
+        <article
+            class="product-card"
+            data-id="PT006"
+            data-name="PT BCAA Recovery"
+            data-price="1199"
+            data-category="bcaa"
+        >
+
+            <div class="product-image">
+
+
+                <span class="product-badge green">
+                    RECOVERY
+                </span>
+
+
+                <button
+                    class="wishlist"
+                    type="button"
+                >
+                    ♡
+                </button>
+
+
+                <div class="image-glow"></div>
+
+
+                <img
+                    src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=700&q=80"
+                    alt="PT BCAA Recovery"
+                >
+
+            </div>
+
+
+            <div class="product-info">
+
+
+                <span class="product-category">
+                    BCAA
+                </span>
+
+
+                <h3>
+                    PT BCAA Recovery
+                </h3>
+
+
+                <p>
+                    Amino acid blend for workout recovery
+                    and muscle support.
+                </p>
+
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                    <small>
+                        4.7
+                    </small>
+                </div>
+
+
+                <div class="product-bottom">
+
+                    <div>
+
+                        <span class="old-price">
+                            ₹1,399
+                        </span>
+
+                        <strong>
+                            ₹1,199
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="add-cart"
+                        type="button"
+                        data-id="PT006"
+                        data-name="PT BCAA Recovery"
+                        data-price="1199"
+                        data-category="bcaa"
+                        data-image="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=700&q=80"
+                    >
+                        + Add
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ==================================================
+             PRODUCT 7 — WHEY ISOLATE
+        ================================================== -->
+
+        <article
+            class="product-card"
+            data-id="PT007"
+            data-name="PT Whey Isolate"
+            data-price="3499"
+            data-category="protein"
+        >
+
+            <div class="product-image">
+
+
+                <span class="product-badge">
+                    PREMIUM
+                </span>
+
+
+                <button
+                    class="wishlist"
+                    type="button"
+                >
+                    ♡
+                </button>
+
+
+                <div class="image-glow"></div>
+
+
+                <img
+                    src="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?auto=format&fit=crop&w=700&q=80"
+                    alt="PT Whey Isolate"
+                >
+
+            </div>
+
+
+            <div class="product-info">
+
+
+                <span class="product-category">
+                    PROTEIN
+                </span>
+
+
+                <h3>
+                    PT Whey Isolate
+                </h3>
+
+
+                <p>
+                    Fast-digesting premium protein with
+                    high protein content.
+                </p>
+
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                    <small>
+                        4.9
+                    </small>
+                </div>
+
+
+                <div class="product-bottom">
+
+                    <div>
+
+                        <span class="old-price">
+                            ₹3,999
+                        </span>
+
+                        <strong>
+                            ₹3,499
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="add-cart"
+                        type="button"
+                        data-id="PT007"
+                        data-name="PT Whey Isolate"
+                        data-price="3499"
+                        data-category="protein"
+                        data-image="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?auto=format&fit=crop&w=700&q=80"
+                    >
+                        + Add
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ==================================================
+             PRODUCT 8 — CREATINE HCL
+        ================================================== -->
+
+        <article
+            class="product-card"
+            data-id="PT008"
+            data-name="PT Creatine HCL"
+            data-price="1699"
+            data-category="creatine"
+        >
+
+            <div class="product-image">
+
+
+                <span class="product-badge orange">
+                    POWER
+                </span>
+
+
+                <button
+                    class="wishlist"
+                    type="button"
+                >
+                    ♡
+                </button>
+
+
+                <div class="image-glow"></div>
+
+
+                <img
+                    src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=700&q=80"
+                    alt="PT Creatine HCL"
+                >
+
+            </div>
+
+
+            <div class="product-info">
+
+
+                <span class="product-category">
+                    CREATINE
+                </span>
+
+
+                <h3>
+                    PT Creatine HCL
+                </h3>
+
+
+                <p>
+                    Advanced creatine formula for
+                    training performance and strength.
+                </p>
+
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                    <small>
+                        4.8
+                    </small>
+                </div>
+
+
+                <div class="product-bottom">
+
+                    <div>
+
+                        <span class="old-price">
+                            ₹1,999
+                        </span>
+
+                        <strong>
+                            ₹1,699
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="add-cart"
+                        type="button"
+                        data-id="PT008"
+                        data-name="PT Creatine HCL"
+                        data-price="1699"
+                        data-category="creatine"
+                        data-image="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=700&q=80"
+                    >
+                        + Add
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+
+
+    <!-- NO PRODUCTS -->
+
+    <div
+        class="no-products"
+        id="noProducts"
+    >
+
+        <div>
+            🔍
+        </div>
+
+        <h3>
+            No Product Found
+        </h3>
+
+        <p>
+            Try another supplement or category.
+        </p>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==================================================
+     PREMIUM BANNER
+================================================== -->
+
+<section class="premium-banner">
+
+
+    <div class="banner-content">
+
+
+        <div class="small-title">
+
+            <span></span>
+
+            PT NUTRITION
+
+        </div>
+
+
+        <h2>
+
+            Train Hard.
+
+            <span>
+                Recover Better.
+            </span>
+
+        </h2>
+
+
+        <p>
+
+            Quality nutrition for people who are
+            serious about their fitness journey.
+
+        </p>
+
+
+        <a
+            href="#products"
+            class="primary-btn"
+        >
+
+            Shop Products
+
+            <span>
+                →
+            </span>
+
+        </a>
+
+
+    </div>
+
+
+
+    <div class="banner-circle">
+
+        <strong>
+            PT
+        </strong>
+
+        <span>
+            NUTRITION
+        </span>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==================================================
+     QUICK CART POPUP
+================================================== -->
+
+<div
+    class="quick-cart"
+    id="quickCart"
+>
+
+
+    <div class="quick-cart-box">
+
+
+        <button
+            class="quick-cart-close"
+            id="quickCartClose"
+        >
+            ×
+        </button>
+
+
+        <div class="quick-cart-icon">
+            ✓
+        </div>
+
+
+        <h3>
+            Added to Cart
+        </h3>
+
+
+        <p id="addedProductName">
+            Product added successfully.
+        </p>
+
+
+        <div class="quick-cart-buttons">
+
+
+            <button
+                type="button"
+                id="continueShopping"
+            >
+                Continue Shopping
+            </button>
+
+
+            <a href="cart.html">
+                View Cart
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
+<footer class="footer">
+
+
+    <div class="footer-content">
+
+
+        <div class="footer-brand">
+
+
+            <a
+                href="index.html"
+                class="logo"
+            >
+
+                <div class="logo-icon">
+                    PT
+                </div>
+
+                <div class="logo-text">
+
+                    <strong>
+                        PT NUTRITION
+                    </strong>
+
+                    <small>
+                        BY PARTEEK TUSHIR
+                    </small>
+
+                </div>
+
+            </a>
+
+
+            <p>
+
+                Premium sports nutrition made for
+                strength, performance and a healthier
+                lifestyle.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="footer-links">
+
+
+            <h4>
+                QUICK LINKS
+            </h4>
+
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="categories.html">
+                Categories
+            </a>
+
+            <a href="products.html">
+                Products
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-links">
+
+
+            <h4>
+                SHOP
+            </h4>
+
+
+            <a href="#products">
+                Protein
+            </a>
+
+            <a href="#products">
+                Creatine
+            </a>
+
+            <a href="#products">
+                Vitamins
+            </a>
+
+            <a href="#products">
+                Pre-Workout
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-contact">
+
+
+            <h4>
+                OWNER
+            </h4>
+
+
+            <p>
+                Parteek Tushir
+            </p>
+
+
+            <p>
+                PT Nutrition
+            </p>
+
+
+            <p>
+                Premium Supplement Store
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+
+        <span>
+            © 2026 PT Nutrition. All Rights Reserved.
+        </span>
+
+
+        <span>
+            Made by
+            <strong>
+                Parteek Tushir
+            </strong>
+        </span>
+
+
+    </div>
+
+
+</footer>
+
+
+
+<!-- ==================================================
+     BACK TO TOP
+================================================== -->
+
+<button
+    class="back-top"
+    id="backTop"
+    aria-label="Back to top"
+>
+    ↑
+</button>
+
+
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
+<script>
+    /* =====================================================
+   PT NUTRITION — PRODUCTS.JS
+   Owner: Parteek Tushir
+===================================================== */
+
+
+/* =====================================================
+   PRODUCT DATA
+===================================================== */
+
+const products = [
+
+    {
+        id: "PT001",
+        name: "Whey Protein",
+        category: "protein",
+        price: 2999,
+        oldPrice: 3499,
+        rating: 4.9,
+        reviews: 128,
+        badge: "BEST SELLER",
+        image: "images/whey.jpg",
+        description: "Premium whey protein for muscle growth."
+    },
+
+    {
+        id: "PT002",
+        name: "Creatine Monohydrate",
+        category: "creatine",
+        price: 1499,
+        oldPrice: 1799,
+        rating: 4.8,
+        reviews: 96,
+        badge: "POPULAR",
+        image: "images/creatine.jpg",
+        description: "Pure creatine monohydrate for strength."
+    },
+
+    {
+        id: "PT003",
+        name: "Mass Gainer",
+        category: "gainer",
+        price: 2499,
+        oldPrice: 2999,
+        rating: 4.7,
+        reviews: 84,
+        badge: "HOT",
+        image: "images/gainer.jpg",
+        description: "High calorie mass gainer for weight gain."
+    },
+
+    {
+        id: "PT004",
+        name: "Pre Workout",
+        category: "preworkout",
+        price: 1299,
+        oldPrice: 1599,
+        rating: 4.8,
+        reviews: 72,
+        badge: "NEW",
+        image: "images/preworkout.jpg",
+        description: "Energy and focus before your workout."
+    },
+
+    {
+        id: "PT005",
+        name: "BCAA Powder",
+        category: "bcaa",
+        price: 1199,
+        oldPrice: 1499,
+        rating: 4.6,
+        reviews: 61,
+        badge: "SALE",
+        image: "images/bcaa.jpg",
+        description: "Supports recovery and muscle performance."
+    },
+
+    {
+        id: "PT006",
+        name: "Omega 3",
+        category: "vitamins",
+        price: 799,
+        oldPrice: 999,
+        rating: 4.7,
+        reviews: 53,
+        badge: "HEALTH",
+        image: "images/omega3.jpg",
+        description: "Daily omega 3 nutritional support."
+    },
+
+    {
+        id: "PT007",
+        name: "Multivitamin",
+        category: "vitamins",
+        price: 899,
+        oldPrice: 1099,
+        rating: 4.8,
+        reviews: 91,
+        badge: "TOP RATED",
+        image: "images/multivitamin.jpg",
+        description: "Complete daily vitamin support."
+    },
+
+    {
+        id: "PT008",
+        name: "Glutamine",
+        category: "recovery",
+        price: 1099,
+        oldPrice: 1399,
+        rating: 4.6,
+        reviews: 45,
+        badge: "RECOVERY",
+        image: "images/glutamine.jpg",
+        description: "Helps support post workout recovery."
+    },
+
+    {
+        id: "PT009",
+        name: "Electrolyte Powder",
+        category: "hydration",
+        price: 699,
+        oldPrice: 899,
+        rating: 4.7,
+        reviews: 38,
+        badge: "FRESH",
+        image: "images/electrolyte.jpg",
+        description: "Hydration support for active lifestyles."
+    },
+
+    {
+        id: "PT010",
+        name: "Protein Bars",
+        category: "snacks",
+        price: 599,
+        oldPrice: 749,
+        rating: 4.5,
+        reviews: 34,
+        badge: "SNACK",
+        image: "images/protein-bars.jpg",
+        description: "Convenient protein packed snack."
+    },
+
+    {
+        id: "PT011",
+        name: "L-Carnitine",
+        category: "fatloss",
+        price: 999,
+        oldPrice: 1299,
+        rating: 4.6,
+        reviews: 41,
+        badge: "FITNESS",
+        image: "images/lcarnitine.jpg",
+        description: "Fitness support for active training."
+    },
+
+    {
+        id: "PT012",
+        name: "ZMA Capsules",
+        category: "recovery",
+        price: 849,
+        oldPrice: 1099,
+        rating: 4.5,
+        reviews: 29,
+        badge: "NEW",
+        image: "images/zma.jpg",
+        description: "Zinc and magnesium nutritional support."
+    }
+
+];
+
+
+/* =====================================================
+   CART
+   IMPORTANT:
+   Same key will be used by cart.html
+===================================================== */
+
+let cart = JSON.parse(
+    localStorage.getItem("PT_NUTRITION_CART")
+) || [];
+
+
+/* =====================================================
+   DOM ELEMENTS
+===================================================== */
+
+const productsGrid =
+    document.querySelector("#productsGrid");
+
+const searchInput =
+    document.querySelector("#searchInput");
+
+const categoryTabs =
+    document.querySelectorAll(".category-tab");
+
+const cartCount =
+    document.querySelector("#cartCount");
+
+const noProducts =
+    document.querySelector("#noProducts");
+
+
+/* =====================================================
+   FORMAT PRICE
+===================================================== */
+
+function formatPrice(price) {
+
+    return "₹" + price.toLocaleString("en-IN");
+
+}
+
+
+/* =====================================================
+   SAVE CART
+===================================================== */
+
+function saveCart() {
+
+    localStorage.setItem(
+        "PT_NUTRITION_CART",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+/* =====================================================
+   CART COUNT
+===================================================== */
+
+function updateCartCount() {
+
+    const totalItems = cart.reduce(
+        (total, item) =>
+            total + item.quantity,
+        0
+    );
+
+    if (cartCount) {
+
+        cartCount.textContent =
+            totalItems;
+
+        cartCount.style.transform =
+            "scale(1.35)";
+
+        setTimeout(() => {
+
+            cartCount.style.transform =
+                "scale(1)";
+
+        }, 200);
+
+    }
+
+}
+
+
+/* =====================================================
+   ADD TO CART
+===================================================== */
+
+function addToCart(productId) {
+
+    const product =
+        products.find(
+            item => item.id === productId
+        );
+
+    if (!product) return;
+
+
+    const existing =
+        cart.find(
+            item => item.id === productId
+        );
+
+
+    if (existing) {
+
+        existing.quantity += 1;
+
+    } else {
+
+        cart.push({
+
+            id: product.id,
+
+            name: product.name,
+
+            category: product.category,
+
+            price: product.price,
+
+            image: product.image,
+
+            quantity: 1
+
+        });
+
+    }
+
+
+    saveCart();
+
+    updateCartCount();
+
+    showAddedAnimation(productId);
+
+    showQuickCart(product);
+
+}
+
+
+/* =====================================================
+   REMOVE FROM CART
+===================================================== */
+
+function removeFromCart(productId) {
+
+    cart =
+        cart.filter(
+            item => item.id !== productId
+        );
+
+    saveCart();
+
+    updateCartCount();
+
+}
+
+
+/* =====================================================
+   CHANGE QUANTITY
+===================================================== */
+
+function changeQuantity(
+    productId,
+    amount
+) {
+
+    const item =
+        cart.find(
+            item => item.id === productId
+        );
+
+    if (!item) return;
+
+
+    item.quantity += amount;
+
+
+    if (item.quantity <= 0) {
+
+        removeFromCart(productId);
+
+        return;
+
+    }
+
+
+    saveCart();
+
+    updateCartCount();
+
+}
+
+
+/* =====================================================
+   GET CART TOTAL
+===================================================== */
+
+function getCartTotal() {
+
+    return cart.reduce(
+        (total, item) => {
+
+            return total +
+                item.price *
+                item.quantity;
+
+        },
+        0
+    );
+
+}
+
+
+/* =====================================================
+   GET TOTAL ITEMS
+===================================================== */
+
+function getCartItemsCount() {
+
+    return cart.reduce(
+        (total, item) =>
+            total + item.quantity,
+        0
+    );
+
+}
+
+
+/* =====================================================
+   PRODUCT CARD
+===================================================== */
+
+function createProductCard(product) {
+
+    return `
+
+        <article
+            class="product-card filter-in"
+            data-id="${product.id}"
+            data-category="${product.category}"
+        >
+
+            <div class="product-badge">
+                ${product.badge}
+            </div>
+
+
+            <button
+                class="wishlist"
+                data-wishlist="${product.id}"
+                aria-label="Add to wishlist"
+            >
+                ♡
+            </button>
+
+
+            <div class="product-image">
+
+                <div class="image-glow"></div>
+
+                <img
+                    src="${product.image}"
+                    alt="${product.name}"
+                    loading="lazy"
+                    onerror="this.src='images/default-product.jpg'"
+                >
+
+            </div>
+
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    ${product.category.toUpperCase()}
+                </span>
+
+
+                <h3>
+                    ${product.name}
+                </h3>
+
+
+                <p>
+                    ${product.description}
+                </p>
+
+
+                <div class="rating">
+
+                    <span>
+                        ⭐ ${product.rating}
+                    </span>
+
+                    <small>
+                        (${product.reviews} reviews)
+                    </small>
+
+                </div>
+
+
+                <div class="product-bottom">
+
+                    <div>
+
+                        <span class="old-price">
+                            ${formatPrice(product.oldPrice)}
+                        </span>
+
+                        <strong>
+                            ${formatPrice(product.price)}
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="add-cart"
+                        data-add-cart="${product.id}"
+                    >
+                        + CART
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    `;
+
+}
+
+
+/* =====================================================
+   RENDER PRODUCTS
+===================================================== */
+
+function renderProducts(list = products) {
+
+    if (!productsGrid) return;
+
+
+    productsGrid.innerHTML = "";
+
+
+    if (list.length === 0) {
+
+        if (noProducts) {
+
+            noProducts.classList.add("show");
+
+        }
+
+        return;
+
+    }
+
+
+    if (noProducts) {
+
+        noProducts.classList.remove("show");
+
+    }
+
+
+    list.forEach(product => {
+
+        productsGrid.insertAdjacentHTML(
+            "beforeend",
+            createProductCard(product)
+        );
+
+    });
+
+
+    addCardEvents();
+
+}
+
+
+/* =====================================================
+   ADD PRODUCT CARD EVENTS
+===================================================== */
+
+function addCardEvents() {
+
+
+    /* ================= ADD CART ================= */
+
+    document
+        .querySelectorAll("[data-add-cart]")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    const id =
+                        button.dataset.addCart;
+
+                    addToCart(id);
+
+                }
+            );
+
+        });
+
+
+    /* ================= WISHLIST ================= */
+
+    document
+        .querySelectorAll("[data-wishlist]")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    button.classList.toggle(
+                        "liked"
+                    );
+
+
+                    button.textContent =
+                        button.classList.contains(
+                            "liked"
+                        )
+                            ? "♥"
+                            : "♡";
+
+                }
+            );
+
+        });
+
+
+    /* ================= 3D CARD ================= */
+
+    document
+        .querySelectorAll(".product-card")
+        .forEach(card => {
+
+            card.addEventListener(
+                "mousemove",
+                e => {
+
+                    if (
+                        window.innerWidth <= 768
+                    ) return;
+
+
+                    const rect =
+                        card.getBoundingClientRect();
+
+
+                    const x =
+                        e.clientX -
+                        rect.left;
+
+                    const y =
+                        e.clientY -
+                        rect.top;
+
+
+                    const centerX =
+                        rect.width / 2;
+
+                    const centerY =
+                        rect.height / 2;
+
+
+                    const rotateX =
+                        (y - centerY) /
+                        18;
+
+                    const rotateY =
+                        (centerX - x) /
+                        18;
+
+
+                    card.style.transform =
+                        `
+                        perspective(900px)
+                        rotateX(${rotateX}deg)
+                        rotateY(${rotateY}deg)
+                        translateY(-7px)
+                        `;
+                }
+            );
+
+
+            card.addEventListener(
+                "mouseleave",
+                () => {
+
+                    card.style.transform =
+                        "";
+
+                }
+            );
+
+        });
+
+}
+
+
+/* =====================================================
+   CATEGORY FILTER
+===================================================== */
+
+categoryTabs.forEach(tab => {
+
+    tab.addEventListener(
+        "click",
+        () => {
+
+            categoryTabs.forEach(
+                item =>
+                    item.classList.remove(
+                        "active"
+                    )
+            );
+
+
+            tab.classList.add("active");
+
+
+            const category =
+                tab.dataset.category;
+
+
+            const filtered =
+                category === "all"
+
+                    ? products
+
+                    : products.filter(
+                        product =>
+                            product.category ===
+                            category
+                    );
+
+
+            renderProducts(filtered);
+
+        }
+    );
+
+});
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+if (searchInput) {
+
+    searchInput.addEventListener(
+        "input",
+        () => {
+
+            const value =
+                searchInput.value
+                    .toLowerCase()
+                    .trim();
+
+
+            const filtered =
+                products.filter(
+                    product =>
+
+                        product.name
+                            .toLowerCase()
+                            .includes(value)
+
+                        ||
+
+                        product.category
+                            .toLowerCase()
+                            .includes(value)
+
+                        ||
+
+                        product.description
+                            .toLowerCase()
+                            .includes(value)
+                );
+
+
+            renderProducts(filtered);
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   QUICK CART POPUP
+===================================================== */
+
+function showQuickCart(product) {
+
+    let popup =
+        document.querySelector(
+            "#quickCart"
+        );
+
+
+    if (!popup) {
+
+        popup =
+            document.createElement("div");
+
+        popup.id =
+            "quickCart";
+
+        popup.className =
+            "quick-cart";
+
+
+        popup.innerHTML = `
+
+            <div class="quick-cart-box">
+
+                <button
+                    class="quick-cart-close"
+                    id="closeQuickCart"
+                >
+                    ×
+                </button>
+
+
+                <div class="quick-cart-icon">
+                    ✓
+                </div>
+
+
+                <h3>
+                    Added to Cart!
+                </h3>
+
+
+                <p id="quickCartText"></p>
+
+
+                <div class="quick-cart-buttons">
+
+                    <button
+                        id="continueShopping"
+                    >
+                        Continue Shopping
+                    </button>
+
+                    <a href="cart.html">
+                        View Cart
+                    </a>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        document.body.appendChild(popup);
+
+
+        document
+            .querySelector("#closeQuickCart")
+            .addEventListener(
+                "click",
+                hideQuickCart
+            );
+
+
+        document
+            .querySelector("#continueShopping")
+            .addEventListener(
+                "click",
+                hideQuickCart
+            );
+
+
+        popup.addEventListener(
+            "click",
+            e => {
+
+                if (
+                    e.target === popup
+                ) {
+
+                    hideQuickCart();
+
+                }
+
+            }
+        );
+
+    }
+
+
+    const text =
+        popup.querySelector(
+            "#quickCartText"
+        );
+
+
+    if (text) {
+
+        text.innerHTML = `
+
+            <strong>
+                ${product.name}
+            </strong>
+
+            has been added.<br>
+
+            Cart Total:
+            <strong>
+                ${formatPrice(
+                    getCartTotal()
+                )}
+            </strong>
+
+        `;
+
+    }
+
+
+    popup.classList.add("show");
+
+
+    setTimeout(
+        hideQuickCart,
+        3500
+    );
+
+}
+
+
+/* =====================================================
+   HIDE QUICK CART
+===================================================== */
+
+function hideQuickCart() {
+
+    const popup =
+        document.querySelector(
+            "#quickCart"
+        );
+
+    if (popup) {
+
+        popup.classList.remove(
+            "show"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   ADD BUTTON ANIMATION
+===================================================== */
+
+function showAddedAnimation(productId) {
+
+    const button =
+        document.querySelector(
+            `[data-add-cart="${productId}"]`
+        );
+
+
+    if (!button) return;
+
+
+    const originalText =
+        button.textContent;
+
+
+    button.textContent =
+        "✓ ADDED";
+
+    button.classList.add(
+        "added"
+    );
+
+
+    setTimeout(() => {
+
+        button.textContent =
+            originalText;
+
+        button.classList.remove(
+            "added"
+        );
+
+    }, 1000);
+
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+const navbar =
+    document.querySelector(
+        ".navbar"
+    );
+
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if (!navbar) return;
+
+
+        if (window.scrollY > 30) {
+
+            navbar.classList.add(
+                "scrolled"
+            );
+
+        } else {
+
+            navbar.classList.remove(
+                "scrolled"
+            );
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+const menuBtn =
+    document.querySelector(
+        ".menu-btn"
+    );
+
+const navLinks =
+    document.querySelector(
+        ".nav-links"
+    );
+
+
+if (menuBtn && navLinks) {
+
+    menuBtn.addEventListener(
+        "click",
+        () => {
+
+            menuBtn.classList.toggle(
+                "active"
+            );
+
+            navLinks.classList.toggle(
+                "open"
+            );
+
+        }
+    );
+
+
+    navLinks
+        .querySelectorAll("a")
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    menuBtn.classList.remove(
+                        "active"
+                    );
+
+                    navLinks.classList.remove(
+                        "open"
+                    );
+
+                }
+            );
+
+        });
+
+}
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+function revealOnScroll() {
+
+    const elements =
+        document.querySelectorAll(
+            ".product-card, .toolbar-heading, .category-tabs"
+        );
+
+
+    const observer =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(
+                    entry => {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            entry.target.style.opacity =
+                                "1";
+
+                            entry.target.style.transform =
+                                "translateY(0)";
+
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    }
+                );
+
+            },
+            {
+                threshold: .12
+            }
+        );
+
+
+    elements.forEach(
+        element => {
+
+            element.style.opacity =
+                "0";
+
+            element.style.transform =
+                "translateY(25px)";
+
+            element.style.transition =
+                "opacity .7s ease, transform .7s ease";
+
+
+            observer.observe(element);
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   BACK TO TOP
+===================================================== */
+
+const backTop =
+    document.querySelector(
+        ".back-top"
+    );
+
+
+if (backTop) {
+
+    window.addEventListener(
+        "scroll",
+        () => {
+
+            if (
+                window.scrollY > 500
+            ) {
+
+                backTop.classList.add(
+                    "show"
+                );
+
+            } else {
+
+                backTop.classList.remove(
+                    "show"
+                );
+
+            }
+
+        }
+    );
+
+
+    backTop.addEventListener(
+        "click",
+        () => {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   LOADER
+===================================================== */
+
+window.addEventListener(
+    "load",
+    () => {
+
+        const loader =
+            document.querySelector(
+                ".loader"
+            );
+
+
+        if (loader) {
+
+            setTimeout(
+                () => {
+
+                    loader.classList.add(
+                        "hide"
+                    );
+
+                },
+                600
+            );
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+renderProducts();
+
+updateCartCount();
+
+revealOnScroll();
+
+
+/* =====================================================
+   MAKE CART FUNCTIONS AVAILABLE
+   For cart.html if needed
+===================================================== */
+
+window.PTNutritionCart = {
+
+    getCart: () => cart,
+
+    addToCart: addToCart,
+
+    removeFromCart: removeFromCart,
+
+    changeQuantity: changeQuantity,
+
+    getCartTotal: getCartTotal,
+
+    getCartItemsCount: getCartItemsCount,
+
+    saveCart: saveCart
+
+};
+
+
+/* =====================================================
+   CONSOLE
+===================================================== */
+
+console.log(
+    "PT Nutrition Store loaded successfully."
+);
+
+console.log(
+    "Owner: Parteek Tushir"
+);
+
+console.log(
+    "Cart items:",
+    getCartItemsCount()
+);
+
+console.log(
+    "Cart total:",
+    formatPrice(
+        getCartTotal()
+    )
+);
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,3013 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Shipping | PT Nutrition</title>
+
+    <link
+        rel="stylesheet"
+        href="shipping.css"
+    >
+
+</head>
+<style>
+    /* =====================================================
+   PT NUTRITION - SHIPPING CSS
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f8f5;
+    color: #101512;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    height: 75px;
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid #e3e9e5;
+
+    box-shadow:
+        0 5px 25px rgba(0, 0, 0, 0.05);
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background: #101512;
+    color: #64ed92;
+
+    font-size: 15px;
+    font-weight: 900;
+
+    transform: rotate(-5deg);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, .15);
+
+    transition: .4s;
+}
+
+.logo:hover .logo-icon {
+    transform:
+        rotate(5deg)
+        scale(1.08);
+}
+
+.logo strong {
+    display: block;
+
+    font-size: 15px;
+    letter-spacing: 1.5px;
+}
+
+.logo small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #7b847e;
+
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   NAV LINKS
+===================================================== */
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+
+    gap: 28px;
+}
+
+.navbar nav a {
+    position: relative;
+
+    color: #59635c;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: .3s;
+}
+
+.navbar nav a:hover {
+    color: #101512;
+}
+
+.navbar nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: #55e989;
+
+    transform: translateX(-50%);
+
+    transition: .3s;
+}
+
+.navbar nav a:hover::after {
+    width: 100%;
+}
+
+
+/* =====================================================
+   AGE VERIFICATION
+===================================================== */
+
+.age-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(4, 9, 6, .88);
+
+    backdrop-filter:
+        blur(15px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: .4s;
+}
+
+.age-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.age-box {
+    position: relative;
+
+    width: 100%;
+    max-width: 420px;
+
+    padding: 40px 30px;
+
+    text-align: center;
+
+    border:
+        1px solid
+        rgba(94, 235, 142, .3);
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #151d17,
+            #090d0a
+        );
+
+    color: white;
+
+    box-shadow:
+        0 30px 80px
+        rgba(0, 0, 0, .45);
+
+    transform:
+        scale(.85)
+        translateY(30px);
+
+    transition: .45s;
+}
+
+.age-overlay.show .age-box {
+    transform:
+        scale(1)
+        translateY(0);
+}
+
+
+.age-icon {
+    width: 75px;
+    height: 75px;
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        2px solid
+        #5eea8d;
+
+    border-radius: 50%;
+
+    color: #5eea8d;
+
+    font-size: 20px;
+    font-weight: 900;
+
+    box-shadow:
+        0 0 35px
+        rgba(94, 234, 141, .18);
+
+    animation:
+        agePulse 2s infinite;
+}
+
+@keyframes agePulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+
+.age-box h2 {
+    margin-top: 25px;
+
+    font-size: 25px;
+}
+
+.age-box p {
+    margin: 13px auto 25px;
+
+    max-width: 320px;
+
+    color: #89938c;
+
+    font-size: 11px;
+
+    line-height: 1.8;
+}
+
+
+.age-box button {
+    width: 100%;
+
+    min-height: 47px;
+
+    border-radius: 30px;
+
+    background: #5de98b;
+
+    color: #07100a;
+
+    font-size: 10px;
+    font-weight: 900;
+
+    transition: .3s;
+}
+
+.age-box button:hover {
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 12px 25px
+        rgba(93, 233, 139, .2);
+}
+
+
+.age-box .exit-btn {
+    margin-top: 10px;
+
+    background: transparent;
+
+    border:
+        1px solid
+        #303b33;
+
+    color: #858f88;
+}
+
+.age-box .exit-btn:hover {
+    color: #ff7777;
+
+    border-color:
+        #ff7777;
+
+    box-shadow: none;
+}
+
+
+/* =====================================================
+   SHIPPING PAGE
+===================================================== */
+
+.shipping-page {
+    min-height: 100vh;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.shipping-hero {
+    position: relative;
+
+    padding:
+        100px 8%
+        80px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 85% 40%,
+            rgba(82, 231, 132, .18),
+            transparent 28%
+        ),
+
+        linear-gradient(
+            135deg,
+            #fbfdfb,
+            #e9f4ec
+        );
+}
+
+.shipping-hero::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(50, 90, 60, .035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(50, 90, 60, .035) 1px,
+            transparent 1px
+        );
+
+    background-size: 50px 50px;
+}
+
+
+.shipping-hero::after {
+    content: "PT";
+
+    position: absolute;
+
+    right: 8%;
+    top: 20px;
+
+    font-size: 180px;
+
+    font-weight: 900;
+
+    color:
+        rgba(66, 210, 111, .06);
+
+    transform:
+        rotate(-10deg);
+
+    pointer-events: none;
+}
+
+
+.shipping-hero > div {
+    position: relative;
+    z-index: 2;
+}
+
+
+.tag {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #5d6a62;
+
+    font-size: 9px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+.tag::before {
+    content: "";
+
+    width: 28px;
+    height: 2px;
+
+    border-radius: 20px;
+
+    background: #52e486;
+}
+
+
+.shipping-hero h1 {
+    margin-top: 18px;
+
+    font-size:
+        clamp(50px, 7vw, 85px);
+
+    line-height: .9;
+
+    letter-spacing: -5px;
+
+    font-weight: 900;
+}
+
+.shipping-hero h1 span {
+    color: #50df81;
+}
+
+
+.shipping-hero p {
+    max-width: 500px;
+
+    margin-top: 22px;
+
+    color: #707a73;
+
+    font-size: 11px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   CHECKOUT GRID
+===================================================== */
+
+.checkout-grid {
+    max-width: 1250px;
+
+    margin:
+        0 auto;
+
+    padding:
+        70px 30px
+        100px;
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr
+        .8fr;
+
+    gap: 25px;
+
+    align-items: start;
+}
+
+
+/* =====================================================
+   FORM CARD
+===================================================== */
+
+.form-card,
+.summary-card {
+    position: relative;
+
+    padding: 35px;
+
+    border:
+        1px solid
+        #dfe7e1;
+
+    border-radius: 28px;
+
+    background: white;
+
+    box-shadow:
+        0 20px 50px
+        rgba(0, 0, 0, .05);
+}
+
+
+.form-card {
+    overflow: hidden;
+}
+
+.form-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    right: -150px;
+    top: -150px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(84, 230, 132, .08);
+}
+
+
+/* =====================================================
+   CARD HEADING
+===================================================== */
+
+.card-heading {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+}
+
+.card-heading > span {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: #e1f8e7;
+
+    color: #1cb450;
+
+    font-size: 9px;
+    font-weight: 900;
+}
+
+.card-heading h2 {
+    font-size: 20px;
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.input-group {
+    margin-bottom: 19px;
+}
+
+.input-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #4d5851;
+
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+
+    padding:
+        14px 15px;
+
+    border:
+        1px solid
+        #dfe6e1;
+
+    border-radius: 12px;
+
+    outline: none;
+
+    background: #fbfdfc;
+
+    color: #101512;
+
+    font-size: 11px;
+
+    transition: .3s;
+}
+
+.input-group input {
+    height: 47px;
+}
+
+.input-group textarea {
+    min-height: 95px;
+
+    resize: vertical;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color:
+        #59e88a;
+
+    background: white;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(89, 232, 138, .08);
+
+    transform:
+        translateY(-1px);
+}
+
+.input-group input::placeholder,
+.input-group textarea::placeholder {
+    color: #a1aaa4;
+}
+
+
+.age-note {
+    display: block;
+
+    margin-top: 7px;
+
+    color: #8b948e;
+
+    font-size: 8px;
+}
+
+
+/* =====================================================
+   TWO COLUMNS
+===================================================== */
+
+.two-column {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 15px;
+}
+
+
+/* =====================================================
+   CHECKBOX
+===================================================== */
+
+.check-box {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 10px;
+
+    margin:
+        15px 0
+        20px;
+
+    color: #69736c;
+
+    font-size: 9px;
+
+    line-height: 1.6;
+
+    cursor: pointer;
+}
+
+.check-box input {
+    width: 16px;
+    height: 16px;
+
+    flex-shrink: 0;
+
+    accent-color: #4de681;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   ORDER BUTTON
+===================================================== */
+
+.order-btn {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #101512,
+            #1b2820
+        );
+
+    color: white;
+
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: .3px;
+
+    overflow: hidden;
+
+    transition: .35s;
+}
+
+.order-btn::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 80%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.15),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    transition: .7s;
+}
+
+.order-btn:hover::before {
+    left: 130%;
+}
+
+.order-btn:hover {
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 18px 35px
+        rgba(0, 0, 0, .16);
+}
+
+.order-btn b {
+    font-size: 18px;
+
+    transition: .3s;
+}
+
+.order-btn:hover b {
+    transform:
+        translateX(6px);
+}
+
+
+/* =====================================================
+   SUMMARY CARD
+===================================================== */
+
+.summary-card {
+    position: sticky;
+
+    top: 100px;
+
+    overflow: hidden;
+}
+
+.summary-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    right: -100px;
+    top: -100px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(83, 230, 132, .09);
+}
+
+
+/* =====================================================
+   CART ITEMS
+===================================================== */
+
+.cart-items {
+    position: relative;
+
+    max-height: 390px;
+
+    overflow-y: auto;
+
+    padding-right: 5px;
+}
+
+.cart-items::-webkit-scrollbar {
+    width: 4px;
+}
+
+.cart-items::-webkit-scrollbar-thumb {
+    background: #b9c8bd;
+
+    border-radius: 20px;
+}
+
+
+.cart-item {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding:
+        14px 0;
+
+    border-bottom:
+        1px solid
+        #edf1ee;
+}
+
+.cart-item:last-child {
+    border-bottom: 0;
+}
+
+
+.cart-item-image {
+    width: 58px;
+    height: 58px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background: #f1f6f2;
+
+    overflow: hidden;
+}
+
+.cart-item-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+.cart-item-info {
+    min-width: 0;
+
+    flex: 1;
+}
+
+.cart-item-info h4 {
+    font-size: 11px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+.cart-item-info p {
+    margin-top: 5px;
+
+    color: #89938c;
+
+    font-size: 8px;
+}
+
+
+.cart-item-price {
+    color: #101512;
+
+    font-size: 10px;
+    font-weight: 900;
+}
+
+
+/* =====================================================
+   EMPTY CART
+===================================================== */
+
+.empty-cart {
+    padding: 35px 10px;
+
+    text-align: center;
+
+    color: #89938c;
+
+    font-size: 10px;
+}
+
+.empty-cart-icon {
+    margin-bottom: 12px;
+
+    font-size: 30px;
+}
+
+
+/* =====================================================
+   BILL
+===================================================== */
+
+.bill {
+    margin-top: 20px;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid
+        #e5ebe7;
+}
+
+.bill > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 13px;
+
+    color: #78827b;
+
+    font-size: 10px;
+}
+
+.bill strong {
+    color: #222b25;
+}
+
+
+.bill .total {
+    margin-top: 18px;
+
+    padding-top: 18px;
+
+    border-top:
+        1px dashed
+        #dce4df;
+
+    color: #101512;
+
+    font-size: 14px;
+}
+
+.bill .total strong {
+    color: #1cae4c;
+
+    font-size: 19px;
+}
+
+
+/* =====================================================
+   WHATSAPP INFO
+===================================================== */
+
+.whatsapp-info {
+    margin-top: 25px;
+
+    padding: 15px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    border-radius: 15px;
+
+    background:
+        #eaf9ee;
+
+    border:
+        1px solid
+        #d5f0dc;
+}
+
+.wa-icon {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #5be88b;
+
+    font-size: 17px;
+}
+
+.whatsapp-info strong {
+    display: block;
+
+    font-size: 10px;
+}
+
+.whatsapp-info p {
+    margin-top: 5px;
+
+    color: #718078;
+
+    font-size: 8px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    padding:
+        55px 7%
+        25px;
+
+    background: #080d0a;
+
+    color: white;
+
+    text-align: center;
+}
+
+.footer-logo {
+    color: #62ed91;
+
+    font-size: 18px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+footer p {
+    margin-top: 10px;
+
+    color: #737e76;
+
+    font-size: 9px;
+}
+
+.copyright {
+    margin-top: 30px;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid
+        #222b25;
+
+    color: #505a53;
+
+    font-size: 8px;
+}
+
+
+/* =====================================================
+   FORM ERROR
+===================================================== */
+
+.input-error {
+    border-color:
+        #ff6666 !important;
+
+    background:
+        #fff8f8 !important;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(255, 80, 80, .07) !important;
+}
+
+
+.error-message {
+    margin-top: 6px;
+
+    color: #e34f4f;
+
+    font-size: 8px;
+}
+
+
+/* =====================================================
+   SUCCESS POPUP
+===================================================== */
+
+.success-popup {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    z-index: 10000;
+
+    max-width: 350px;
+
+    padding: 18px 20px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    border:
+        1px solid
+        #bdebc9;
+
+    border-radius: 15px;
+
+    background: white;
+
+    box-shadow:
+        0 20px 50px
+        rgba(0, 0, 0, .15);
+
+    transform:
+        translateX(120%);
+
+    transition: .5s;
+}
+
+.success-popup.show {
+    transform:
+        translateX(0);
+}
+
+.success-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #5be98b;
+
+    font-size: 16px;
+}
+
+.success-popup strong {
+    font-size: 10px;
+}
+
+.success-popup p {
+    margin-top: 4px;
+
+    color: #77827b;
+
+    font-size: 8px;
+}
+
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+.form-card {
+    animation:
+        slideLeft
+        .8s
+        ease both;
+}
+
+.summary-card {
+    animation:
+        slideRight
+        .8s
+        ease both;
+}
+
+@keyframes slideLeft {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(-35px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+}
+
+@keyframes slideRight {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(35px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .navbar {
+        padding: 0 4%;
+    }
+
+    .navbar nav {
+        gap: 15px;
+    }
+
+    .checkout-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .summary-card {
+        position: relative;
+
+        top: auto;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        height: 68px;
+
+        padding:
+            0 18px;
+    }
+
+    .navbar nav {
+        display: none;
+    }
+
+    .logo-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .logo strong {
+        font-size: 12px;
+    }
+
+    .logo small {
+        font-size: 7px;
+    }
+
+
+    /* HERO */
+
+    .shipping-hero {
+        padding:
+            80px 20px
+            60px;
+    }
+
+    .shipping-hero::after {
+        right: -20px;
+
+        font-size: 120px;
+    }
+
+    .shipping-hero h1 {
+        font-size: 55px;
+
+        letter-spacing: -4px;
+    }
+
+    .shipping-hero p {
+        font-size: 10px;
+    }
+
+
+    /* GRID */
+
+    .checkout-grid {
+        padding:
+            40px 15px
+            70px;
+
+        gap: 18px;
+    }
+
+
+    /* CARDS */
+
+    .form-card,
+    .summary-card {
+        padding: 23px 18px;
+
+        border-radius: 22px;
+    }
+
+
+    .card-heading h2 {
+        font-size: 17px;
+    }
+
+
+    /* TWO INPUTS */
+
+    .two-column {
+        grid-template-columns:
+            1fr;
+        gap: 0;
+    }
+
+
+    /* BUTTON */
+
+    .order-btn {
+        min-height: 58px;
+
+        padding:
+            0 15px;
+
+        font-size: 9px;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+        padding:
+            45px 20px
+            20px;
+    }
+
+
+    /* POPUP */
+
+    .success-popup {
+        right: 15px;
+        left: 15px;
+        bottom: 15px;
+
+        max-width: none;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 420px) {
+
+    .shipping-hero h1 {
+        font-size: 47px;
+    }
+
+    .age-box {
+        padding:
+            30px 20px;
+    }
+
+    .age-box h2 {
+        font-size: 22px;
+    }
+
+    .cart-item-image {
+        width: 50px;
+        height: 50px;
+    }
+
+    .cart-item-info h4 {
+        font-size: 10px;
+    }
+
+}
+
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #edf2ee;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #101512;
+
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #58e989;
+}
+
+
+/* =====================================================
+   SELECTION
+===================================================== */
+
+::selection {
+    background: #5ee98d;
+    color: #101512;
+}
+</style>
+
+<body>
+
+
+<!-- ==============================
+     NAVBAR
+================================ -->
+
+<header class="navbar">
+
+    <a href="index.html" class="logo">
+
+        <div class="logo-icon">
+            PT
+        </div>
+
+        <div>
+
+            <strong>
+                PT NUTRITION
+            </strong>
+
+            <small>
+                PREMIUM SUPPLEMENTS
+            </small>
+
+        </div>
+
+    </a>
+
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="categories.html">
+            Categories
+        </a>
+
+        <a href="products.html">
+            Products
+        </a>
+
+        <a href="cart.html">
+            Cart
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ==============================
+     AGE WARNING
+================================ -->
+
+<div
+    class="age-overlay"
+    id="ageOverlay"
+>
+
+    <div class="age-box">
+
+        <div class="age-icon">
+            18+
+        </div>
+
+        <h2>
+            Age Verification
+        </h2>
+
+        <p>
+            You must be 18 years or older
+            to place an order on PT Nutrition.
+        </p>
+
+        <button
+            id="ageContinue"
+        >
+            I am 18 or older
+        </button>
+
+        <button
+            id="ageExit"
+            class="exit-btn"
+        >
+            I am under 18
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- ==============================
+     MAIN
+================================ -->
+
+<main class="shipping-page">
+
+
+    <section class="shipping-hero">
+
+        <div>
+
+            <span class="tag">
+                SECURE CHECKOUT
+            </span>
+
+            <h1>
+                Shipping
+                <span>Details.</span>
+            </h1>
+
+            <p>
+                Enter your details carefully.
+                Your order information will be
+                prepared for WhatsApp confirmation.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================
+         ORDER SUMMARY
+    =========================== -->
+
+    <section class="checkout-grid">
+
+
+        <!-- FORM -->
+
+        <div class="form-card">
+
+            <div class="card-heading">
+
+                <span>
+                    01
+                </span>
+
+                <h2>
+                    Delivery Information
+                </h2>
+
+            </div>
+
+
+            <form id="shippingForm">
+
+
+                <!-- NAME -->
+
+                <div class="input-group">
+
+                    <label>
+                        Full Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- MOBILE -->
+
+                <div class="input-group">
+
+                    <label>
+                        Mobile Number *
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="10 digit mobile number"
+                        maxlength="10"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- EMAIL -->
+
+                <div class="input-group">
+
+                    <label>
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="example@gmail.com"
+                    >
+
+                </div>
+
+
+
+                <!-- AGE -->
+
+                <div class="input-group">
+
+                    <label>
+                        Your Age *
+                    </label>
+
+                    <input
+                        type="number"
+                        id="age"
+                        placeholder="Enter your age"
+                        min="1"
+                        max="100"
+                        required
+                    >
+
+                    <small class="age-note">
+                        You must be 18+ to place an order.
+                    </small>
+
+                </div>
+
+
+
+                <!-- ADDRESS -->
+
+                <div class="input-group">
+
+                    <label>
+                        Full Address *
+                    </label>
+
+                    <textarea
+                        id="address"
+                        placeholder="House no., street, area..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+
+                <!-- CITY -->
+
+                <div class="two-column">
+
+                    <div class="input-group">
+
+                        <label>
+                            City *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="city"
+                            placeholder="City"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            State *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="state"
+                            placeholder="State"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PINCODE -->
+
+                <div class="input-group">
+
+                    <label>
+                        Pincode *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="pincode"
+                        placeholder="6 digit pincode"
+                        maxlength="6"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- INSTRUCTIONS -->
+
+                <div class="input-group">
+
+                    <label>
+                        Delivery Instructions
+                    </label>
+
+                    <textarea
+                        id="instructions"
+                        placeholder="Any special delivery instructions..."
+                    ></textarea>
+
+                </div>
+
+
+
+                <!-- CHECKBOX -->
+
+                <label class="check-box">
+
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        required
+                    >
+
+                    <span>
+                        I confirm that the information
+                        provided by me is correct and
+                        I am 18 years or older.
+                    </span>
+
+                </label>
+
+
+
+                <!-- ORDER BUTTON -->
+
+                <button
+                    type="submit"
+                    class="order-btn"
+                >
+
+                    <span>
+                        📱
+                    </span>
+
+                    Continue Order on WhatsApp
+
+                    <b>
+                        →
+                    </b>
+
+                </button>
+
+
+            </form>
+
+        </div>
+
+
+
+        <!-- ==========================
+             ORDER SUMMARY
+        =========================== -->
+
+        <aside class="summary-card">
+
+
+            <div class="card-heading">
+
+                <span>
+                    02
+                </span>
+
+                <h2>
+                    Your Order
+                </h2>
+
+            </div>
+
+
+
+            <div
+                id="cartItems"
+                class="cart-items"
+            >
+
+                <!-- JS PRODUCTS -->
+
+            </div>
+
+
+
+            <div class="bill">
+
+
+                <div>
+
+                    <span>
+                        Subtotal
+                    </span>
+
+                    <strong id="subtotal">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Shipping
+                    </span>
+
+                    <strong id="shipping">
+                        FREE
+                    </strong>
+
+                </div>
+
+
+                <div class="total">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <strong id="total">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="whatsapp-info">
+
+                <div class="wa-icon">
+                    💬
+                </div>
+
+                <div>
+
+                    <strong>
+                        Order Confirmation
+                    </strong>
+
+                    <p>
+                        Your order details will open
+                        in WhatsApp for confirmation.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </aside>
+
+
+    </section>
+
+</main>
+
+
+
+<!-- ==============================
+     FOOTER
+================================ -->
+
+<footer>
+
+    <div class="footer-logo">
+        PT NUTRITION
+    </div>
+
+    <p>
+        Premium nutrition products
+        by Parteek Tushir.
+    </p>
+
+    <p>
+        📍 Subhash Chowk, Sonipat
+    </p>
+
+    <p>
+        📞 9582101438
+    </p>
+
+    <div class="copyright">
+        © 2026 PT Nutrition. All Rights Reserved.
+    </div>
+
+</footer>
+
+
+
+<!-- ==============================
+     JS
+================================ -->
+
+<script>
+    /* =====================================================
+   PT NUTRITION - SHIPPING.JS
+===================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* =================================================
+       SETTINGS
+    ================================================= */
+
+    const WHATSAPP_NUMBER = "919582101438";
+
+    const CART_KEY = "ptNutritionCart";
+
+
+    /* =================================================
+       ELEMENTS
+    ================================================= */
+
+    const form =
+        document.getElementById("shippingForm");
+
+    const cartItems =
+        document.getElementById("cartItems");
+
+    const subtotalElement =
+        document.getElementById("subtotal");
+
+    const totalElement =
+        document.getElementById("total");
+
+    const ageOverlay =
+        document.getElementById("ageOverlay");
+
+    const ageContinue =
+        document.getElementById("ageContinue");
+
+    const ageExit =
+        document.getElementById("ageExit");
+
+    const ageInput =
+        document.getElementById("age");
+
+
+
+    /* =================================================
+       GET CART
+    ================================================= */
+
+    function getCart() {
+
+        try {
+
+            const cart =
+                JSON.parse(
+                    localStorage.getItem(CART_KEY)
+                );
+
+            return Array.isArray(cart)
+                ? cart
+                : [];
+
+        } catch (error) {
+
+            console.error(
+                "Cart error:",
+                error
+            );
+
+            return [];
+
+        }
+
+    }
+
+
+
+    /* =================================================
+       SAVE CART
+    ================================================= */
+
+    function saveCart(cart) {
+
+        localStorage.setItem(
+            CART_KEY,
+            JSON.stringify(cart)
+        );
+
+    }
+
+
+
+    /* =================================================
+       NUMBER FORMAT
+    ================================================= */
+
+    function formatPrice(price) {
+
+        return "₹" +
+            Number(price || 0)
+            .toLocaleString("en-IN");
+
+    }
+
+
+
+    /* =================================================
+       LOAD CART
+    ================================================= */
+
+    function loadCart() {
+
+        const cart = getCart();
+
+        cartItems.innerHTML = "";
+
+        if (cart.length === 0) {
+
+            cartItems.innerHTML = `
+
+                <div class="empty-cart">
+
+                    <div class="empty-cart-icon">
+                        🛒
+                    </div>
+
+                    <p>
+                        Your cart is empty.
+                    </p>
+
+                    <p>
+                        Add some products first.
+                    </p>
+
+                </div>
+
+            `;
+
+            subtotalElement.textContent =
+                "₹0";
+
+            totalElement.textContent =
+                "₹0";
+
+            return;
+
+        }
+
+
+        let subtotal = 0;
+
+
+        cart.forEach((item, index) => {
+
+            const quantity =
+                Number(item.quantity) || 1;
+
+            const price =
+                Number(
+                    item.price ??
+                    item.newPrice ??
+                    0
+                );
+
+            const itemTotal =
+                price * quantity;
+
+            subtotal += itemTotal;
+
+
+            const image =
+                item.image ||
+                item.img ||
+                "images/product-placeholder.jpg";
+
+
+            const name =
+                item.name ||
+                "Nutrition Product";
+
+
+            const itemHTML = `
+
+                <div
+                    class="cart-item"
+                    data-index="${index}"
+                >
+
+                    <div class="cart-item-image">
+
+                        <img
+                            src="${image}"
+                            alt="${name}"
+                            onerror="
+                                this.style.display='none';
+                            "
+                        >
+
+                    </div>
+
+
+                    <div class="cart-item-info">
+
+                        <h4>
+                            ${name}
+                        </h4>
+
+                        <p>
+                            Qty: ${quantity}
+                        </p>
+
+                    </div>
+
+
+                    <div class="cart-item-price">
+
+                        ${formatPrice(itemTotal)}
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            cartItems.insertAdjacentHTML(
+                "beforeend",
+                itemHTML
+            );
+
+        });
+
+
+        subtotalElement.textContent =
+            formatPrice(subtotal);
+
+
+        totalElement.textContent =
+            formatPrice(subtotal);
+
+    }
+
+
+
+    /* =================================================
+       GET TOTAL
+    ================================================= */
+
+    function getCartTotal() {
+
+        const cart = getCart();
+
+        let total = 0;
+
+
+        cart.forEach(item => {
+
+            const price =
+                Number(
+                    item.price ??
+                    item.newPrice ??
+                    0
+                );
+
+            const quantity =
+                Number(item.quantity) || 1;
+
+
+            total +=
+                price * quantity;
+
+        });
+
+
+        return total;
+
+    }
+
+
+
+    /* =================================================
+       AGE VERIFICATION
+    ================================================= */
+
+    function showAgePopup() {
+
+        if (!ageOverlay) return;
+
+        ageOverlay.classList.add("show");
+
+        document.body.style.overflow =
+            "hidden";
+
+    }
+
+
+    function hideAgePopup() {
+
+        if (!ageOverlay) return;
+
+        ageOverlay.classList.remove("show");
+
+        document.body.style.overflow =
+            "";
+
+    }
+
+
+    /*
+       Popup initially show hoga
+    */
+
+    const savedAgeStatus =
+        sessionStorage.getItem(
+            "ptNutritionAgeVerified"
+        );
+
+
+    if (
+        savedAgeStatus !== "true"
+    ) {
+
+        showAgePopup();
+
+    }
+
+
+
+    /* =================================================
+       AGE 18+ BUTTON
+    ================================================= */
+
+    if (ageContinue) {
+
+        ageContinue.addEventListener(
+            "click",
+            () => {
+
+                sessionStorage.setItem(
+                    "ptNutritionAgeVerified",
+                    "true"
+                );
+
+                hideAgePopup();
+
+            }
+        );
+
+    }
+
+
+
+    /* =================================================
+       UNDER 18 BUTTON
+    ================================================= */
+
+    if (ageExit) {
+
+        ageExit.addEventListener(
+            "click",
+            () => {
+
+                alert(
+                    "Sorry! You must be 18 years or older to place an order."
+                );
+
+                window.location.href =
+                    "index.html";
+
+            }
+        );
+
+    }
+
+
+
+    /* =================================================
+       AGE INPUT CHECK
+    ================================================= */
+
+    if (ageInput) {
+
+        ageInput.addEventListener(
+            "input",
+            () => {
+
+                const age =
+                    Number(
+                        ageInput.value
+                    );
+
+
+                if (
+                    age &&
+                    age < 18
+                ) {
+
+                    ageInput.classList.add(
+                        "input-error"
+                    );
+
+                } else {
+
+                    ageInput.classList.remove(
+                        "input-error"
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+
+
+    /* =================================================
+       PHONE VALIDATION
+    ================================================= */
+
+    function validPhone(phone) {
+
+        return /^[6-9]\d{9}$/.test(
+            phone
+        );
+
+    }
+
+
+
+    /* =================================================
+       PINCODE VALIDATION
+    ================================================= */
+
+    function validPincode(pincode) {
+
+        return /^\d{6}$/.test(
+            pincode
+        );
+
+    }
+
+
+
+    /* =================================================
+       ESCAPE TEXT
+    ================================================= */
+
+    function cleanText(text) {
+
+        return String(text || "")
+            .trim();
+
+    }
+
+
+
+    /* =================================================
+       CREATE WHATSAPP MESSAGE
+    ================================================= */
+
+    function createWhatsAppMessage() {
+
+        const name =
+            cleanText(
+                document.getElementById(
+                    "name"
+                ).value
+            );
+
+
+        const phone =
+            cleanText(
+                document.getElementById(
+                    "phone"
+                ).value
+            );
+
+
+        const email =
+            cleanText(
+                document.getElementById(
+                    "email"
+                ).value
+            );
+
+
+        const age =
+            cleanText(
+                document.getElementById(
+                    "age"
+                ).value
+            );
+
+
+        const address =
+            cleanText(
+                document.getElementById(
+                    "address"
+                ).value
+            );
+
+
+        const city =
+            cleanText(
+                document.getElementById(
+                    "city"
+                ).value
+            );
+
+
+        const state =
+            cleanText(
+                document.getElementById(
+                    "state"
+                ).value
+            );
+
+
+        const pincode =
+            cleanText(
+                document.getElementById(
+                    "pincode"
+                ).value
+            );
+
+
+        const instructions =
+            cleanText(
+                document.getElementById(
+                    "instructions"
+                ).value
+            );
+
+
+        const cart =
+            getCart();
+
+
+        let message =
+            "🛒 *PT NUTRITION - NEW ORDER*";
+
+
+        message +=
+            "\n\n━━━━━━━━━━━━━━━━";
+
+
+        message +=
+            "\n👤 *CUSTOMER DETAILS*";
+
+
+        message +=
+            `\nName: ${name}`;
+
+
+        message +=
+            `\nMobile: ${phone}`;
+
+
+        if (email) {
+
+            message +=
+                `\nEmail: ${email}`;
+
+        }
+
+
+        message +=
+            `\nAge: ${age}`;
+
+
+        message +=
+            "\n\n📍 *DELIVERY ADDRESS*";
+
+
+        message +=
+            `\nAddress: ${address}`;
+
+
+        message +=
+            `\nCity: ${city}`;
+
+
+        message +=
+            `\nState: ${state}`;
+
+
+        message +=
+            `\nPincode: ${pincode}`;
+
+
+        if (instructions) {
+
+            message +=
+                "\n\n📝 *DELIVERY INSTRUCTIONS*";
+
+            message +=
+                `\n${instructions}`;
+
+        }
+
+
+        message +=
+            "\n\n━━━━━━━━━━━━━━━━";
+
+
+        message +=
+            "\n📦 *ORDER ITEMS*";
+
+
+        let total = 0;
+
+
+        cart.forEach(
+            (item, index) => {
+
+                const name =
+                    item.name ||
+                    "Product";
+
+
+                const price =
+                    Number(
+                        item.price ??
+                        item.newPrice ??
+                        0
+                    );
+
+
+                const quantity =
+                    Number(
+                        item.quantity
+                    ) || 1;
+
+
+                const itemTotal =
+                    price * quantity;
+
+
+                total +=
+                    itemTotal;
+
+
+                message +=
+                    `\n\n${index + 1}. ${name}`;
+
+
+                message +=
+                    `\n   Qty: ${quantity}`;
+
+
+                message +=
+                    `\n   Price: ${formatPrice(price)}`;
+
+
+                message +=
+                    `\n   Total: ${formatPrice(itemTotal)}`;
+
+            }
+        );
+
+
+        message +=
+            "\n\n━━━━━━━━━━━━━━━━";
+
+
+        message +=
+            `\n💰 *TOTAL BILL: ${formatPrice(total)}*`;
+
+
+        message +=
+            "\n🚚 Shipping: FREE";
+
+
+        message +=
+            "\n\n━━━━━━━━━━━━━━━━";
+
+
+        message +=
+            "\nPlease confirm my order.";
+
+
+        message +=
+            "\n\nThank you!";
+
+
+        return message;
+
+    }
+
+
+
+    /* =================================================
+       FORM SUBMIT
+    ================================================= */
+
+    if (form) {
+
+        form.addEventListener(
+            "submit",
+            event => {
+
+                event.preventDefault();
+
+
+                /* ==========================
+                   CART CHECK
+                =========================== */
+
+                const cart =
+                    getCart();
+
+
+                if (cart.length === 0) {
+
+                    alert(
+                        "Your cart is empty. Please add a product before placing an order."
+                    );
+
+                    return;
+
+                }
+
+
+
+                /* ==========================
+                   GET VALUES
+                =========================== */
+
+                const name =
+                    cleanText(
+                        document.getElementById(
+                            "name"
+                        ).value
+                    );
+
+
+                const phone =
+                    cleanText(
+                        document.getElementById(
+                            "phone"
+                        ).value
+                    );
+
+
+                const age =
+                    Number(
+                        document.getElementById(
+                            "age"
+                        ).value
+                    );
+
+
+                const pincode =
+                    cleanText(
+                        document.getElementById(
+                            "pincode"
+                        ).value
+                    );
+
+
+                const terms =
+                    document.getElementById(
+                        "terms"
+                    ).checked;
+
+
+
+                /* ==========================
+                   NAME
+                =========================== */
+
+                if (name.length < 2) {
+
+                    alert(
+                        "Please enter your full name."
+                    );
+
+                    return;
+
+                }
+
+
+
+                /* ==========================
+                   AGE
+                =========================== */
+
+                if (
+                    !age ||
+                    age < 18
+                ) {
+
+                    alert(
+                        "Order cannot be placed. You must be 18 years or older."
+                    );
+
+                    if (ageInput) {
+
+                        ageInput.focus();
+
+                    }
+
+                    return;
+
+                }
+
+
+
+                /* ==========================
+                   PHONE
+                =========================== */
+
+                if (
+                    !validPhone(phone)
+                ) {
+
+                    alert(
+                        "Please enter a valid 10 digit Indian mobile number."
+                    );
+
+                    document
+                        .getElementById(
+                            "phone"
+                        )
+                        .focus();
+
+                    return;
+
+                }
+
+
+
+                /* ==========================
+                   PINCODE
+                =========================== */
+
+                if (
+                    !validPincode(
+                        pincode
+                    )
+                ) {
+
+                    alert(
+                        "Please enter a valid 6 digit pincode."
+                    );
+
+                    document
+                        .getElementById(
+                            "pincode"
+                        )
+                        .focus();
+
+                    return;
+
+                }
+
+
+
+                /* ==========================
+                   TERMS
+                =========================== */
+
+                if (!terms) {
+
+                    alert(
+                        "Please confirm that your information is correct and you are 18+."
+                    );
+
+                    return;
+
+                }
+
+
+
+                /* ==========================
+                   SAVE AGE STATUS
+                =========================== */
+
+                sessionStorage.setItem(
+                    "ptNutritionAgeVerified",
+                    "true"
+                );
+
+
+
+                /* ==========================
+                   CREATE MESSAGE
+                =========================== */
+
+                const message =
+                    createWhatsAppMessage();
+
+
+
+                /* ==========================
+                   WHATSAPP URL
+                =========================== */
+
+                const whatsappURL =
+                    "https://wa.me/" +
+                    WHATSAPP_NUMBER +
+                    "?text=" +
+                    encodeURIComponent(
+                        message
+                    );
+
+
+
+                /* ==========================
+                   OPEN WHATSAPP
+                =========================== */
+
+                window.open(
+                    whatsappURL,
+                    "_blank"
+                );
+
+            }
+        );
+
+    }
+
+
+
+    /* =================================================
+       UPDATE CART IF CHANGED
+    ================================================= */
+
+    window.addEventListener(
+        "storage",
+        event => {
+
+            if (
+                event.key === CART_KEY
+            ) {
+
+                loadCart();
+
+            }
+
+        }
+    );
+
+
+
+    /* =================================================
+       INITIAL LOAD
+    ================================================= */
+
+    loadCart();
+
+});
+</script>
+
+</body>
+
+</html>

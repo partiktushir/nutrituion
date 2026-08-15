@@ -1,0 +1,4628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Categories | PT Nutrition</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="categories.css">
+</head>
+<style>
+    /* =====================================================
+   PT NUTRITION — CATEGORIES.CSS
+   Owner: Parteek Tushir
+===================================================== */
+
+
+/* ================= RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: #f5f8f6;
+    color: #101512;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* ================= LOADER ================= */
+
+.loader {
+    position: fixed;
+    inset: 0;
+
+    z-index: 99999;
+
+    background: #080d0a;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        opacity .6s ease,
+        visibility .6s ease;
+}
+
+.loader.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-logo {
+    width: 80px;
+    height: 80px;
+
+    border: 2px solid #6dff9b;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #6dff9b;
+
+    font-size: 25px;
+    font-weight: 900;
+
+    animation: loaderPulse 1.4s infinite;
+}
+
+.loader h2 {
+    margin-top: 20px;
+    font-size: 24px;
+}
+
+.loader p {
+    margin-top: 7px;
+
+    color: #7dff9f;
+
+    font-size: 11px;
+}
+
+@keyframes loaderPulse {
+
+    0% {
+        transform: scale(.9);
+        box-shadow: 0 0 0 0 rgba(109,255,155,.5);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 22px rgba(109,255,155,0);
+    }
+
+    100% {
+        transform: scale(.9);
+    }
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 78px;
+
+    padding: 0 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(255,255,255,.88);
+
+    backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(0,0,0,.06);
+
+    z-index: 5000;
+
+    transition: .3s ease;
+}
+
+.navbar.scrolled {
+    height: 68px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.08);
+}
+
+
+/* ================= LOGO ================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.logo-icon {
+    width: 43px;
+    height: 43px;
+
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #101512;
+    color: #72ff9c;
+
+    font-size: 16px;
+    font-weight: 900;
+
+    transform: rotate(-5deg);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.15);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-text strong {
+    font-size: 15px;
+    letter-spacing: 1.5px;
+}
+
+.logo-text small {
+    margin-top: 2px;
+
+    color: #737c76;
+
+    font-size: 9px;
+}
+
+
+/* ================= NAV LINKS ================= */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-links a {
+    position: relative;
+
+    color: #59625c;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: .3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #101512;
+}
+
+.nav-links a.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -9px;
+
+    width: 100%;
+    height: 2px;
+
+    background: #4ce77e;
+
+    border-radius: 20px;
+}
+
+.nav-shop {
+    padding: 11px 19px;
+
+    background: #101512;
+
+    color: white !important;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 10px 20px rgba(0,0,0,.15);
+}
+
+
+/* ================= NAV ACTION ================= */
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart-btn {
+    position: relative;
+
+    width: 43px;
+    height: 43px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    border: 1px solid #e0e6e2;
+
+    font-size: 17px;
+
+    transition: .3s;
+}
+
+.cart-btn:hover {
+    transform: translateY(-3px);
+}
+
+.cart-btn span {
+    position: absolute;
+
+    top: -3px;
+    right: -3px;
+
+    width: 19px;
+    height: 19px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #5bed8b;
+    color: #07100a;
+
+    font-size: 10px;
+    font-weight: 900;
+}
+
+
+/* ================= MENU ================= */
+
+.menu-btn {
+    display: none;
+
+    width: 43px;
+    height: 43px;
+
+    background: #101512;
+
+    border-radius: 50%;
+
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.menu-btn span {
+    width: 18px;
+    height: 2px;
+
+    background: white;
+
+    border-radius: 10px;
+
+    transition: .3s;
+}
+
+.menu-btn.active span:nth-child(1) {
+    transform:
+        rotate(45deg)
+        translate(4px,4px);
+}
+
+.menu-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-btn.active span:nth-child(3) {
+    transform:
+        rotate(-45deg)
+        translate(4px,-4px);
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.category-hero {
+    position: relative;
+
+    min-height: 620px;
+
+    padding:
+        150px 8%
+        80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 75% 50%,
+            rgba(71,235,125,.16),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            #f9fcfa,
+            #eaf4ed
+        );
+}
+
+
+/* ================= PARTICLES ================= */
+
+.hero-particles span {
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #57ed88;
+
+    box-shadow:
+        0 0 15px rgba(87,237,136,.7);
+
+    animation:
+        particleFloat 5s ease-in-out infinite;
+}
+
+.hero-particles span:nth-child(1) {
+    left: 12%;
+    top: 25%;
+}
+
+.hero-particles span:nth-child(2) {
+    left: 30%;
+    bottom: 20%;
+
+    animation-delay: 1s;
+}
+
+.hero-particles span:nth-child(3) {
+    right: 12%;
+    top: 25%;
+
+    animation-delay: 2s;
+}
+
+.hero-particles span:nth-child(4) {
+    right: 35%;
+    bottom: 18%;
+
+    animation-delay: 3s;
+}
+
+.hero-particles span:nth-child(5) {
+    left: 50%;
+    top: 16%;
+
+    animation-delay: 1.5s;
+}
+
+@keyframes particleFloat {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            scale(1);
+
+        opacity: .4;
+    }
+
+    50% {
+        transform:
+            translateY(-25px)
+            scale(1.6);
+
+        opacity: 1;
+    }
+}
+
+
+/* ================= HERO CONTENT ================= */
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+
+    width: 55%;
+
+    animation:
+        heroText .9s ease forwards;
+}
+
+@keyframes heroText {
+
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.small-title {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    color: #5c6760;
+
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 20px;
+}
+
+.small-title span {
+    width: 28px;
+    height: 2px;
+
+    background: #4ce77e;
+
+    border-radius: 10px;
+}
+
+.hero-content .small-title span:last-child {
+    display: none;
+}
+
+.hero-content h1 {
+    max-width: 700px;
+
+    font-size:
+        clamp(48px,6vw,78px);
+
+    line-height: .95;
+
+    letter-spacing: -4px;
+
+    font-weight: 900;
+
+    margin-bottom: 24px;
+}
+
+.hero-content h1 span {
+    display: block;
+
+    color: #46dc78;
+
+    text-shadow:
+        0 10px 30px rgba(70,220,120,.16);
+}
+
+.hero-content p {
+    max-width: 560px;
+
+    color: #69746d;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    margin-bottom: 30px;
+}
+
+
+/* ================= BUTTONS ================= */
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.primary-btn,
+.secondary-btn {
+    min-height: 50px;
+
+    padding: 0 23px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    border-radius: 30px;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    transition: .35s ease;
+}
+
+.primary-btn {
+    background: #101512;
+    color: white;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.15);
+}
+
+.primary-btn span {
+    font-size: 18px;
+
+    transition: .3s;
+}
+
+.primary-btn:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 18px 35px rgba(0,0,0,.20);
+}
+
+.primary-btn:hover span {
+    transform: translateY(4px);
+}
+
+.secondary-btn {
+    border: 1px solid #d6ded9;
+
+    color: #303932;
+
+    background: rgba(255,255,255,.5);
+}
+
+.secondary-btn:hover {
+    background: white;
+
+    transform: translateY(-3px);
+}
+
+
+/* =====================================================
+   HERO VISUAL
+===================================================== */
+
+.hero-visual {
+    position: relative;
+
+    width: 43%;
+    height: 450px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    perspective: 1200px;
+}
+
+.visual-glow {
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    background: rgba(75,237,130,.17);
+
+    filter: blur(40px);
+
+    animation:
+        visualGlow 4s ease-in-out infinite;
+}
+
+@keyframes visualGlow {
+
+    0%,100% {
+        transform: scale(.9);
+        opacity: .5;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: 1;
+    }
+}
+
+
+/* ================= ORBITS ================= */
+
+.orbit {
+    position: absolute;
+
+    border: 1px solid rgba(45,70,54,.13);
+
+    border-radius: 50%;
+
+    transform-style: preserve-3d;
+}
+
+.orbit-one {
+    width: 410px;
+    height: 170px;
+
+    transform:
+        rotateX(65deg);
+
+    animation:
+        orbitSpin 10s linear infinite;
+}
+
+.orbit-two {
+    width: 490px;
+    height: 210px;
+
+    transform:
+        rotateX(65deg)
+        rotateZ(45deg);
+
+    animation:
+        orbitSpin 14s linear infinite;
+}
+
+@keyframes orbitSpin {
+
+    from {
+        transform:
+            rotateX(65deg)
+            rotateZ(0);
+    }
+
+    to {
+        transform:
+            rotateX(65deg)
+            rotateZ(360deg);
+    }
+}
+
+
+/* ================= 3D BOTTLE ================= */
+
+.floating-product {
+    position: relative;
+
+    width: 160px;
+    height: 290px;
+
+    transform-style: preserve-3d;
+
+    animation:
+        bottleFloat 4s ease-in-out infinite;
+
+    filter:
+        drop-shadow(
+            25px 30px 20px
+            rgba(0,0,0,.20)
+        );
+}
+
+@keyframes bottleFloat {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            rotateY(-7deg);
+    }
+
+    50% {
+        transform:
+            translateY(-18px)
+            rotateY(7deg);
+    }
+}
+
+.object-cap {
+    position: absolute;
+
+    top: 0;
+    left: 18px;
+
+    width: 124px;
+    height: 52px;
+
+    border-radius:
+        11px
+        11px
+        5px
+        5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #090d0b,
+            #3a443e,
+            #0b100d
+        );
+}
+
+.object-body {
+    position: absolute;
+
+    left: 0;
+    top: 40px;
+
+    width: 160px;
+    height: 250px;
+
+    border-radius:
+        20px
+        20px
+        28px
+        28px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #080c09,
+            #2c3630 22%,
+            #111713 50%,
+            #3a453e 78%,
+            #080c09
+        );
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: white;
+
+    overflow: hidden;
+
+    box-shadow:
+        inset 8px 0 12px
+        rgba(255,255,255,.04),
+
+        inset -10px 0 15px
+        rgba(0,0,0,.35);
+}
+
+.object-body small {
+    margin-top: 30px;
+
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #67f798;
+
+    border-radius: 50%;
+
+    color: #67f798;
+
+    font-weight: 900;
+}
+
+.object-body strong {
+    margin-top: 20px;
+
+    font-size: 25px;
+
+    letter-spacing: 1px;
+}
+
+.object-body span {
+    margin-top: 5px;
+
+    color: #69f799;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+/* ================= MINI CARDS ================= */
+
+.mini-card {
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 11px 14px;
+
+    background:
+        rgba(255,255,255,.86);
+
+    backdrop-filter: blur(15px);
+
+    border: 1px solid white;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.10);
+
+    z-index: 5;
+
+    animation:
+        miniFloat 4s ease-in-out infinite;
+}
+
+.mini-card-one {
+    top: 65px;
+    right: 0;
+}
+
+.mini-card-two {
+    bottom: 70px;
+    left: 0;
+
+    animation-delay: 1.5s;
+}
+
+.mini-card > div:first-child {
+    font-size: 19px;
+}
+
+.mini-card strong {
+    display: block;
+
+    font-size: 10px;
+}
+
+.mini-card small {
+    display: block;
+
+    color: #78827b;
+
+    font-size: 8px;
+
+    margin-top: 3px;
+}
+
+@keyframes miniFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+
+/* =====================================================
+   FILTER SECTION
+===================================================== */
+
+.filter-section {
+    padding:
+        90px 7%
+        30px;
+
+    background: #f5f8f6;
+}
+
+.filter-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 35px;
+}
+
+.filter-heading h2 {
+    font-size: clamp(35px,5vw,55px);
+
+    line-height: 1;
+
+    letter-spacing: -2px;
+}
+
+.filter-heading h2 span {
+    color: #44dc78;
+}
+
+
+/* ================= SEARCH ================= */
+
+.search-box {
+    width: 280px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 0 15px;
+
+    background: white;
+
+    border: 1px solid #dfe6e1;
+
+    border-radius: 30px;
+
+    transition: .3s;
+}
+
+.search-box:focus-within {
+    border-color: #50e782;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(80,231,130,.10);
+}
+
+.search-box span {
+    font-size: 14px;
+}
+
+.search-box input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    font-size: 11px;
+}
+
+
+/* ================= CATEGORY TABS ================= */
+
+.category-tabs {
+    display: flex;
+
+    gap: 10px;
+
+    overflow-x: auto;
+
+    padding-bottom: 10px;
+
+    scrollbar-width: none;
+}
+
+.category-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.category-tab {
+    flex-shrink: 0;
+
+    padding: 11px 17px;
+
+    border-radius: 25px;
+
+    background: white;
+
+    border: 1px solid #dfe6e1;
+
+    color: #68736c;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    transition: .3s;
+}
+
+.category-tab:hover {
+    transform: translateY(-2px);
+
+    border-color: #5de98c;
+}
+
+.category-tab.active {
+    background: #101512;
+
+    border-color: #101512;
+
+    color: white;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.12);
+}
+
+
+/* =====================================================
+   PRODUCTS
+===================================================== */
+
+.products-section {
+    padding:
+        65px 7%
+        110px;
+
+    background: #f5f8f6;
+}
+
+.section-heading {
+    text-align: center;
+
+    max-width: 600px;
+
+    margin: 0 auto 50px;
+}
+
+.section-heading .small-title {
+    justify-content: center;
+}
+
+.section-heading h2 {
+    font-size:
+        clamp(38px,5vw,58px);
+
+    letter-spacing: -3px;
+
+    line-height: 1;
+
+    margin-bottom: 15px;
+}
+
+.section-heading h2 span {
+    color: #45dd79;
+}
+
+.section-heading p {
+    color: #768079;
+
+    font-size: 13px;
+}
+
+
+/* ================= PRODUCT GRID ================= */
+
+.products-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 20px;
+}
+
+
+/* ================= PRODUCT CARD ================= */
+
+.product-card {
+    position: relative;
+
+    background: white;
+
+    border:
+        1px solid
+        #e4eae6;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    transition:
+        transform .45s ease,
+        box-shadow .45s ease,
+        border-color .45s ease;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,.035);
+}
+
+.product-card:hover {
+    transform:
+        translateY(-12px)
+        rotateX(2deg);
+
+    border-color: #70ed98;
+
+    box-shadow:
+        0 25px 50px
+        rgba(0,0,0,.11);
+}
+
+
+/* ================= BADGE ================= */
+
+.product-badge {
+    position: absolute;
+
+    top: 15px;
+    left: 15px;
+
+    z-index: 5;
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    background: #101512;
+
+    color: white;
+
+    font-size: 7px;
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+.product-badge.green {
+    background: #63ed91;
+    color: #07100a;
+}
+
+.product-badge.orange {
+    background: #ffb968;
+    color: #321b05;
+}
+
+
+/* ================= WISHLIST ================= */
+
+.wishlist {
+    position: absolute;
+
+    top: 13px;
+    right: 13px;
+
+    z-index: 5;
+
+    width: 34px;
+    height: 34px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.85);
+
+    border: 1px solid #e6ebe8;
+
+    font-size: 18px;
+
+    transition: .3s;
+}
+
+.wishlist:hover {
+    background: #101512;
+
+    color: white;
+
+    transform:
+        scale(1.1)
+        rotate(-10deg);
+}
+
+
+/* ================= PRODUCT IMAGE ================= */
+
+.product-image {
+    position: relative;
+
+    height: 270px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #e6f8eb,
+            #f4f7f5 65%
+        );
+}
+
+.product-image img {
+    width: 75%;
+    height: 82%;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+
+    mix-blend-mode: multiply;
+
+    transition:
+        transform .6s ease,
+        filter .6s ease;
+}
+
+.product-card:hover
+.product-image img {
+    transform:
+        scale(1.08)
+        translateY(-7px)
+        rotate(2deg);
+
+    filter:
+        drop-shadow(
+            15px 20px 15px
+            rgba(0,0,0,.15)
+        );
+}
+
+.image-glow {
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(80,236,133,.16);
+
+    filter: blur(35px);
+
+    pointer-events: none;
+
+    transition: .5s;
+}
+
+.product-card:hover
+.image-glow {
+    transform: scale(1.4);
+
+    opacity: .8;
+}
+
+
+/* ================= PRODUCT INFO ================= */
+
+.product-info {
+    padding: 20px;
+}
+
+.product-category {
+    color: #40ca6d;
+
+    font-size: 8px;
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+}
+
+.product-info h3 {
+    margin-top: 8px;
+
+    font-size: 16px;
+}
+
+.product-info p {
+    margin-top: 7px;
+
+    color: #778079;
+
+    font-size: 10px;
+
+    line-height: 1.6;
+
+    min-height: 33px;
+}
+
+
+/* ================= RATING ================= */
+
+.rating {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    margin-top: 13px;
+
+    font-size: 9px;
+}
+
+.rating small {
+    color: #7b847e;
+
+    font-size: 9px;
+}
+
+
+/* ================= PRODUCT BOTTOM ================= */
+
+.product-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    margin-top: 18px;
+}
+
+.product-bottom div {
+    display: flex;
+    flex-direction: column;
+}
+
+.old-price {
+    color: #9aa19c;
+
+    font-size: 9px;
+
+    text-decoration: line-through;
+
+    margin-bottom: 3px;
+}
+
+.product-bottom strong {
+    color: #111612;
+
+    font-size: 20px;
+}
+
+.add-cart {
+    padding: 10px 14px;
+
+    border-radius: 22px;
+
+    background: #101512;
+
+    color: white;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    transition: .3s;
+}
+
+.add-cart:hover {
+    background: #55e887;
+
+    color: #07100a;
+
+    transform:
+        scale(1.05)
+        translateY(-2px);
+}
+
+.add-cart.added {
+    background: #55e887;
+
+    color: #07100a;
+}
+
+
+/* ================= FILTER ANIMATION ================= */
+
+.product-card.hide {
+    display: none;
+}
+
+.product-card.filter-in {
+    animation:
+        productAppear .5s ease forwards;
+}
+
+@keyframes productAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(25px)
+            scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* ================= NO PRODUCTS ================= */
+
+.no-products {
+    display: none;
+
+    text-align: center;
+
+    padding: 70px 20px;
+}
+
+.no-products.show {
+    display: block;
+}
+
+.no-products > div {
+    font-size: 45px;
+
+    margin-bottom: 15px;
+}
+
+.no-products h3 {
+    font-size: 20px;
+}
+
+.no-products p {
+    margin-top: 8px;
+
+    color: #7c857f;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   CATEGORY BANNER
+===================================================== */
+
+.category-banner {
+    position: relative;
+
+    min-height: 380px;
+
+    padding: 70px 9%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            120deg,
+            #101512,
+            #17231b
+        );
+
+    color: white;
+}
+
+.category-banner::before {
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(74,235,127,.14);
+
+    filter: blur(60px);
+
+    right: 10%;
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+}
+
+.banner-content {
+    position: relative;
+    z-index: 2;
+}
+
+.banner-content .small-title {
+    color: #9aa79e;
+}
+
+.banner-content h2 {
+    max-width: 650px;
+
+    font-size:
+        clamp(40px,6vw,70px);
+
+    line-height: .95;
+
+    letter-spacing: -3px;
+
+    margin-bottom: 20px;
+}
+
+.banner-content h2 span {
+    color: #5ff293;
+}
+
+.banner-content p {
+    max-width: 500px;
+
+    color: #89958d;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    margin-bottom: 28px;
+}
+
+
+/* ================= BANNER CIRCLE ================= */
+
+.banner-circle {
+    position: relative;
+    z-index: 2;
+
+    width: 260px;
+    height: 260px;
+
+    flex-shrink: 0;
+
+    border:
+        1px solid
+        rgba(104,244,148,.4);
+
+    border-radius: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    animation:
+        circleFloat 4s ease-in-out infinite;
+}
+
+.banner-circle::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 15px;
+
+    border:
+        1px dashed
+        rgba(104,244,148,.35);
+
+    border-radius: 50%;
+
+    animation:
+        circleRotate 15s linear infinite;
+}
+
+.banner-circle strong {
+    color: #6cf59b;
+
+    font-size: 50px;
+}
+
+.banner-circle span {
+    margin-top: 6px;
+
+    color: #859188;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+}
+
+@keyframes circleFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes circleRotate {
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+    padding:
+        70px 7%
+        25px;
+
+    background: #080b09;
+
+    color: white;
+}
+
+.footer-content {
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr 1.5fr;
+
+    gap: 45px;
+
+    padding-bottom: 45px;
+
+    border-bottom:
+        1px solid
+        #222a25;
+}
+
+.footer-brand p {
+    max-width: 300px;
+
+    color: #737d76;
+
+    font-size: 11px;
+
+    line-height: 1.8;
+
+    margin-top: 18px;
+}
+
+.footer-links,
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.footer h4 {
+    color: #68f49a;
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 7px;
+}
+
+.footer-links a,
+.footer-contact p {
+    color: #7a847e;
+
+    font-size: 10px;
+
+    transition: .3s;
+}
+
+.footer-links a:hover {
+    color: #6df59c;
+
+    transform:
+        translateX(4px);
+}
+
+.footer-bottom {
+    padding-top: 23px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: #59635c;
+
+    font-size: 9px;
+}
+
+.footer-bottom strong {
+    color: #6df59c;
+}
+
+
+/* =====================================================
+   QUICK CART POPUP
+===================================================== */
+
+.quick-cart {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9000;
+
+    background:
+        rgba(0,0,0,.5);
+
+    backdrop-filter:
+        blur(8px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: .3s;
+}
+
+.quick-cart.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.quick-cart-box {
+    position: relative;
+
+    width: min(400px,90%);
+
+    padding: 35px;
+
+    border-radius: 25px;
+
+    background: white;
+
+    text-align: center;
+
+    transform:
+        translateY(30px)
+        scale(.95);
+
+    transition: .35s;
+}
+
+.quick-cart.show
+.quick-cart-box {
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+.quick-cart-close {
+    position: absolute;
+
+    right: 15px;
+    top: 15px;
+
+    width: 33px;
+    height: 33px;
+
+    border-radius: 50%;
+
+    background: #f0f3f1;
+
+    font-size: 20px;
+}
+
+.quick-cart-icon {
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 18px;
+
+    border-radius: 50%;
+
+    background: #dff9e7;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 25px;
+
+    animation:
+        cartPop .5s ease;
+}
+
+@keyframes cartPop {
+
+    0% {
+        transform: scale(.5);
+    }
+
+    70% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.quick-cart-box h3 {
+    font-size: 20px;
+}
+
+.quick-cart-box p {
+    color: #747d77;
+
+    font-size: 11px;
+
+    margin-top: 7px;
+}
+
+.quick-cart-buttons {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+.quick-cart-buttons button,
+.quick-cart-buttons a {
+    flex: 1;
+
+    min-height: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 22px;
+
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.quick-cart-buttons button {
+    background: #edf1ee;
+
+    color: #202822;
+}
+
+.quick-cart-buttons a {
+    background: #101512;
+
+    color: white;
+}
+
+
+/* =====================================================
+   BACK TO TOP
+===================================================== */
+
+.back-top {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    width: 45px;
+    height: 45px;
+
+    z-index: 100;
+
+    border-radius: 50%;
+
+    background: #101512;
+
+    color: white;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform:
+        translateY(20px);
+
+    transition: .3s;
+
+    box-shadow:
+        0 10px 25px
+        rgba(0,0,0,.2);
+}
+
+.back-top.show {
+    opacity: 1;
+    visibility: visible;
+
+    transform:
+        translateY(0);
+}
+
+.back-top:hover {
+    background: #5aee8a;
+
+    color: #07100a;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1100px) {
+
+    .navbar {
+        padding: 0 4%;
+    }
+
+    .nav-links {
+        gap: 17px;
+    }
+
+    .category-hero {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .products-grid {
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        height: 70px;
+
+        padding: 0 18px;
+    }
+
+    .navbar.scrolled {
+        height: 65px;
+    }
+
+
+    /* Mobile Menu */
+
+    .nav-links {
+        position: fixed;
+
+        top: 70px;
+        right: -100%;
+
+        width: 85%;
+
+        min-height:
+            calc(100vh - 70px);
+
+        padding: 30px 25px;
+
+        background:
+            rgba(255,255,255,.97);
+
+        backdrop-filter:
+            blur(20px);
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        box-shadow:
+            -15px 0 40px
+            rgba(0,0,0,.08);
+
+        transition: .4s ease;
+    }
+
+    .nav-links.open {
+        right: 0;
+    }
+
+    .nav-links a {
+        padding: 17px 5px;
+
+        border-bottom:
+            1px solid #edf0ee;
+
+        font-size: 14px;
+    }
+
+    .nav-links a.active::after {
+        display: none;
+    }
+
+    .nav-shop {
+        text-align: center;
+
+        margin-top: 18px;
+    }
+
+    .menu-btn {
+        display: flex;
+    }
+
+
+    /* Hero */
+
+    .category-hero {
+        min-height: auto;
+
+        padding:
+            120px 20px
+            50px;
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero-content .small-title {
+        justify-content: center;
+    }
+
+    .hero-content h1 {
+        font-size:
+            clamp(43px,13vw,60px);
+
+        letter-spacing: -3px;
+    }
+
+    .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+
+        font-size: 12px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .hero-visual {
+        width: 100%;
+
+        height: 430px;
+
+        transform: scale(.82);
+
+        margin-top: -5px;
+        margin-bottom: -40px;
+    }
+
+
+    /* Filter */
+
+    .filter-section {
+        padding:
+            70px 20px
+            20px;
+    }
+
+    .filter-heading {
+        align-items: stretch;
+
+        flex-direction: column;
+    }
+
+    .filter-heading h2 {
+        font-size: 40px;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+
+    /* Products */
+
+    .products-section {
+        padding:
+            55px 20px
+            80px;
+    }
+
+    .products-grid {
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap: 12px;
+    }
+
+    .product-image {
+        height: 190px;
+    }
+
+    .product-image img {
+        width: 78%;
+    }
+
+    .product-info {
+        padding: 14px;
+    }
+
+    .product-info h3 {
+        font-size: 13px;
+    }
+
+    .product-info p {
+        font-size: 9px;
+
+        min-height: auto;
+    }
+
+    .product-bottom strong {
+        font-size: 16px;
+    }
+
+    .add-cart {
+        padding: 8px 11px;
+
+        font-size: 8px;
+    }
+
+
+    /* Banner */
+
+    .category-banner {
+        min-height: auto;
+
+        padding:
+            80px 20px;
+
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 50px;
+    }
+
+    .banner-content .small-title {
+        justify-content: center;
+    }
+
+    .banner-content h2 {
+        font-size: 47px;
+    }
+
+    .banner-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .banner-circle {
+        width: 220px;
+        height: 220px;
+    }
+
+
+    /* Footer */
+
+    .footer {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .footer-content {
+        grid-template-columns:
+            1fr 1fr;
+
+        gap: 35px;
+    }
+
+    .footer-brand {
+        grid-column:
+            1 / -1;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+
+        gap: 10px;
+
+        text-align: center;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 450px) {
+
+    .logo-icon {
+        width: 38px;
+        height: 38px;
+
+        font-size: 14px;
+    }
+
+    .logo-text strong {
+        font-size: 12px;
+    }
+
+    .logo-text small {
+        font-size: 7px;
+    }
+
+    .category-hero {
+        padding-top: 110px;
+    }
+
+    .hero-content h1 {
+        font-size: 42px;
+    }
+
+    .hero-visual {
+        transform: scale(.70);
+
+        margin-top: -35px;
+        margin-bottom: -90px;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image {
+        height: 250px;
+    }
+
+    .product-info {
+        padding: 18px;
+    }
+
+    .product-info h3 {
+        font-size: 16px;
+    }
+
+    .product-info p {
+        font-size: 10px;
+    }
+
+    .add-cart {
+        padding: 10px 14px;
+
+        font-size: 9px;
+    }
+
+    .banner-content h2 {
+        font-size: 43px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-brand {
+        grid-column: auto;
+    }
+
+}
+
+
+/* ================= SELECTION ================= */
+
+::selection {
+    background: #63ee91;
+    color: #101512;
+}
+
+
+/* ================= SCROLLBAR ================= */
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #eef2ef;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #101512;
+
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #52e986;
+}
+</style>
+<body>
+
+
+<!-- ================= LOADER ================= -->
+
+<div class="loader" id="loader">
+
+    <div class="loader-logo">
+        PT
+    </div>
+
+    <h2>PT Nutrition</h2>
+
+    <p>Loading Supplements...</p>
+
+</div>
+
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            PT
+        </div>
+
+        <div class="logo-text">
+
+            <strong>PT NUTRITION</strong>
+
+            <small>
+                by Parteek Tushir
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <nav class="nav-links" id="navLinks">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="parteek.html" class="active">
+            Categories
+        </a>
+
+        <a href="products.html">
+            Products
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+        <a href="cart.html" class="nav-shop">
+            View Cart
+        </a>
+
+    </nav>
+
+
+    <div class="nav-actions">
+
+                <button class="menu-btn" id="menuBtn">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- ================= HERO ================= -->
+
+<section class="category-hero">
+
+    <div class="hero-particles">
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+
+    <div class="hero-content">
+
+        <div class="small-title">
+
+            <span></span>
+
+            PT NUTRITION
+
+            <span></span>
+
+        </div>
+
+
+        <h1>
+
+            FIND YOUR
+
+            <span>PERFECT FUEL</span>
+
+        </h1>
+
+
+        <p>
+
+            Explore our premium collection of supplements
+            designed for strength, recovery, energy and
+            everyday performance.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a href="products.html" class="primary-btn">
+
+                Explore Products
+
+                <span>↓</span>
+
+            </a>
+
+            <a href="index.html" class="secondary-btn">
+
+                Back Home
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- 3D CATEGORY OBJECT -->
+
+    <div class="hero-visual">
+
+        <div class="visual-glow"></div>
+
+        <div class="orbit orbit-one"></div>
+
+        <div class="orbit orbit-two"></div>
+
+
+        <div class="floating-product protein-object">
+
+            <div class="object-cap"></div>
+
+            <div class="object-body">
+
+                <small>PT</small>
+
+                <strong>
+                    WHEY
+                </strong>
+
+                <span>
+                    PROTEIN
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="mini-card mini-card-one">
+
+            💪
+
+            <div>
+                <strong>Muscle</strong>
+                <small>Support</small>
+            </div>
+
+        </div>
+
+
+        <div class="mini-card mini-card-two">
+
+            ⚡
+
+            <div>
+                <strong>Energy</strong>
+                <small>Performance</small>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= CATEGORY FILTER ================= -->
+
+<section class="filter-section">
+
+    <div class="filter-heading">
+
+        <div>
+
+            <div class="small-title">
+
+                <span></span>
+
+                SHOP SUPPLEMENTS
+
+            </div>
+
+            <h2>
+                Explore <span>Categories</span>
+            </h2>
+
+        </div>
+
+
+        <div class="search-box">
+
+            <span>🔎</span>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search supplements..."
+            >
+
+        </div>
+
+    </div>
+
+
+    <div class="category-tabs" id="categoryTabs">
+
+        <button
+            class="category-tab active"
+            data-category="all">
+
+            All
+
+        </button>
+
+
+        <button
+            class="category-tab"
+            data-category="protein">
+
+            🥤 Protein
+
+        </button>
+
+
+        <button
+            class="category-tab"
+            data-category="creatine">
+
+            ⚡ Creatine
+
+        </button>
+
+
+        <button
+            class="category-tab"
+            data-category="preworkout">
+
+            🔥 Pre-Workout
+
+        </button>
+
+
+        <button
+            class="category-tab"
+            data-category="vitamins">
+
+            💊 Vitamins
+
+        </button>
+
+
+        <button
+            class="category-tab"
+            data-category="gainer">
+
+            🏋️ Mass Gainer
+
+        </button>
+
+
+        <button
+            class="category-tab"
+            data-category="bcaa">
+
+            🧬 BCAA / EAA
+
+        </button>
+
+
+        <button
+            class="category-tab"
+            data-category="omega">
+
+            🐟 Omega 3
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section class="products-section" id="products">
+
+
+    <div class="section-heading">
+
+        <div class="small-title">
+
+            <span></span>
+
+            PREMIUM COLLECTION
+
+            <span></span>
+
+        </div>
+
+
+        <h2>
+
+            Fuel Your
+
+            <span>Fitness</span>
+
+        </h2>
+
+
+        <p>
+
+            Choose the right supplement for your goals.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="products-grid" id="productsGrid">
+
+
+        <!-- ================= WHEY 1 ================= -->
+
+        <article
+            class="product-card"
+            data-category="protein"
+            data-name="Premium Whey Protein"
+            data-price="2999">
+
+            <div class="product-badge">
+                BEST SELLER
+            </div>
+
+
+            <button class="wishlist">
+                ♡
+            </button>
+
+
+            <div class="product-image">
+
+                <img
+                    src="https://th.bing.com/th/id/OIP.hboXmbiWstWa8ezKyT7LywHaE8?w=232&h=150&c=6&r=0&o=7&pid=1.7&rm=3"
+                    alt="Whey Protein">
+
+                <div class="image-glow"></div>
+
+            </div>
+
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    WHEY PROTEIN
+                </span>
+
+
+                <h3>
+                    Premium Whey Protein
+                </h3>
+
+
+                <p>
+                    High quality protein for muscle growth
+                    and post-workout recovery.
+                </p>
+
+
+                <div class="rating">
+
+                    ⭐⭐⭐⭐⭐
+
+                    <small>
+                        4.9
+                    </small>
+
+                </div>
+
+
+                <div class="product-bottom">
+
+                    <div>
+
+                        <span class="old-price">
+                            ₹3,499
+                        </span>
+
+                        <strong>
+                            ₹2,999
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="add-cart"
+                        data-name="Premium Whey Protein"
+                        data-price="2999">
+
+                        + Add
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ================= WHEY 2 ================= -->
+
+        <article
+            class="product-card"
+            data-category="protein"
+            data-name="Gold Whey Isolate"
+            data-price="3899">
+
+            <div class="product-badge green">
+                PREMIUM
+            </div>
+
+
+            <button class="wishlist">
+                ♡
+            </button>
+
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1622484212850-eb596d769edc?auto=format&fit=crop&w=700&q=80"
+                    alt="Whey Isolate">
+
+                <div class="image-glow"></div>
+
+            </div>
+
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    WHEY ISOLATE
+                </span>
+
+
+                <h3>
+                    Gold Whey Isolate
+                </h3>
+
+
+                <p>
+                    Clean protein formula with excellent
+                    absorption and recovery support.
+                </p>
+
+
+                <div class="rating">
+
+                    ⭐⭐⭐⭐⭐
+
+                    <small>
+                        4.8
+                    </small>
+
+                </div>
+
+
+                <div class="product-bottom">
+
+                    <div>
+
+                        <span class="old-price">
+                            ₹4,499
+                        </span>
+
+                        <strong>
+                            ₹3,899
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="add-cart"
+                        data-name="Gold Whey Isolate"
+                        data-price="3899">
+
+                        + Add
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ================= CREATINE ================= -->
+
+        <article
+            class="product-card"
+            data-category="creatine"
+            data-name="Creatine Monohydrate"
+            data-price="1499">
+
+            <div class="product-badge">
+                POPULAR
+            </div>
+
+
+            <button class="wishlist">
+                ♡
+            </button>
+
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?auto=format&fit=crop&w=700&q=80"
+                    alt="Creatine Supplement">
+
+                <div class="image-glow"></div>
+
+            </div>
+
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    CREATINE
+                </span>
+
+
+                <h3>
+                    Creatine Monohydrate
+                </h3>
+
+
+                <p>
+                    Pure creatine formula for strength,
+                    power and performance.
+                </p>
+
+
+                <div class="rating">
+
+                    ⭐⭐⭐⭐⭐
+
+                    <small>
+                        4.9
+                    </small>
+
+                </div>
+
+
+                <div class="product-bottom">
+
+                    <div>
+
+                        <span class="old-price">
+                            ₹1,799
+                        </span>
+
+                        <strong>
+                            ₹1,499
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="add-cart"
+                        data-name="Creatine Monohydrate"
+                        data-price="1499">
+
+                        + Add
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ================= PRE WORKOUT ================= -->
+
+        <article
+            class="product-card"
+            data-category="preworkout"
+            data-name="Extreme Pre Workout"
+            data-price="1899">
+
+            <div class="product-badge orange">
+                HOT
+            </div>
+
+
+            <button class="wishlist">
+                ♡
+            </button>
+
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?auto=format&fit=crop&w=700&q=80"
+                    alt="Pre Workout">
+
+                <div class="image-glow"></div>
+
+            </div>
+
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    PRE-WORKOUT
+                </span>
+
+
+                <h3>
+                    Extreme Pre Workout
+                </h3>
+
+
+                <p>
+                    Powerful energy and focus for
+                    demanding training sessions.
+                </p>
+
+
+                <div class="rating">
+
+                    ⭐⭐⭐⭐⭐
+
+                    <small>
+                        4.7
+                    </small>
+
+                </div>
+
+
+                <div class="product-bottom">
+
+                    <div>
+
+                        <span class="old-price">
+                            ₹2,299
+                        </span>
+
+                        <strong>
+                            ₹1,899
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="add-cart"
+                        data-name="Extreme Pre Workout"
+                        data-price="1899">
+
+                        + Add
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ================= VITAMINS ================= -->
+
+        <article
+            class="product-card"
+            data-category="vitamins"
+            data-name="Daily Multivitamin"
+            data-price="999">
+
+            <div class="product-badge green">
+                DAILY
+            </div>
+
+
+            <button class="wishlist">
+                ♡
+            </button>
+
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=700&q=80"
+                    alt="Multivitamin">
+
+                <div class="image-glow"></div>
+
+            </div>
+
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    VITAMINS
+                </span>
+
+
+                <h3>
+                    Daily Multivitamin
+                </h3>
+
+
+                <p>
+                    Everyday nutritional support with
+                    essential vitamins and minerals.
+                </p>
+
+
+                <div class="rating">
+
+                    ⭐⭐⭐⭐⭐
+
+                    <small>
+                        4.8
+                    </small>
+
+                </div>
+
+
+                <div class="product-bottom">
+
+                    <div>
+
+                        <span class="old-price">
+                            ₹1,199
+                        </span>
+
+                        <strong>
+                            ₹999
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="add-cart"
+                        data-name="Daily Multivitamin"
+                        data-price="999">
+
+                        + Add
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ================= MASS GAINER ================= -->
+
+        <article
+            class="product-card"
+            data-category="gainer"
+            data-name="Mass Gainer Pro"
+            data-price="2799">
+
+            <div class="product-badge">
+                MUSCLE
+            </div>
+
+
+            <button class="wishlist">
+                ♡
+            </button>
+
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?auto=format&fit=crop&w=700&q=80"
+                    alt="Mass Gainer">
+
+                <div class="image-glow"></div>
+
+            </div>
+
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    MASS GAINER
+                </span>
+
+
+                <h3>
+                    Mass Gainer Pro
+                </h3>
+
+
+                <p>
+                    High calorie formula for supporting
+                    muscle and weight gain.
+                </p>
+
+
+                <div class="rating">
+
+                    ⭐⭐⭐⭐⭐
+
+                    <small>
+                        4.7
+                    </small>
+
+                </div>
+
+
+                <div class="product-bottom">
+
+                    <div>
+
+                        <span class="old-price">
+                            ₹3,299
+                        </span>
+
+                        <strong>
+                            ₹2,799
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="add-cart"
+                        data-name="Mass Gainer Pro"
+                        data-price="2799">
+
+                        + Add
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ================= BCAA ================= -->
+
+        <article
+            class="product-card"
+            data-category="bcaa"
+            data-name="BCAA EAA Recovery"
+            data-price="1299">
+
+            <div class="product-badge green">
+                RECOVERY
+            </div>
+
+
+            <button class="wishlist">
+                ♡
+            </button>
+
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?auto=format&fit=crop&w=700&q=80"
+                    alt="BCAA">
+
+                <div class="image-glow"></div>
+
+            </div>
+
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    BCAA / EAA
+                </span>
+
+
+                <h3>
+                    BCAA EAA Recovery
+                </h3>
+
+
+                <p>
+                    Amino acid support for training
+                    and workout recovery.
+                </p>
+
+
+                <div class="rating">
+
+                    ⭐⭐⭐⭐⭐
+
+                    <small>
+                        4.6
+                    </small>
+
+                </div>
+
+
+                <div class="product-bottom">
+
+                    <div>
+
+                        <span class="old-price">
+                            ₹1,499
+                        </span>
+
+                        <strong>
+                            ₹1,299
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="add-cart"
+                        data-name="BCAA EAA Recovery"
+                        data-price="1299">
+
+                        + Add
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ================= OMEGA 3 ================= -->
+
+        <article
+            class="product-card"
+            data-category="omega"
+            data-name="Omega 3 Fish Oil"
+            data-price="899">
+
+            <div class="product-badge">
+                HEALTH
+            </div>
+
+
+            <button class="wishlist">
+                ♡
+            </button>
+
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=700&q=80"
+                    alt="Omega 3">
+
+                <div class="image-glow"></div>
+
+            </div>
+
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    OMEGA 3
+                </span>
+
+
+                <h3>
+                    Omega 3 Fish Oil
+                </h3>
+
+
+                <p>
+                    Essential fatty acid supplement
+                    for everyday nutrition support.
+                </p>
+
+
+                <div class="rating">
+
+                    ⭐⭐⭐⭐⭐
+
+                    <small>
+                        4.8
+                    </small>
+
+                </div>
+
+
+                <div class="product-bottom">
+
+                    <div>
+
+                        <span class="old-price">
+                            ₹1,099
+                        </span>
+
+                        <strong>
+                            ₹899
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="add-cart"
+                        data-name="Omega 3 Fish Oil"
+                        data-price="899">
+
+                        + Add
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+
+
+    <!-- NO PRODUCTS -->
+
+    <div class="no-products" id="noProducts">
+
+        <div>
+            🔎
+        </div>
+
+        <h3>
+            No supplements found
+        </h3>
+
+        <p>
+            Try another search or category.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= CATEGORY BANNER ================= -->
+
+<section class="category-banner">
+
+    <div class="banner-content">
+
+        <div class="small-title">
+
+            <span></span>
+
+            PT NUTRITION
+
+            <span></span>
+
+        </div>
+
+
+        <h2>
+
+            TRAIN HARD.
+
+            <span>
+                RECOVER SMART.
+            </span>
+
+        </h2>
+
+
+        <p>
+
+            Premium nutrition for people who refuse
+            to settle for average.
+
+        </p>
+
+
+        <a
+            href="products.html"
+            class="primary-btn">
+
+            Shop Now
+
+            <span>
+                →
+            </span>
+
+        </a>
+
+    </div>
+
+
+    <div class="banner-circle">
+
+        <strong>
+            PT
+        </strong>
+
+        <span>
+            NUTRITION
+        </span>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div class="footer-content">
+
+
+        <div class="footer-brand">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    PT
+                </div>
+
+                <div class="logo-text">
+
+                    <strong>
+                        PT NUTRITION
+                    </strong>
+
+                    <small>
+                        by Parteek Tushir
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <p>
+
+                Premium supplements for strength,
+                performance and recovery.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="footer-links">
+
+            <h4>
+                Quick Links
+            </h4>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="parteek.html">
+                Categories
+            </a>
+
+            <a href="cart.html">
+                Cart
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-links">
+
+            <h4>
+                Supplements
+            </h4>
+
+            <a href="products.html">
+                Protein
+            </a>
+
+            <a href="products.html">
+                Creatine
+            </a>
+
+            <a href="products.html">
+                Pre-Workout
+            </a>
+
+            <a href="products.html">
+                Vitamins
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-contact">
+
+            <h4>
+                PT Nutrition
+            </h4>
+
+            <p>
+                👤 Parteek Tushir
+            </p>
+
+            <p>
+                📍 India
+            </p>
+
+            <p>
+                💪 Fuel Your Goals
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 PT Nutrition. All Rights Reserved.
+        </p>
+
+        <p>
+            Made by <strong>Parteek Tushir</strong>
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- ================= QUICK CART ================= -->
+
+<div class="quick-cart" id="quickCart">
+
+    <div class="quick-cart-box">
+
+        <button
+            class="quick-cart-close"
+            id="quickCartClose">
+
+            ×
+
+        </button>
+
+
+        <div class="quick-cart-icon">
+            🛒
+        </div>
+
+
+        <h3>
+            Added to Cart
+        </h3>
+
+
+        <p id="addedProductName">
+            Product added successfully.
+        </p>
+
+
+        <div class="quick-cart-buttons">
+
+            <button
+                id="continueShopping">
+
+                Continue Shopping
+
+            </button>
+
+
+            <a href="cart.html">
+
+                View Cart →
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ================= BACK TOP ================= -->
+
+<button
+    class="back-top"
+    id="backTop">
+
+    ↑
+
+</button>
+
+
+
+<script>
+    /* =====================================================
+   PT NUTRITION — CATEGORIES.JS
+   Owner: Parteek Tushir
+===================================================== */
+
+
+/* ================= LOADER ================= */
+
+window.addEventListener("load", () => {
+
+    const loader = document.getElementById("loader");
+
+    setTimeout(() => {
+
+        if (loader) {
+            loader.classList.add("hide");
+        }
+
+    }, 700);
+
+});
+
+
+
+/* ================= CART ================= */
+
+let cart = JSON.parse(localStorage.getItem("ptNutritionCart")) || [];
+
+
+
+/* ================= ELEMENTS ================= */
+
+const cartCount = document.getElementById("cartCount");
+
+const cartBtn = document.getElementById("cartBtn");
+
+const quickCart = document.getElementById("quickCart");
+
+const quickCartClose =
+    document.getElementById("quickCartClose");
+
+const continueShopping =
+    document.getElementById("continueShopping");
+
+const addedProductName =
+    document.getElementById("addedProductName");
+
+
+
+/* ================= UPDATE CART COUNT ================= */
+
+function updateCartCount() {
+
+    let totalItems = 0;
+
+    cart.forEach(item => {
+
+        totalItems += item.quantity;
+
+    });
+
+    if (cartCount) {
+
+        cartCount.textContent = totalItems;
+
+        /* Small animation */
+
+        cartCount.style.transform = "scale(1.4)";
+
+        setTimeout(() => {
+
+            cartCount.style.transform = "scale(1)";
+
+        }, 200);
+
+    }
+
+}
+
+
+
+/* ================= SAVE CART ================= */
+
+function saveCart() {
+
+    localStorage.setItem(
+        "ptNutritionCart",
+        JSON.stringify(cart)
+    );
+
+    updateCartCount();
+
+}
+
+
+
+/* ================= ADD TO CART ================= */
+
+function addToCart(name, price) {
+
+    price = Number(price);
+
+    const existingProduct =
+        cart.find(item => item.name === name);
+
+
+    if (existingProduct) {
+
+        existingProduct.quantity += 1;
+
+    } else {
+
+        cart.push({
+
+            name: name,
+
+            price: price,
+
+            quantity: 1
+
+        });
+
+    }
+
+
+    saveCart();
+
+    showAddedPopup(name);
+
+}
+
+
+
+/* ================= ADD BUTTONS ================= */
+
+const addButtons =
+    document.querySelectorAll(".add-cart");
+
+
+addButtons.forEach(button => {
+
+    button.addEventListener("click", function () {
+
+        const name =
+            this.dataset.name;
+
+        const price =
+            this.dataset.price;
+
+
+        addToCart(name, price);
+
+
+        /* Button animation */
+
+        const originalText =
+            this.innerHTML;
+
+
+        this.innerHTML =
+            "✓ Added";
+
+
+        this.classList.add("added");
+
+
+        setTimeout(() => {
+
+            this.innerHTML =
+                originalText;
+
+            this.classList.remove("added");
+
+        }, 1200);
+
+    });
+
+});
+
+
+
+/* ================= QUICK CART POPUP ================= */
+
+function showAddedPopup(name) {
+
+    if (addedProductName) {
+
+        addedProductName.textContent =
+            `${name} has been added to your cart.`;
+
+    }
+
+
+    if (quickCart) {
+
+        quickCart.classList.add("show");
+
+    }
+
+}
+
+
+
+/* ================= CLOSE POPUP ================= */
+
+function closeQuickCart() {
+
+    if (quickCart) {
+
+        quickCart.classList.remove("show");
+
+    }
+
+}
+
+
+if (quickCartClose) {
+
+    quickCartClose.addEventListener(
+        "click",
+        closeQuickCart
+    );
+
+}
+
+
+if (continueShopping) {
+
+    continueShopping.addEventListener(
+        "click",
+        closeQuickCart
+    );
+
+}
+
+
+/* Close by clicking outside */
+
+if (quickCart) {
+
+    quickCart.addEventListener("click", function (e) {
+
+        if (e.target === quickCart) {
+
+            closeQuickCart();
+
+        }
+
+    });
+
+}
+
+
+
+/* ================= CART BUTTON ================= */
+
+if (cartBtn) {
+
+    cartBtn.addEventListener("click", () => {
+
+        window.location.href =
+            "cart.html";
+
+    });
+
+}
+
+
+
+/* =====================================================
+   CATEGORY FILTER
+===================================================== */
+
+const categoryTabs =
+    document.querySelectorAll(".category-tab");
+
+const productCards =
+    document.querySelectorAll(".product-card");
+
+const noProducts =
+    document.getElementById("noProducts");
+
+
+
+categoryTabs.forEach(tab => {
+
+    tab.addEventListener("click", () => {
+
+        /* Remove active */
+
+        categoryTabs.forEach(item => {
+
+            item.classList.remove("active");
+
+        });
+
+
+        /* Add active */
+
+        tab.classList.add("active");
+
+
+        const category =
+            tab.dataset.category;
+
+
+        let visibleProducts = 0;
+
+
+        productCards.forEach(card => {
+
+            const productCategory =
+                card.dataset.category;
+
+
+            if (
+                category === "all" ||
+                productCategory === category
+            ) {
+
+                card.classList.remove("hide");
+
+                card.classList.remove(
+                    "filter-in"
+                );
+
+
+                /* Restart animation */
+
+                void card.offsetWidth;
+
+
+                card.classList.add(
+                    "filter-in"
+                );
+
+
+                visibleProducts++;
+
+            } else {
+
+                card.classList.add("hide");
+
+            }
+
+        });
+
+
+        /* No products */
+
+        if (noProducts) {
+
+            if (visibleProducts === 0) {
+
+                noProducts.classList.add(
+                    "show"
+                );
+
+            } else {
+
+                noProducts.classList.remove(
+                    "show"
+                );
+
+            }
+
+        }
+
+    });
+
+});
+
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+const searchInput =
+    document.getElementById("searchInput");
+
+
+if (searchInput) {
+
+    searchInput.addEventListener(
+        "input",
+        function () {
+
+            const search =
+                this.value
+                    .toLowerCase()
+                    .trim();
+
+
+            let visibleProducts = 0;
+
+
+            productCards.forEach(card => {
+
+                const name =
+                    card.dataset.name
+                        .toLowerCase();
+
+
+                const category =
+                    card.dataset.category
+                        .toLowerCase();
+
+
+                const text =
+                    card.innerText
+                        .toLowerCase();
+
+
+                const found =
+                    name.includes(search) ||
+                    category.includes(search) ||
+                    text.includes(search);
+
+
+                if (found) {
+
+                    card.classList.remove(
+                        "hide"
+                    );
+
+                    visibleProducts++;
+
+                } else {
+
+                    card.classList.add(
+                        "hide"
+                    );
+
+                }
+
+            });
+
+
+            if (noProducts) {
+
+                if (
+                    visibleProducts === 0 &&
+                    search !== ""
+                ) {
+
+                    noProducts.classList.add(
+                        "show"
+                    );
+
+                } else {
+
+                    noProducts.classList.remove(
+                        "show"
+                    );
+
+                }
+
+            }
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   WISHLIST
+===================================================== */
+
+const wishlistButtons =
+    document.querySelectorAll(".wishlist");
+
+
+wishlistButtons.forEach(button => {
+
+    button.addEventListener("click", function () {
+
+        if (this.classList.contains("liked")) {
+
+            this.classList.remove("liked");
+
+            this.innerHTML = "♡";
+
+        } else {
+
+            this.classList.add("liked");
+
+            this.innerHTML = "♥";
+
+            /* Small animation */
+
+            this.style.transform =
+                "scale(1.3)";
+
+            setTimeout(() => {
+
+                this.style.transform =
+                    "scale(1)";
+
+            }, 200);
+
+        }
+
+    });
+
+});
+
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+const menuBtn =
+    document.getElementById("menuBtn");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+
+if (menuBtn && navLinks) {
+
+    menuBtn.addEventListener("click", () => {
+
+        menuBtn.classList.toggle("active");
+
+        navLinks.classList.toggle("open");
+
+    });
+
+
+    /* Close menu after clicking a link */
+
+    const navItems =
+        navLinks.querySelectorAll("a");
+
+
+    navItems.forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            menuBtn.classList.remove(
+                "active"
+            );
+
+            navLinks.classList.remove(
+                "open"
+            );
+
+        });
+
+    });
+
+}
+
+
+
+/* =====================================================
+   NAVBAR SCROLL EFFECT
+===================================================== */
+
+const navbar =
+    document.querySelector(".navbar");
+
+
+window.addEventListener("scroll", () => {
+
+    if (!navbar) return;
+
+
+    if (window.scrollY > 50) {
+
+        navbar.classList.add(
+            "scrolled"
+        );
+
+    } else {
+
+        navbar.classList.remove(
+            "scrolled"
+        );
+
+    }
+
+});
+
+
+
+/* =====================================================
+   BACK TO TOP
+===================================================== */
+
+const backTop =
+    document.getElementById("backTop");
+
+
+window.addEventListener("scroll", () => {
+
+    if (!backTop) return;
+
+
+    if (window.scrollY > 500) {
+
+        backTop.classList.add("show");
+
+    } else {
+
+        backTop.classList.remove("show");
+
+    }
+
+});
+
+
+if (backTop) {
+
+    backTop.addEventListener("click", () => {
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    });
+
+}
+
+
+
+/* =====================================================
+   3D PRODUCT CARD EFFECT
+===================================================== */
+
+productCards.forEach(card => {
+
+    card.addEventListener(
+        "mousemove",
+        (e) => {
+
+            /* Desktop only */
+
+            if (window.innerWidth < 769) {
+                return;
+            }
+
+
+            const rect =
+                card.getBoundingClientRect();
+
+
+            const x =
+                e.clientX - rect.left;
+
+
+            const y =
+                e.clientY - rect.top;
+
+
+            const centerX =
+                rect.width / 2;
+
+
+            const centerY =
+                rect.height / 2;
+
+
+            const rotateX =
+                ((y - centerY) /
+                    centerY) * -3;
+
+
+            const rotateY =
+                ((x - centerX) /
+                    centerX) * 3;
+
+
+            card.style.transform =
+                `translateY(-12px)
+                 rotateX(${rotateX}deg)
+                 rotateY(${rotateY}deg)`;
+
+        }
+    );
+
+
+    card.addEventListener(
+        "mouseleave",
+        () => {
+
+            card.style.transform = "";
+
+        }
+    );
+
+});
+
+
+
+/* =====================================================
+   PRODUCT IMAGE TILT
+===================================================== */
+
+const productImages =
+    document.querySelectorAll(".product-image");
+
+
+productImages.forEach(image => {
+
+    image.addEventListener(
+        "mousemove",
+        (e) => {
+
+            if (window.innerWidth < 769) {
+                return;
+            }
+
+
+            const rect =
+                image.getBoundingClientRect();
+
+
+            const x =
+                e.clientX - rect.left;
+
+
+            const y =
+                e.clientY - rect.top;
+
+
+            const rotateY =
+                ((x - rect.width / 2) /
+                    rect.width) * 8;
+
+
+            const rotateX =
+                ((y - rect.height / 2) /
+                    rect.height) * -8;
+
+
+            const img =
+                image.querySelector("img");
+
+
+            if (img) {
+
+                img.style.transform =
+                    `scale(1.08)
+                     rotateX(${rotateX}deg)
+                     rotateY(${rotateY}deg)`;
+
+            }
+
+        }
+    );
+
+
+    image.addEventListener(
+        "mouseleave",
+        () => {
+
+            const img =
+                image.querySelector("img");
+
+
+            if (img) {
+
+                img.style.transform = "";
+
+            }
+
+        }
+    );
+
+});
+
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+const revealItems =
+    document.querySelectorAll(
+        ".product-card, .section-heading, .filter-heading"
+    );
+
+
+const revealObserver =
+    new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.style.opacity =
+                        "1";
+
+                    entry.target.style.transform =
+                        "translateY(0)";
+
+                    revealObserver.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+
+revealItems.forEach(item => {
+
+    item.style.opacity = "0";
+
+    item.style.transform =
+        "translateY(25px)";
+
+    item.style.transition =
+        "opacity .7s ease, transform .7s ease";
+
+
+    revealObserver.observe(item);
+
+});
+
+
+
+/* =====================================================
+   ESC KEY
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    (e) => {
+
+        if (e.key === "Escape") {
+
+            closeQuickCart();
+
+        }
+
+    }
+);
+
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+updateCartCount();
+
+
+console.log(
+    "PT Nutrition Categories loaded successfully."
+);
+</script>
+
+</body>
+</html>

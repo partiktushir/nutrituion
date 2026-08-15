@@ -1,0 +1,4833 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>About Us | PT Nutrition</title>
+
+    <!-- GOOGLE FONT -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- ABOUT CSS -->
+
+    <link
+        rel="stylesheet"
+        href="about.css"
+    >
+
+</head>
+<style>
+    /* =====================================================
+   PT NUTRITION — ABOUT.CSS
+   Owner: Parteek Tushir
+===================================================== */
+
+
+/* ================= RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: #f5f8f6;
+    color: #101512;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* =====================================================
+   LOADER
+===================================================== */
+
+.loader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: #080d0a;
+    color: white;
+
+    transition:
+        opacity .7s ease,
+        visibility .7s ease;
+}
+
+.loader.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-logo {
+    width: 90px;
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid #63ef92;
+    border-radius: 50%;
+
+    color: #63ef92;
+
+    font-size: 28px;
+    font-weight: 900;
+
+    animation: loaderPulse 1.5s infinite;
+}
+
+.loader h2 {
+    margin-top: 20px;
+
+    font-size: 22px;
+    letter-spacing: 2px;
+}
+
+.loader p {
+    margin-top: 8px;
+
+    color: #61e98d;
+
+    font-size: 8px;
+    letter-spacing: 3px;
+}
+
+@keyframes loaderPulse {
+
+    0% {
+        transform: scale(.85);
+
+        box-shadow:
+            0 0 0 0
+            rgba(99,239,146,.6);
+    }
+
+    70% {
+        transform: scale(1);
+
+        box-shadow:
+            0 0 0 30px
+            rgba(99,239,146,0);
+    }
+
+    100% {
+        transform: scale(.85);
+
+        box-shadow:
+            0 0 0 0
+            rgba(99,239,146,0);
+    }
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 78px;
+
+    padding: 0 6%;
+
+    z-index: 5000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background:
+        rgba(255,255,255,.88);
+
+    backdrop-filter: blur(18px);
+
+    border-bottom:
+        1px solid
+        rgba(0,0,0,.06);
+
+    transition:
+        .35s ease;
+}
+
+.navbar.scrolled {
+    height: 66px;
+
+    box-shadow:
+        0 12px 35px
+        rgba(0,0,0,.08);
+}
+
+
+/* ================= LOGO ================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+}
+
+.logo-icon {
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #101512;
+    color: #68f49a;
+
+    font-size: 15px;
+    font-weight: 900;
+
+    transform: rotate(-5deg);
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,0,0,.15);
+
+    transition: .4s;
+}
+
+.logo:hover .logo-icon {
+    transform:
+        rotate(5deg)
+        scale(1.08);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-text strong {
+    font-size: 15px;
+    letter-spacing: 1.5px;
+}
+
+.logo-text small {
+    margin-top: 3px;
+
+    color: #7b847e;
+
+    font-size: 8px;
+    letter-spacing: .7px;
+}
+
+
+/* ================= NAV LINKS ================= */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-links a {
+    position: relative;
+
+    color: #59635c;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: .3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #101512;
+}
+
+.nav-links a:not(.nav-shop)::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -9px;
+
+    width: 0;
+    height: 2px;
+
+    border-radius: 20px;
+
+    background: #56e98a;
+
+    transform:
+        translateX(-50%);
+
+    transition: .3s;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-shop {
+    padding:
+        11px 18px;
+
+    border-radius: 30px;
+
+    background: #101512;
+
+    color: white !important;
+
+    box-shadow:
+        0 10px 25px
+        rgba(0,0,0,.15);
+
+    transition: .3s;
+}
+
+.nav-shop:hover {
+    transform:
+        translateY(-3px);
+}
+
+.nav-shop::after {
+    display: none !important;
+}
+
+
+/* =====================================================
+   NAV ACTIONS
+===================================================== */
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.cart-btn {
+    position: relative;
+
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        #dfe5e1;
+
+    border-radius: 50%;
+
+    background: white;
+
+    font-size: 17px;
+
+    transition: .3s;
+}
+
+.cart-btn:hover {
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 10px 20px
+        rgba(0,0,0,.1);
+}
+
+.cart-btn span {
+    position: absolute;
+
+    top: -4px;
+    right: -4px;
+
+    width: 19px;
+    height: 19px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #5eeb8c;
+
+    color: #07100a;
+
+    font-size: 9px;
+    font-weight: 900;
+}
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+.menu-btn {
+    display: none;
+
+    width: 43px;
+    height: 43px;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    border-radius: 50%;
+
+    background: #101512;
+}
+
+.menu-btn span {
+    width: 18px;
+    height: 2px;
+
+    border-radius: 10px;
+
+    background: white;
+
+    transition: .3s;
+}
+
+.menu-btn.active span:nth-child(1) {
+    transform:
+        rotate(45deg)
+        translate(4px,4px);
+}
+
+.menu-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-btn.active span:nth-child(3) {
+    transform:
+        rotate(-45deg)
+        translate(4px,-4px);
+}
+
+
+/* =====================================================
+   BACKGROUND PARTICLES
+===================================================== */
+
+.background-particles {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -1;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+.background-particles span {
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #62e991;
+
+    opacity: .25;
+
+    box-shadow:
+        0 0 15px
+        rgba(98,233,145,.7);
+
+    animation:
+        particleFloat
+        8s
+        ease-in-out
+        infinite;
+}
+
+.background-particles span:nth-child(1) {
+    left: 5%;
+    top: 25%;
+}
+
+.background-particles span:nth-child(2) {
+    left: 18%;
+    top: 65%;
+    animation-delay: 1s;
+}
+
+.background-particles span:nth-child(3) {
+    left: 34%;
+    top: 15%;
+    animation-delay: 2s;
+}
+
+.background-particles span:nth-child(4) {
+    left: 48%;
+    top: 75%;
+    animation-delay: 3s;
+}
+
+.background-particles span:nth-child(5) {
+    left: 67%;
+    top: 30%;
+    animation-delay: 1.5s;
+}
+
+.background-particles span:nth-child(6) {
+    left: 80%;
+    top: 65%;
+    animation-delay: 2.5s;
+}
+
+.background-particles span:nth-child(7) {
+    left: 92%;
+    top: 18%;
+    animation-delay: 4s;
+}
+
+.background-particles span:nth-child(8) {
+    left: 72%;
+    top: 90%;
+    animation-delay: 5s;
+}
+
+@keyframes particleFloat {
+
+    0%,100% {
+        transform:
+            translate(0,0)
+            scale(.7);
+    }
+
+    50% {
+        transform:
+            translate(
+                20px,
+                -35px
+            )
+            scale(1.4);
+    }
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.about-hero {
+    position: relative;
+
+    min-height: 720px;
+
+    padding:
+        145px 8%
+        80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 75% 50%,
+            rgba(72,225,119,.16),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #fbfdfc,
+            #e9f4ec
+        );
+}
+
+.about-hero::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(55,85,65,.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(55,85,65,.035) 1px,
+            transparent 1px
+        );
+
+    background-size: 55px 55px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent
+        );
+}
+
+
+/* =====================================================
+   HERO CONTENT
+===================================================== */
+
+.about-hero-content {
+    position: relative;
+
+    z-index: 3;
+
+    width: 52%;
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    color: #657069;
+
+    font-size: 9px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+.eyebrow span {
+    width: 30px;
+    height: 2px;
+
+    border-radius: 20px;
+
+    background: #4de681;
+}
+
+.about-hero h1 {
+    margin-top: 20px;
+
+    font-size:
+        clamp(55px,7vw,92px);
+
+    line-height: .9;
+
+    letter-spacing: -6px;
+
+    font-weight: 900;
+}
+
+.about-hero h1 span {
+    display: block;
+
+    color: #4add7b;
+
+    text-shadow:
+        0 15px 35px
+        rgba(74,221,123,.15);
+}
+
+.about-hero p {
+    max-width: 510px;
+
+    margin-top: 27px;
+
+    color: #6e7871;
+
+    font-size: 12px;
+
+    line-height: 1.9;
+}
+
+
+/* =====================================================
+   HERO BUTTONS
+===================================================== */
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 30px;
+}
+
+.primary-btn,
+.secondary-btn {
+    min-height: 47px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        0 20px;
+
+    border-radius: 30px;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    transition: .35s;
+}
+
+.primary-btn {
+    gap: 12px;
+
+    background: #101512;
+
+    color: white;
+
+    box-shadow:
+        0 12px 25px
+        rgba(0,0,0,.13);
+}
+
+.primary-btn span {
+    font-size: 16px;
+
+    transition: .3s;
+}
+
+.primary-btn:hover {
+    background: #5ce98a;
+
+    color: #07100a;
+
+    transform:
+        translateY(-4px);
+}
+
+.primary-btn:hover span {
+    transform:
+        translateX(5px);
+}
+
+.secondary-btn {
+    border:
+        1px solid
+        #d9e2dc;
+
+    background: rgba(255,255,255,.65);
+
+    color: #536057;
+}
+
+.secondary-btn:hover {
+    border-color: #5eea8d;
+
+    background: white;
+
+    transform:
+        translateY(-4px);
+}
+
+
+/* =====================================================
+   3D HERO VISUAL
+===================================================== */
+
+.about-visual {
+    position: relative;
+
+    width: 450px;
+    height: 450px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    perspective: 1000px;
+}
+
+.orbit {
+    position: absolute;
+
+    border:
+        1px solid
+        rgba(76,220,119,.23);
+
+    border-radius: 50%;
+}
+
+.orbit-one {
+    width: 400px;
+    height: 400px;
+
+    animation:
+        orbitRotate
+        14s
+        linear
+        infinite;
+}
+
+.orbit-two {
+    width: 310px;
+    height: 310px;
+
+    transform:
+        rotateX(65deg);
+
+    animation:
+        orbitRotateReverse
+        10s
+        linear
+        infinite;
+}
+
+.orbit-three {
+    width: 240px;
+    height: 240px;
+
+    transform:
+        rotateY(65deg);
+
+    animation:
+        orbitRotate
+        8s
+        linear
+        infinite;
+}
+
+@keyframes orbitRotate {
+
+    from {
+        transform:
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+}
+
+@keyframes orbitRotateReverse {
+
+    from {
+        transform:
+            rotateX(65deg)
+            rotate(360deg);
+    }
+
+    to {
+        transform:
+            rotateX(65deg)
+            rotate(0deg);
+    }
+}
+
+
+/* =====================================================
+   NUTRITION CARD
+===================================================== */
+
+.nutrition-card {
+    position: relative;
+
+    width: 220px;
+    height: 285px;
+
+    z-index: 5;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #141b16,
+            #080c0a
+        );
+
+    box-shadow:
+        35px 35px 60px
+        rgba(0,0,0,.18),
+
+        inset 1px 1px 0
+        rgba(255,255,255,.08);
+
+    transform:
+        rotateY(-14deg)
+        rotateX(7deg)
+        rotateZ(-3deg);
+
+    animation:
+        cardFloat
+        5s
+        ease-in-out
+        infinite;
+
+    overflow: hidden;
+}
+
+.nutrition-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    top: -60px;
+    right: -60px;
+
+    border-radius: 50%;
+
+    background: #54e888;
+
+    filter: blur(65px);
+
+    opacity: .22;
+}
+
+.card-glow {
+    position: absolute;
+
+    width: 100%;
+    height: 2px;
+
+    top: 50%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #60ed91,
+            transparent
+        );
+
+    opacity: .7;
+}
+
+.pt-big {
+    position: relative;
+
+    color: #61ef92;
+
+    font-size: 75px;
+    font-weight: 900;
+
+    letter-spacing: -7px;
+
+    text-shadow:
+        0 0 30px
+        rgba(97,239,146,.4);
+}
+
+.nutrition-card-text {
+    position: absolute;
+
+    bottom: 35px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nutrition-card-text strong {
+    color: white;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+}
+
+.nutrition-card-text small {
+    margin-top: 6px;
+
+    color: #5ee88c;
+
+    font-size: 7px;
+
+    letter-spacing: 1.8px;
+}
+
+@keyframes cardFloat {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            rotateY(-14deg)
+            rotateX(7deg)
+            rotateZ(-3deg);
+    }
+
+    50% {
+        transform:
+            translateY(-18px)
+            rotateY(-8deg)
+            rotateX(10deg)
+            rotateZ(2deg);
+    }
+}
+
+
+/* =====================================================
+   FLOATING PILLS
+===================================================== */
+
+.floating-pill {
+    position: absolute;
+
+    z-index: 8;
+
+    padding:
+        9px 13px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.8);
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,.78);
+
+    backdrop-filter:
+        blur(15px);
+
+    color: #435047;
+
+    font-size: 7px;
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    box-shadow:
+        0 15px 30px
+        rgba(0,0,0,.1);
+}
+
+.pill-one {
+    top: 80px;
+    right: 20px;
+
+    animation:
+        pillFloat 4s
+        ease-in-out
+        infinite;
+}
+
+.pill-two {
+    left: 10px;
+    bottom: 90px;
+
+    animation:
+        pillFloat 5s
+        ease-in-out
+        infinite 1s;
+}
+
+.pill-three {
+    right: 0;
+    bottom: 30px;
+
+    animation:
+        pillFloat 4.5s
+        ease-in-out
+        infinite 2s;
+}
+
+@keyframes pillFloat {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-13px)
+            rotate(3deg);
+    }
+}
+
+
+/* =====================================================
+   REVEAL ANIMATIONS
+===================================================== */
+
+.reveal {
+    opacity: 0;
+
+    transform:
+        translateY(35px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+.reveal-left {
+    opacity: 0;
+
+    transform:
+        translateX(-50px);
+
+    transition:
+        opacity .9s ease,
+        transform .9s ease;
+}
+
+.reveal-left.show {
+    opacity: 1;
+
+    transform:
+        translateX(0);
+}
+
+.reveal-right {
+    opacity: 0;
+
+    transform:
+        translateX(50px);
+
+    transition:
+        opacity .9s ease,
+        transform .9s ease;
+}
+
+.reveal-right.show {
+    opacity: 1;
+
+    transform:
+        translateX(0);
+}
+
+
+/* =====================================================
+   STATS
+===================================================== */
+
+.stats-section {
+    position: relative;
+
+    z-index: 3;
+
+    margin:
+        -35px 7%
+        0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 14px;
+}
+
+.stat-card {
+    position: relative;
+
+    padding: 25px 20px;
+
+    border:
+        1px solid
+        #dfe7e1;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,.85);
+
+    backdrop-filter:
+        blur(15px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.05);
+
+    overflow: hidden;
+
+    transition:
+        .4s ease;
+}
+
+.stat-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 90px;
+    height: 90px;
+
+    right: -35px;
+    top: -35px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(78,229,126,.12);
+
+    transition: .4s;
+}
+
+.stat-card:hover {
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(78,229,126,.5);
+
+    box-shadow:
+        0 25px 45px
+        rgba(0,0,0,.08);
+}
+
+.stat-card:hover::before {
+    transform:
+        scale(1.5);
+}
+
+.stat-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: #e1f8e8;
+
+    font-size: 16px;
+}
+
+.stat-card strong {
+    display: block;
+
+    margin-top: 16px;
+
+    font-size: 28px;
+}
+
+.stat-card span {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #7a847d;
+
+    font-size: 7px;
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+}
+
+
+/* =====================================================
+   SECTION TITLE
+===================================================== */
+
+.section-title {
+    max-width: 800px;
+}
+
+.section-title h2,
+.owner-heading h2 {
+    margin-top: 14px;
+
+    font-size:
+        clamp(42px,5vw,65px);
+
+    line-height: .95;
+
+    letter-spacing: -4px;
+}
+
+.section-title h2 span,
+.owner-heading h2 span {
+    color: #4bdd7c;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: center;
+}
+
+.center .eyebrow {
+    justify-content: center;
+}
+
+
+/* =====================================================
+   STORY
+===================================================== */
+
+.story-section {
+    padding:
+        130px 8%
+        110px;
+
+    background: #f5f8f6;
+}
+
+.story-grid {
+    margin-top: 60px;
+
+    display: grid;
+
+    grid-template-columns:
+        1.15fr
+        .85fr;
+
+    gap: 80px;
+
+    align-items: center;
+}
+
+.story-content {
+    max-width: 600px;
+}
+
+.story-content p {
+    margin-top: 18px;
+
+    color: #717b74;
+
+    font-size: 11px;
+
+    line-height: 1.9;
+}
+
+.story-content .big-text {
+    margin-top: 0;
+
+    color: #101512;
+
+    font-size: 27px;
+    font-weight: 800;
+
+    line-height: 1.3;
+}
+
+.story-line {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 30px;
+}
+
+.story-line span {
+    width: 35px;
+    height: 2px;
+
+    background: #52e686;
+}
+
+.story-line strong {
+    color: #4acb71;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   3D STORY BOX
+===================================================== */
+
+.story-visual {
+    position: relative;
+
+    min-height: 430px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    perspective: 1000px;
+}
+
+.cube-shadow {
+    position: absolute;
+
+    width: 230px;
+    height: 70px;
+
+    bottom: 70px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0,0,0,.15);
+
+    filter: blur(20px);
+
+    transform:
+        rotateX(65deg);
+
+    animation:
+        shadowPulse
+        4s
+        ease-in-out
+        infinite;
+}
+
+@keyframes shadowPulse {
+
+    0%,100% {
+        transform:
+            rotateX(65deg)
+            scale(.9);
+
+        opacity: .4;
+    }
+
+    50% {
+        transform:
+            rotateX(65deg)
+            scale(1.15);
+
+        opacity: .7;
+    }
+}
+
+.nutrition-box {
+    position: relative;
+
+    width: 210px;
+    height: 280px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #151c17,
+            #080c0a
+        );
+
+    box-shadow:
+        30px 30px 50px
+        rgba(0,0,0,.2);
+
+    transform:
+        rotateY(-22deg)
+        rotateX(8deg);
+
+    animation:
+        boxFloat
+        5s
+        ease-in-out
+        infinite;
+
+    overflow: hidden;
+}
+
+.nutrition-box::after {
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #5ce98a,
+            transparent
+        );
+
+    box-shadow:
+        0 0 25px
+        #5ce98a;
+
+    animation:
+        scanLine
+        3s
+        linear
+        infinite;
+}
+
+@keyframes boxFloat {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            rotateY(-22deg)
+            rotateX(8deg);
+    }
+
+    50% {
+        transform:
+            translateY(-18px)
+            rotateY(-15deg)
+            rotateX(12deg);
+    }
+}
+
+@keyframes scanLine {
+
+    0% {
+        top: -10%;
+    }
+
+    100% {
+        top: 110%;
+    }
+}
+
+.box-top {
+    position: absolute;
+
+    top: 25px;
+
+    color: #5eec8c;
+
+    font-size: 35px;
+    font-weight: 900;
+}
+
+.box-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box-body strong {
+    color: white;
+
+    font-size: 20px;
+
+    letter-spacing: 2px;
+}
+
+.box-body small {
+    margin-top: 7px;
+
+    color: #62e88e;
+
+    font-size: 6px;
+
+    letter-spacing: 2px;
+}
+
+.box-bottom {
+    position: absolute;
+
+    bottom: 20px;
+
+    color: #3a463e;
+
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   OWNER
+===================================================== */
+
+.owner-section {
+    padding:
+        120px 8%
+        130px;
+
+    background:
+        #080d0a;
+
+    color: white;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.owner-section::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    top: -250px;
+    right: -150px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(73,225,119,.08);
+
+    filter: blur(50px);
+}
+
+.owner-heading {
+    position: relative;
+    z-index: 2;
+}
+
+.owner-heading .eyebrow {
+    color: #758078;
+}
+
+.owner-heading h2 {
+    color: white;
+}
+
+.owner-card {
+    position: relative;
+    z-index: 2;
+
+    margin-top: 65px;
+
+    display: grid;
+
+    grid-template-columns:
+        .85fr
+        1.15fr;
+
+    gap: 80px;
+
+    align-items: center;
+
+    padding:
+        50px;
+
+    border:
+        1px solid
+        #202923;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    backdrop-filter:
+        blur(15px);
+}
+
+
+/* =====================================================
+   OWNER VISUAL
+===================================================== */
+
+.owner-visual {
+    position: relative;
+
+    min-height: 350px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.owner-circle {
+    position: relative;
+
+    z-index: 3;
+
+    width: 230px;
+    height: 230px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(93,237,143,.5);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #17251c,
+            #0a0f0c
+        );
+
+    box-shadow:
+        0 0 60px
+        rgba(80,229,128,.12),
+
+        inset 0 0 40px
+        rgba(80,229,128,.08);
+
+    animation:
+        ownerFloat
+        5s
+        ease-in-out
+        infinite;
+}
+
+.owner-initial {
+    color: #62ed91;
+
+    font-size: 70px;
+    font-weight: 900;
+
+    letter-spacing: -6px;
+
+    text-shadow:
+        0 0 30px
+        rgba(98,237,145,.4);
+}
+
+.owner-ring {
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border:
+        1px dashed
+        rgba(91,234,139,.3);
+
+    border-radius: 50%;
+
+    animation:
+        ownerRing
+        12s
+        linear
+        infinite;
+}
+
+@keyframes ownerRing {
+
+    from {
+        transform:
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+}
+
+@keyframes ownerFloat {
+
+    0%,100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-13px);
+    }
+}
+
+.owner-badge {
+    position: absolute;
+
+    right: 10px;
+    bottom: 35px;
+
+    z-index: 5;
+
+    width: 80px;
+    height: 80px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        #29372e;
+
+    border-radius: 50%;
+
+    background: #101712;
+
+    box-shadow:
+        0 15px 30px
+        rgba(0,0,0,.3);
+}
+
+.owner-badge strong {
+    color: #60ec90;
+
+    font-size: 20px;
+}
+
+.owner-badge span {
+    margin-top: 3px;
+
+    color: #7d887f;
+
+    font-size: 6px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   OWNER INFO
+===================================================== */
+
+.owner-label {
+    color: #60eb90;
+
+    font-size: 8px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+.owner-info h3 {
+    margin-top: 12px;
+
+    font-size:
+        clamp(40px,5vw,64px);
+
+    line-height: .95;
+
+    letter-spacing: -4px;
+}
+
+.owner-info h3 span {
+    color: #5fe88d;
+}
+
+.owner-info p {
+    max-width: 600px;
+
+    margin-top: 20px;
+
+    color: #7e8981;
+
+    font-size: 11px;
+
+    line-height: 1.9;
+}
+
+.owner-info p strong {
+    color: #b5c0b8;
+}
+
+.owner-sign {
+    margin-top: 30px;
+
+    padding-left: 18px;
+
+    border-left:
+        2px solid
+        #56e888;
+}
+
+.owner-sign span {
+    display: block;
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: 600;
+}
+
+.owner-sign small {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #68736b;
+
+    font-size: 8px;
+}
+
+
+/* =====================================================
+   WHY SECTION
+===================================================== */
+
+.why-section {
+    padding:
+        125px 8%
+        120px;
+
+    background: #f5f8f6;
+}
+
+.why-grid {
+    margin-top: 55px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 15px;
+}
+
+.why-card {
+    position: relative;
+
+    min-height: 270px;
+
+    padding: 27px;
+
+    border:
+        1px solid
+        #dfe7e1;
+
+    border-radius: 22px;
+
+    background: white;
+
+    overflow: hidden;
+
+    transition:
+        .4s ease;
+}
+
+.why-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    right: -50px;
+    top: -50px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(80,229,127,.1);
+
+    transition: .4s;
+}
+
+.why-card:hover {
+    transform:
+        translateY(-10px);
+
+    border-color:
+        rgba(77,225,120,.5);
+
+    box-shadow:
+        0 25px 45px
+        rgba(0,0,0,.08);
+}
+
+.why-card:hover::before {
+    transform:
+        scale(1.6);
+}
+
+.why-number {
+    color: #c5cec8;
+
+    font-size: 9px;
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+.why-icon {
+    width: 45px;
+    height: 45px;
+
+    margin-top: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background: #e2f8e8;
+
+    color: #25b95a;
+
+    font-size: 18px;
+}
+
+.why-card h3 {
+    margin-top: 20px;
+
+    font-size: 15px;
+}
+
+.why-card p {
+    margin-top: 8px;
+
+    color: #78827b;
+
+    font-size: 9px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact-section {
+    padding:
+        0 8%
+        120px;
+
+    background: #f5f8f6;
+}
+
+.contact-card {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        1.2fr
+        .8fr;
+
+    gap: 50px;
+
+    padding:
+        55px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e5f7e9,
+            #f8fbf9
+        );
+
+    border:
+        1px solid
+        #d8e7dc;
+
+    overflow: hidden;
+}
+
+.contact-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    right: -130px;
+    bottom: -150px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(80,228,126,.15);
+
+    filter: blur(20px);
+}
+
+.contact-content {
+    position: relative;
+    z-index: 2;
+}
+
+.contact-content h2 {
+    margin-top: 15px;
+
+    font-size:
+        clamp(42px,5vw,65px);
+
+    line-height: .9;
+
+    letter-spacing: -4px;
+}
+
+.contact-content h2 span {
+    display: block;
+
+    color: #45d978;
+}
+
+.contact-content p {
+    max-width: 470px;
+
+    margin-top: 20px;
+
+    color: #6d7770;
+
+    font-size: 10px;
+
+    line-height: 1.8;
+}
+
+.contact-details {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 14px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 15px;
+
+    border:
+        1px solid
+        #dce7df;
+
+    border-radius: 16px;
+
+    background:
+        rgba(255,255,255,.7);
+
+    transition: .3s;
+}
+
+.contact-item:hover {
+    transform:
+        translateX(6px);
+
+    background: white;
+
+    box-shadow:
+        0 12px 25px
+        rgba(0,0,0,.06);
+}
+
+.contact-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    background: #101512;
+
+    font-size: 15px;
+}
+
+.contact-item small {
+    display: block;
+
+    color: #8a938d;
+
+    font-size: 7px;
+
+    letter-spacing: 1.5px;
+}
+
+.contact-item strong {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #172019;
+
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   CTA
+===================================================== */
+
+.cta-section {
+    position: relative;
+
+    min-height: 500px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding:
+        90px 20px;
+
+    background: #080d0a;
+
+    overflow: hidden;
+}
+
+.cta-glow {
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(72,226,119,.08);
+
+    filter: blur(50px);
+
+    animation:
+        ctaPulse
+        5s
+        ease-in-out
+        infinite;
+}
+
+@keyframes ctaPulse {
+
+    0%,100% {
+        transform:
+            scale(.8);
+    }
+
+    50% {
+        transform:
+            scale(1.2);
+    }
+}
+
+.cta-content {
+    position: relative;
+    z-index: 3;
+}
+
+.cta-logo {
+    width: 70px;
+    height: 70px;
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        #55e888;
+
+    border-radius: 20px;
+
+    color: #60ed91;
+
+    font-size: 22px;
+    font-weight: 900;
+
+    box-shadow:
+        0 0 35px
+        rgba(82,232,136,.15);
+
+    animation:
+        ctaLogoFloat
+        4s
+        ease-in-out
+        infinite;
+}
+
+@keyframes ctaLogoFloat {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            rotate(-4deg);
+    }
+
+    50% {
+        transform:
+            translateY(-10px)
+            rotate(4deg);
+    }
+}
+
+.cta-content h2 {
+    margin-top: 30px;
+
+    color: white;
+
+    font-size:
+        clamp(45px,6vw,75px);
+
+    line-height: .9;
+
+    letter-spacing: -5px;
+}
+
+.cta-content h2 span {
+    color: #58e98a;
+}
+
+.cta-content p {
+    margin-top: 18px;
+
+    color: #737d76;
+
+    font-size: 10px;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 28px;
+
+    padding:
+        15px 23px;
+
+    border-radius: 30px;
+
+    background: #60ec90;
+
+    color: #07100a;
+
+    font-size: 9px;
+    font-weight: 900;
+
+    transition: .35s;
+}
+
+.cta-button span {
+    font-size: 16px;
+
+    transition: .3s;
+}
+
+.cta-button:hover {
+    background: white;
+
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(88,233,138,.2);
+}
+
+.cta-button:hover span {
+    transform:
+        translateX(5px);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+    padding:
+        70px 7%
+        25px;
+
+    background: #080b09;
+
+    color: white;
+}
+
+.footer-content {
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr 1.5fr;
+
+    gap: 45px;
+
+    padding-bottom: 45px;
+
+    border-bottom:
+        1px solid
+        #222a25;
+}
+
+.footer-brand p {
+    max-width: 300px;
+
+    margin-top: 18px;
+
+    color: #737d76;
+
+    font-size: 10px;
+
+    line-height: 1.8;
+}
+
+.footer-links,
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.footer h4 {
+    margin-bottom: 7px;
+
+    color: #68f49a;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+}
+
+.footer-links a,
+.footer-contact p {
+    color: #7a847e;
+
+    font-size: 10px;
+
+    transition: .3s;
+}
+
+.footer-links a:hover {
+    color: #6df59c;
+
+    transform:
+        translateX(5px);
+}
+
+.footer-bottom {
+    padding-top: 23px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: #59635c;
+
+    font-size: 9px;
+}
+
+.footer-bottom strong {
+    color: #6df49a;
+}
+
+
+/* =====================================================
+   BACK TO TOP
+===================================================== */
+
+.back-top {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    z-index: 4000;
+
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #101512;
+
+    color: white;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform:
+        translateY(20px);
+
+    transition: .3s;
+
+    box-shadow:
+        0 10px 25px
+        rgba(0,0,0,.2);
+}
+
+.back-top.show {
+    opacity: 1;
+    visibility: visible;
+
+    transform:
+        translateY(0);
+}
+
+.back-top:hover {
+    background: #5bea8a;
+
+    color: #07100a;
+
+    transform:
+        translateY(-5px);
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1100px) {
+
+    .navbar {
+        padding: 0 4%;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .about-hero {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .about-visual {
+        transform: scale(.82);
+    }
+
+    .stats-section {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .why-grid {
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+
+    /* NAV */
+
+    .navbar {
+        height: 70px;
+
+        padding:
+            0 18px;
+    }
+
+    .nav-links {
+        position: fixed;
+
+        top: 70px;
+        right: -100%;
+
+        width: 85%;
+
+        min-height:
+            calc(100vh - 70px);
+
+        padding: 25px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 0;
+
+        background:
+            rgba(255,255,255,.97);
+
+        backdrop-filter:
+            blur(20px);
+
+        box-shadow:
+            -15px 0 40px
+            rgba(0,0,0,.08);
+
+        transition: .4s ease;
+    }
+
+    .nav-links.open {
+        right: 0;
+    }
+
+    .nav-links a {
+        padding:
+            17px 5px;
+
+        border-bottom:
+            1px solid
+            #edf0ee;
+
+        font-size: 14px;
+    }
+
+    .nav-links a::after {
+        display: none !important;
+    }
+
+    .nav-shop {
+        margin-top: 18px;
+
+        text-align: center;
+    }
+
+    .menu-btn {
+        display: flex;
+    }
+
+
+    /* HERO */
+
+    .about-hero {
+        min-height: auto;
+
+        padding:
+            120px 20px
+            45px;
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .about-hero-content {
+        width: 100%;
+    }
+
+    .about-hero .eyebrow {
+        justify-content: center;
+    }
+
+    .about-hero h1 {
+        font-size:
+            clamp(46px,12vw,68px);
+
+        letter-spacing: -4px;
+    }
+
+    .about-hero p {
+        margin-left: auto;
+        margin-right: auto;
+
+        font-size: 10px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .about-visual {
+        width: 320px;
+        height: 360px;
+
+        margin-top: 20px;
+
+        transform:
+            scale(.78);
+    }
+
+
+    /* STATS */
+
+    .stats-section {
+        margin:
+            -10px 18px
+            0;
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .stat-card {
+        padding: 20px 16px;
+    }
+
+
+    /* STORY */
+
+    .story-section {
+        padding:
+            90px 20px
+            80px;
+    }
+
+    .section-title h2,
+    .owner-heading h2 {
+        font-size: 45px;
+
+        letter-spacing: -3px;
+    }
+
+    .story-grid {
+        margin-top: 40px;
+
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+    .story-visual {
+        min-height: 340px;
+    }
+
+
+    /* OWNER */
+
+    .owner-section {
+        padding:
+            85px 20px
+            90px;
+    }
+
+    .owner-card {
+        margin-top: 40px;
+
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        padding: 25px;
+    }
+
+    .owner-visual {
+        min-height: 280px;
+    }
+
+    .owner-circle {
+        width: 190px;
+        height: 190px;
+    }
+
+    .owner-ring {
+        width: 250px;
+        height: 250px;
+    }
+
+    .owner-info h3 {
+        font-size: 45px;
+    }
+
+
+    /* WHY */
+
+    .why-section {
+        padding:
+            90px 20px
+            80px;
+    }
+
+    .why-grid {
+        margin-top: 40px;
+
+        grid-template-columns: 1fr;
+    }
+
+
+    /* CONTACT */
+
+    .contact-section {
+        padding:
+            0 20px
+            80px;
+    }
+
+    .contact-card {
+        grid-template-columns: 1fr;
+
+        padding: 30px 22px;
+
+        gap: 30px;
+    }
+
+    .contact-content h2 {
+        font-size: 45px;
+    }
+
+
+    /* CTA */
+
+    .cta-section {
+        min-height: 430px;
+    }
+
+    .cta-content h2 {
+        font-size: 50px;
+
+        letter-spacing: -3px;
+    }
+
+
+    /* FOOTER */
+
+    .footer {
+        padding:
+            60px 20px
+            25px;
+    }
+
+    .footer-content {
+        grid-template-columns:
+            1fr 1fr;
+
+        gap: 35px;
+    }
+
+    .footer-brand {
+        grid-column:
+            1 / -1;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+
+        gap: 10px;
+
+        text-align: center;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 450px) {
+
+    .logo-icon {
+        width: 38px;
+        height: 38px;
+
+        font-size: 13px;
+    }
+
+    .logo-text strong {
+        font-size: 12px;
+    }
+
+    .logo-text small {
+        font-size: 7px;
+    }
+
+    .about-hero h1 {
+        font-size: 45px;
+
+        letter-spacing: -3px;
+    }
+
+    .about-visual {
+        transform:
+            scale(.65);
+
+        margin-top: -20px;
+
+        margin-bottom: -50px;
+    }
+
+    .stats-section {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stat-card strong {
+        font-size: 23px;
+    }
+
+    .section-title h2,
+    .owner-heading h2 {
+        font-size: 40px;
+    }
+
+    .story-content .big-text {
+        font-size: 22px;
+    }
+
+    .owner-info h3 {
+        font-size: 40px;
+    }
+
+    .contact-content h2 {
+        font-size: 40px;
+    }
+
+    .cta-content h2 {
+        font-size: 43px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-brand {
+        grid-column: auto;
+    }
+
+}
+
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #edf2ee;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #101512;
+
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #58e989;
+}
+
+
+/* =====================================================
+   SELECTION
+===================================================== */
+
+::selection {
+    background: #61ed91;
+    color: #101512;
+}
+.owner-initial{
+    mix-blend-mode: multiply; /* Removes lighter backgrounds */
+   filter: contrast(1); /* Maintains image contrast */
+}
+
+</style>
+
+<body>
+
+
+<!-- =====================================================
+     LOADER
+===================================================== -->
+
+<div class="loader" id="loader">
+
+    <div class="loader-logo">
+        PT
+    </div>
+
+    <h2>
+        PT NUTRITION
+    </h2>
+
+    <p>
+        POWER • PERFORMANCE • PROGRESS
+    </p>
+
+</div>
+
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar" id="navbar">
+
+
+    <!-- LOGO -->
+
+    <a
+        href="paresha.html"
+        class="logo"
+    >
+
+        <div class="logo-icon">
+            PT
+        </div>
+
+        <div class="logo-text">
+
+            <strong>
+                PT NUTRITION
+            </strong>
+
+            <small>
+                PREMIUM SUPPLEMENTS
+            </small>
+
+        </div>
+
+    </a>
+
+
+
+    <!-- NAV LINKS -->
+
+    <nav
+        class="nav-links"
+        id="navLinks"
+    >
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="parteek.html">
+            Categories
+        </a>
+
+        <a href="products.html">
+            Products
+        </a>
+
+        <a
+            href="about.html"
+            class="active"
+        >
+            About
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+        <a
+            href="cart.html"
+            class="nav-shop"
+        >
+            🛒 Cart
+        </a>
+
+    </nav>
+
+
+
+    <!-- CART + MENU -->
+
+    <div class="nav-actions">
+
+        
+
+
+        <button
+            class="menu-btn"
+            id="menuBtn"
+            aria-label="Open Menu"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </div>
+
+
+</header>
+
+
+
+<!-- =====================================================
+     FLOATING BACKGROUND PARTICLES
+===================================================== -->
+
+<div class="background-particles">
+
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+
+</div>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="about-hero">
+
+
+    <!-- LEFT CONTENT -->
+
+    <div
+        class="about-hero-content reveal-left"
+    >
+
+        <div class="eyebrow">
+
+            <span></span>
+
+            ABOUT PT NUTRITION
+
+        </div>
+
+
+        <h1>
+
+            BUILT FOR
+
+            <span>
+                BETTER
+            </span>
+
+            PERFORMANCE.
+
+        </h1>
+
+
+        <p>
+
+            PT Nutrition is a premium nutrition
+            destination focused on helping people
+            achieve their fitness and performance
+            goals with quality supplements.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="products.html"
+                class="primary-btn"
+            >
+
+                Explore Products
+
+                <span>
+                    →
+                </span>
+
+            </a>
+
+
+            <a
+                href="#owner"
+                class="secondary-btn"
+            >
+
+                Meet The Owner
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- 3D VISUAL -->
+
+    <div
+        class="about-visual reveal-right"
+    >
+
+        <div class="orbit orbit-one"></div>
+
+        <div class="orbit orbit-two"></div>
+
+        <div class="orbit orbit-three"></div>
+
+
+        <div class="nutrition-card">
+
+            <div class="card-glow"></div>
+
+
+            <div class="pt-big">
+                PT
+            </div>
+
+
+            <div class="nutrition-card-text">
+
+                <strong>
+                    PT NUTRITION
+                </strong>
+
+                <small>
+                    POWER YOUR POTENTIAL
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="floating-pill pill-one">
+            PROTEIN
+        </div>
+
+        <div class="floating-pill pill-two">
+            CREATINE
+        </div>
+
+        <div class="floating-pill pill-three">
+            FITNESS
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     STATS
+===================================================== -->
+
+<section class="stats-section">
+
+
+    <div
+        class="stat-card reveal"
+    >
+
+        <div class="stat-icon">
+            ⚡
+        </div>
+
+        <strong
+            data-count="100"
+        >
+            0
+        </strong>
+
+        <span>
+            QUALITY FOCUS
+        </span>
+
+    </div>
+
+
+
+    <div
+        class="stat-card reveal"
+    >
+
+        <div class="stat-icon">
+            🥤
+        </div>
+
+        <strong
+            data-count="20"
+        >
+            0
+        </strong>
+
+        <span>
+            + SUPPLEMENT OPTIONS
+        </span>
+
+    </div>
+
+
+
+    <div
+        class="stat-card reveal"
+    >
+
+        <div class="stat-icon">
+            💪
+        </div>
+
+        <strong
+            data-count="100"
+        >
+            0
+        </strong>
+
+        <span>
+            FITNESS MINDSET
+        </span>
+
+    </div>
+
+
+
+    <div
+        class="stat-card reveal"
+    >
+
+        <div class="stat-icon">
+            ⭐
+        </div>
+
+        <strong>
+            PT
+        </strong>
+
+        <span>
+            TRUSTED BRAND
+        </span>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     OUR STORY
+===================================================== -->
+
+<section class="story-section">
+
+
+    <div class="section-title reveal">
+
+        <div class="eyebrow">
+
+            <span></span>
+
+            OUR STORY
+
+        </div>
+
+        <h2>
+
+            MORE THAN
+
+            <span>
+                SUPPLEMENTS.
+            </span>
+
+        </h2>
+
+    </div>
+
+
+
+    <div class="story-grid">
+
+
+        <!-- STORY -->
+
+        <div
+            class="story-content reveal-left"
+        >
+
+            <p class="big-text">
+
+                Fitness is not just about
+                lifting weights.
+
+            </p>
+
+
+            <p>
+
+                It is about discipline,
+                consistency, confidence and
+                becoming a better version of
+                yourself every day.
+
+            </p>
+
+
+            <p>
+
+                PT Nutrition was created with
+                a simple vision — to make quality
+                nutrition products accessible to
+                people who are serious about their
+                fitness journey.
+
+            </p>
+
+
+            <p>
+
+                From protein and creatine to
+                essential fitness supplements,
+                our goal is to provide products
+                that fit different training goals
+                and lifestyles.
+
+            </p>
+
+
+            <div class="story-line">
+
+                <span></span>
+
+                <strong>
+                    POWER YOUR POTENTIAL
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 3D BOX -->
+
+        <div
+            class="story-visual reveal-right"
+        >
+
+            <div class="cube-shadow"></div>
+
+            <div class="nutrition-box">
+
+                <div class="box-top">
+                    PT
+                </div>
+
+                <div class="box-body">
+
+                    <strong>
+                        NUTRITION
+                    </strong>
+
+                    <small>
+                        PERFORMANCE SERIES
+                    </small>
+
+                </div>
+
+                <div class="box-bottom">
+                    PT
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     OWNER SECTION
+===================================================== -->
+
+<section
+    class="owner-section"
+    id="owner"
+>
+
+
+    <div class="owner-heading reveal">
+
+        <div class="eyebrow">
+
+            <span></span>
+
+            THE PERSON BEHIND PT NUTRITION
+
+        </div>
+
+        <h2>
+
+            MEET THE
+
+            <span>
+                OWNER.
+            </span>
+
+        </h2>
+
+    </div>
+
+
+
+    <div class="owner-card">
+
+
+        <!-- OWNER VISUAL -->
+
+        <div
+            class="owner-visual reveal-left"
+        >
+
+            
+
+                <div class="owner-initial">
+                    <img style="border-radius: 50%; " src="parteek.jpeg" alt="">
+                </div>
+
+            
+
+
+            <div class="owner-ring"></div>
+
+
+            <div class="owner-badge">
+
+                <strong>
+                    partik
+                </strong>
+                 <span>
+                    <p>tushir</p>
+                 </span>
+                <span>
+                    OWNER
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- OWNER INFO -->
+
+        <div
+            class="owner-info reveal-right"
+        >
+
+            <span class="owner-label">
+                FOUNDER & OWNER
+            </span>
+
+
+            <h3>
+                PARTEEK
+                <span>
+                    TUSHIR
+                </span>
+            </h3>
+
+
+            <p>
+
+                PT Nutrition is owned by
+                <strong>
+                    Parteek Tushir
+                </strong>,
+                with a vision to create a clean,
+                professional and reliable place
+                for fitness enthusiasts to discover
+                quality nutrition products.
+
+            </p>
+
+
+            <p>
+
+                The brand focuses on bringing
+                together performance, nutrition
+                and a modern shopping experience
+                under one roof.
+
+            </p>
+
+
+            <div class="owner-sign">
+
+                <span>
+                    Parteek Tushir
+                </span>
+
+                <small>
+                    Owner — PT Nutrition
+                </small>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WHY PT NUTRITION
+===================================================== -->
+
+<section class="why-section">
+
+
+    <div class="section-title center reveal">
+
+        <div class="eyebrow">
+
+            <span></span>
+
+            WHY PT NUTRITION
+
+        </div>
+
+        <h2>
+
+            WHY CHOOSE
+
+            <span>
+                US?
+            </span>
+
+        </h2>
+
+    </div>
+
+
+
+    <div class="why-grid">
+
+
+        <div class="why-card reveal">
+
+            <div class="why-number">
+                01
+            </div>
+
+            <div class="why-icon">
+                ✓
+            </div>
+
+            <h3>
+                Quality Focus
+            </h3>
+
+            <p>
+                We focus on bringing quality
+                nutrition products for your
+                fitness journey.
+            </p>
+
+        </div>
+
+
+
+        <div class="why-card reveal">
+
+            <div class="why-number">
+                02
+            </div>
+
+            <div class="why-icon">
+                ⚡
+            </div>
+
+            <h3>
+                Performance
+            </h3>
+
+            <p>
+                Products selected with active
+                lifestyles and performance
+                goals in mind.
+            </p>
+
+        </div>
+
+
+
+        <div class="why-card reveal">
+
+            <div class="why-number">
+                03
+            </div>
+
+            <div class="why-icon">
+                🛒
+            </div>
+
+            <h3>
+                Easy Shopping
+            </h3>
+
+            <p>
+                A clean and simple shopping
+                experience from product discovery
+                to cart.
+            </p>
+
+        </div>
+
+
+
+        <div class="why-card reveal">
+
+            <div class="why-number">
+                04
+            </div>
+
+            <div class="why-icon">
+                💚
+            </div>
+
+            <h3>
+                Fitness First
+            </h3>
+
+            <p>
+                Everything we do is centered
+                around helping you stay consistent
+                with your goals.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT INFO
+===================================================== -->
+
+<section class="contact-section">
+
+
+    <div class="contact-card reveal">
+
+
+        <div class="contact-content">
+
+            <div class="eyebrow">
+
+                <span></span>
+
+                GET IN TOUCH
+
+            </div>
+
+
+            <h2>
+
+                LET'S TALK
+
+                <span>
+                    FITNESS.
+                </span>
+
+            </h2>
+
+
+            <p>
+
+                Have a question about our
+                products? Want to know more
+                about PT Nutrition?
+
+                Get in touch with us.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="contact-details">
+
+
+            <a
+                href="tel:9582101438"
+                class="contact-item"
+            >
+
+                <div class="contact-icon">
+                    📞
+                </div>
+
+                <div>
+
+                    <small>
+                        PHONE
+                    </small>
+
+                    <strong>
+                        9582101438
+                    </strong>
+
+                </div>
+
+            </a>
+
+
+
+            <div class="contact-item">
+
+                <div class="contact-icon">
+                    📍
+                </div>
+
+                <div>
+
+                    <small>
+                        ADDRESS
+                    </small>
+
+                    <strong>
+                        Subhash Chowk,
+                        Sonipat
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="cta-section">
+
+
+    <div class="cta-glow"></div>
+
+
+    <div class="cta-content reveal">
+
+        <div class="cta-logo">
+            PT
+        </div>
+
+
+        <h2>
+
+            READY TO
+
+            <span>
+                POWER UP?
+            </span>
+
+        </h2>
+
+
+        <p>
+
+            Explore our nutrition collection
+            and find what fits your goals.
+
+        </p>
+
+
+        <a
+            href="products.html"
+            class="cta-button"
+        >
+
+            SHOP SUPPLEMENTS
+
+            <span>
+                →
+            </span>
+
+        </a>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+
+    <div class="footer-content">
+
+
+        <div class="footer-brand">
+
+            <a
+                href="index.html"
+                class="logo"
+            >
+
+                <div class="logo-icon">
+                    PT
+                </div>
+
+                <div class="logo-text">
+
+                    <strong>
+                        PT NUTRITION
+                    </strong>
+
+                    <small>
+                        PREMIUM SUPPLEMENTS
+                    </small>
+
+                </div>
+
+            </a>
+
+
+            <p>
+
+                Premium nutrition products
+                for people who are serious
+                about their fitness journey.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="footer-links">
+
+            <h4>
+                QUICK LINKS
+            </h4>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="categories.html">
+                Categories
+            </a>
+
+            <a href="products.html">
+                Products
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-links">
+
+            <h4>
+                SHOP
+            </h4>
+
+            <a href="products.html">
+                Protein
+            </a>
+
+            <a href="products.html">
+                Creatine
+            </a>
+
+            <a href="products.html">
+                Vitamins
+            </a>
+
+            <a href="cart.html">
+                Cart
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-contact">
+
+            <h4>
+                CONTACT
+            </h4>
+
+            <p>
+                📍 Subhash Chowk,
+                Sonipat
+            </p>
+
+            <p>
+                📞 9582101438
+            </p>
+
+            <p>
+                👤 Parteek Tushir
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 PT Nutrition.
+            All Rights Reserved.
+        </span>
+
+        <span>
+            Made with 💚 by
+            <strong>
+                Parteek Tushir
+            </strong>
+        </span>
+
+    </div>
+
+
+</footer>
+
+
+
+<!-- =====================================================
+     BACK TO TOP
+===================================================== -->
+
+<button
+    class="back-top"
+    id="backTop"
+>
+
+    ↑
+
+</button>
+
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+    /* =====================================================
+   PT NUTRITION — ABOUT.JS
+===================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+
+    /* =================================================
+       LOADER
+    ================================================= */
+
+    const loader = document.getElementById("loader");
+
+    window.addEventListener("load", () => {
+
+        setTimeout(() => {
+
+            if (loader) {
+                loader.classList.add("hide");
+            }
+
+        }, 800);
+
+    });
+
+
+
+    /* =================================================
+       NAVBAR SCROLL EFFECT
+    ================================================= */
+
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", () => {
+
+        if (!navbar) return;
+
+        if (window.scrollY > 40) {
+
+            navbar.classList.add("scrolled");
+
+        } else {
+
+            navbar.classList.remove("scrolled");
+
+        }
+
+    });
+
+
+
+    /* =================================================
+       MOBILE MENU
+    ================================================= */
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    if (menuBtn && navLinks) {
+
+        menuBtn.addEventListener("click", () => {
+
+            menuBtn.classList.toggle("active");
+
+            navLinks.classList.toggle("open");
+
+        });
+
+
+        /* Close menu after clicking link */
+
+        const links = navLinks.querySelectorAll("a");
+
+        links.forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                menuBtn.classList.remove("active");
+
+                navLinks.classList.remove("open");
+
+            });
+
+        });
+
+    }
+
+
+
+    /* =================================================
+       SCROLL REVEAL
+    ================================================= */
+
+    const revealElements =
+        document.querySelectorAll(
+            ".reveal, .reveal-left, .reveal-right"
+        );
+
+
+    const revealObserver =
+        new IntersectionObserver(
+
+            (entries, observer) => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("show");
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: 0.15
+            }
+
+        );
+
+
+    revealElements.forEach(element => {
+
+        revealObserver.observe(element);
+
+    });
+
+
+
+    /* =================================================
+       STATS COUNTER
+    ================================================= */
+
+    const counters =
+        document.querySelectorAll(
+            "[data-count]"
+        );
+
+
+    let countersStarted = false;
+
+
+    function startCounters() {
+
+        if (countersStarted) return;
+
+        countersStarted = true;
+
+
+        counters.forEach(counter => {
+
+            const target =
+                Number(
+                    counter.getAttribute(
+                        "data-count"
+                    )
+                );
+
+            let current = 0;
+
+            const increment =
+                Math.max(
+                    1,
+                    Math.ceil(target / 60)
+                );
+
+
+            const updateCounter = () => {
+
+                current += increment;
+
+
+                if (current >= target) {
+
+                    current = target;
+
+                    counter.textContent =
+                        current + "+";
+
+                    return;
+
+                }
+
+
+                counter.textContent =
+                    current;
+
+
+                requestAnimationFrame(
+                    updateCounter
+                );
+
+            };
+
+
+            updateCounter();
+
+        });
+
+    }
+
+
+
+    const statsSection =
+        document.querySelector(
+            ".stats-section"
+        );
+
+
+    if (statsSection) {
+
+        const statsObserver =
+            new IntersectionObserver(
+
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            startCounters();
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold: 0.4
+                }
+
+            );
+
+
+        statsObserver.observe(
+            statsSection
+        );
+
+    }
+
+
+
+    /* =================================================
+       CART COUNT
+       Same localStorage system used by
+       Products / Cart pages
+    ================================================= */
+
+    const cartCount =
+        document.getElementById(
+            "cartCount"
+        );
+
+
+    function updateCartCount() {
+
+        if (!cartCount) return;
+
+
+        let cart = [];
+
+
+        try {
+
+            cart =
+                JSON.parse(
+                    localStorage.getItem(
+                        "ptNutritionCart"
+                    )
+                ) || [];
+
+        } catch (error) {
+
+            cart = [];
+
+        }
+
+
+        let totalItems = 0;
+
+
+        cart.forEach(item => {
+
+            totalItems +=
+                Number(item.quantity) || 0;
+
+        });
+
+
+        cartCount.textContent =
+            totalItems;
+
+    }
+
+
+    updateCartCount();
+
+
+    /* Update when another tab/page changes cart */
+
+    window.addEventListener(
+        "storage",
+        event => {
+
+            if (
+                event.key ===
+                "ptNutritionCart"
+            ) {
+
+                updateCartCount();
+
+            }
+
+        }
+    );
+
+
+
+    /* =================================================
+       3D HERO MOUSE EFFECT
+    ================================================= */
+
+    const visual =
+        document.querySelector(
+            ".about-visual"
+        );
+
+
+    const nutritionCard =
+        document.querySelector(
+            ".nutrition-card"
+        );
+
+
+    if (
+        visual &&
+        nutritionCard &&
+        window.innerWidth > 768
+    ) {
+
+        visual.addEventListener(
+            "mousemove",
+            event => {
+
+                const rect =
+                    visual.getBoundingClientRect();
+
+
+                const x =
+                    event.clientX -
+                    rect.left;
+
+
+                const y =
+                    event.clientY -
+                    rect.top;
+
+
+                const centerX =
+                    rect.width / 2;
+
+
+                const centerY =
+                    rect.height / 2;
+
+
+                const rotateY =
+                    (x - centerX) /
+                    18;
+
+
+                const rotateX =
+                    (centerY - y) /
+                    18;
+
+
+                nutritionCard.style.transform =
+                    `
+                    rotateY(${-14 + rotateY}deg)
+                    rotateX(${7 + rotateX}deg)
+                    rotateZ(-2deg)
+                    scale(1.03)
+                    `;
+
+            }
+        );
+
+
+        visual.addEventListener(
+            "mouseleave",
+            () => {
+
+                nutritionCard.style.transform =
+                    `
+                    rotateY(-14deg)
+                    rotateX(7deg)
+                    rotateZ(-3deg)
+                    scale(1)
+                    `;
+
+            }
+        );
+
+    }
+
+
+
+    /* =================================================
+       OWNER CARD 3D EFFECT
+    ================================================= */
+
+    const ownerCard =
+        document.querySelector(
+            ".owner-card"
+        );
+
+
+    if (
+        ownerCard &&
+        window.innerWidth > 900
+    ) {
+
+        ownerCard.addEventListener(
+            "mousemove",
+            event => {
+
+                const rect =
+                    ownerCard.getBoundingClientRect();
+
+
+                const x =
+                    event.clientX -
+                    rect.left;
+
+
+                const y =
+                    event.clientY -
+                    rect.top;
+
+
+                const rotateX =
+                    ((y - rect.height / 2) /
+                        rect.height) *
+                    -2;
+
+
+                const rotateY =
+                    ((x - rect.width / 2) /
+                        rect.width) *
+                    2;
+
+
+                ownerCard.style.transform =
+                    `
+                    perspective(1200px)
+                    rotateX(${rotateX}deg)
+                    rotateY(${rotateY}deg)
+                    translateY(-2px)
+                    `;
+
+            }
+        );
+
+
+        ownerCard.addEventListener(
+            "mouseleave",
+            () => {
+
+                ownerCard.style.transform =
+                    "perspective(1200px) rotateX(0) rotateY(0)";
+
+            }
+        );
+
+    }
+
+
+
+    /* =================================================
+       WHY CARD STAGGER ANIMATION
+    ================================================= */
+
+    const whyCards =
+        document.querySelectorAll(
+            ".why-card"
+        );
+
+
+    whyCards.forEach(
+        (card, index) => {
+
+            card.style.transitionDelay =
+                `${index * 100}ms`;
+
+        }
+    );
+
+
+
+    /* =================================================
+       STAT CARD STAGGER
+    ================================================= */
+
+    const statCards =
+        document.querySelectorAll(
+            ".stat-card"
+        );
+
+
+    statCards.forEach(
+        (card, index) => {
+
+            card.style.transitionDelay =
+                `${index * 100}ms`;
+
+        }
+    );
+
+
+
+    /* =================================================
+       BACK TO TOP
+    ================================================= */
+
+    const backTop =
+        document.getElementById(
+            "backTop"
+        );
+
+
+    if (backTop) {
+
+        window.addEventListener(
+            "scroll",
+            () => {
+
+                if (
+                    window.scrollY > 500
+                ) {
+
+                    backTop.classList.add(
+                        "show"
+                    );
+
+                } else {
+
+                    backTop.classList.remove(
+                        "show"
+                    );
+
+                }
+
+            }
+        );
+
+
+        backTop.addEventListener(
+            "click",
+            () => {
+
+                window.scrollTo({
+
+                    top: 0,
+
+                    behavior: "smooth"
+
+                });
+
+            }
+        );
+
+    }
+
+
+
+    /* =================================================
+       FLOATING PARTICLES
+    ================================================= */
+
+    const particles =
+        document.querySelectorAll(
+            ".background-particles span"
+        );
+
+
+    particles.forEach(
+        (particle, index) => {
+
+            particle.addEventListener(
+                "mouseenter",
+                () => {
+
+                    particle.style.transform =
+                        "scale(2)";
+
+                    particle.style.opacity =
+                        "1";
+
+                }
+            );
+
+
+            particle.addEventListener(
+                "mouseleave",
+                () => {
+
+                    particle.style.opacity =
+                        ".25";
+
+                }
+            );
+
+        }
+    );
+
+
+
+    /* =================================================
+       SMOOTH INTERNAL LINKS
+    ================================================= */
+
+    document
+        .querySelectorAll(
+            'a[href^="#"]'
+        )
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                event => {
+
+                    const targetId =
+                        link.getAttribute(
+                            "href"
+                        );
+
+
+                    if (
+                        targetId === "#"
+                    ) {
+                        return;
+                    }
+
+
+                    const target =
+                        document.querySelector(
+                            targetId
+                        );
+
+
+                    if (target) {
+
+                        event.preventDefault();
+
+
+                        target.scrollIntoView({
+
+                            behavior:
+                                "smooth",
+
+                            block:
+                                "start"
+
+                        });
+
+                    }
+
+                }
+            );
+
+        });
+
+
+
+    /* =================================================
+       ESC KEY CLOSE MOBILE MENU
+    ================================================= */
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key === "Escape"
+            ) {
+
+                if (menuBtn) {
+
+                    menuBtn.classList.remove(
+                        "active"
+                    );
+
+                }
+
+                if (navLinks) {
+
+                    navLinks.classList.remove(
+                        "open"
+                    );
+
+                }
+
+            }
+
+        }
+    );
+
+
+
+    /* =================================================
+       PREVENT CART COUNT ERROR
+    ================================================= */
+
+    if (!localStorage.getItem(
+        "ptNutritionCart"
+    )) {
+
+        localStorage.setItem(
+            "ptNutritionCart",
+            JSON.stringify([])
+        );
+
+    }
+
+});
+</script>
+
+
+</body>
+
+</html>
